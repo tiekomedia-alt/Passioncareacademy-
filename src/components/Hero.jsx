@@ -9,21 +9,22 @@ export default function Hero() {
     <section className="hero-section">
       <div className="container">
         <div className="hero-grid">
-          {/* Left Column: Content Card (On Mobile: Features Crisp Background Photo Integrated inside the Text Card) */}
+          {/* Left Column: Content Card (On Mobile: Features Visible Background Photo with Reduced Overlay Opacity) */}
           <div className="hero-content-col">
             {/* Top Badge */}
             <div style={{ display: 'flex', gap: '0.6rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
               <span style={{ 
-                backgroundColor: '#E0F2FE', 
+                backgroundColor: 'rgba(224, 242, 254, 0.95)', 
                 color: '#0284C7', 
                 fontSize: '0.75rem', 
-                fontWeight: '700', 
+                fontWeight: '800', 
                 padding: '0.35rem 0.85rem', 
                 borderRadius: 'var(--radius-full)', 
                 display: 'inline-flex', 
                 alignItems: 'center', 
                 gap: '0.35rem',
-                textTransform: 'uppercase'
+                textTransform: 'uppercase',
+                boxShadow: 'var(--shadow-sm)'
               }}>
                 <ShieldCheck size={14} /> State of DE Certified
               </span>
@@ -36,7 +37,8 @@ export default function Hero() {
               color: 'var(--navy-dark)', 
               lineHeight: '1.1',
               marginBottom: '1.25rem',
-              letterSpacing: '-1px'
+              letterSpacing: '-1px',
+              textShadow: '0 1px 2px rgba(255, 255, 255, 0.8)'
             }}>
               Where <br />
               Children <br />
@@ -46,7 +48,8 @@ export default function Hero() {
                 fontStyle: 'italic', 
                 fontWeight: '800',
                 display: 'block',
-                marginTop: '0.2rem'
+                marginTop: '0.2rem',
+                textShadow: '0 1px 3px rgba(15, 23, 42, 0.15)'
               }}>
                 "We Are Your Extended Family"
               </span>
@@ -55,10 +58,12 @@ export default function Hero() {
             {/* Subtitle Description */}
             <p style={{ 
               fontSize: '1.02rem', 
-              color: 'var(--text-muted)', 
+              color: 'var(--navy-dark)', 
+              fontWeight: '600',
               marginBottom: '1.75rem', 
               maxWidth: '520px',
-              lineHeight: '1.6'
+              lineHeight: '1.6',
+              textShadow: '0 1px 2px rgba(255, 255, 255, 0.9)'
             }}>
               Safe, creative, and structured early education in Delaware. 
               Providing loving care from infants through preschool and enrichment after-school care through 6th grade.
@@ -175,7 +180,7 @@ export default function Hero() {
           align-items: center;
         }
 
-        /* Mobile View Only: High-res background image integrated directly into the text card */
+        /* Mobile View Only: Reduced overlay opacity so the background photo shines through clearly */
         @media (max-width: 768px) {
           .hero-section {
             padding: 1.5rem 0 2.5rem;
@@ -184,11 +189,11 @@ export default function Hero() {
             gap: 1.5rem;
           }
           .hero-content-col {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.91) 0%, rgba(255, 255, 255, 0.96) 100%), url('/IMG_0971.JPG') center/cover no-repeat;
-            backdrop-filter: blur(4px);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, rgba(255, 255, 255, 0.78) 100%), url('/IMG_0971.JPG') center/cover no-repeat;
+            backdrop-filter: blur(2px);
             padding: 1.75rem 1.25rem;
             border-radius: var(--radius-lg);
-            border: 1.5px solid rgba(255, 255, 255, 0.9);
+            border: 1.5px solid rgba(255, 255, 255, 0.95);
             box-shadow: var(--shadow-md);
           }
         }
