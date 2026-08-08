@@ -58,7 +58,7 @@ export default function AboutSection() {
           </p>
 
           <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
-            From morning drop-off at 6:30 AM to late afternoon pickup at 5:30 PM, our dedicated educators nurture curiosity, build social confidence, and celebrate every milestone in your child’s development.
+            From morning drop-off at 6:30 AM to late afternoon pickup at 6:00 PM, our dedicated educators nurture curiosity, build social confidence, and celebrate every milestone in your child’s development.
           </p>
         </div>
 
