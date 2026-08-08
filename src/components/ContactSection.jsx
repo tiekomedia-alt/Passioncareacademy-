@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Clock, Home, Navigation, ExternalLink, Calendar, ShieldCheck, UserCheck } from 'lucide-react';
+import { Phone, MapPin, Clock, Home, Navigation, ExternalLink } from 'lucide-react';
 
 export default function ContactSection() {
   const directorPhone = "tel:3024198890";
@@ -10,21 +10,6 @@ export default function ContactSection() {
       <div className="container">
         {/* Header */}
         <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3rem' }}>
-          <span style={{ 
-            backgroundColor: '#E0F2FE', 
-            color: '#0284C7', 
-            fontSize: '0.75rem', 
-            fontWeight: '700', 
-            padding: '0.35rem 0.85rem', 
-            borderRadius: 'var(--radius-full)', 
-            display: 'inline-flex', 
-            alignItems: 'center', 
-            gap: '0.35rem',
-            marginBottom: '0.75rem',
-            textTransform: 'uppercase'
-          }}>
-            <Phone size={14} /> Contact Information & Location
-          </span>
           <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 2.8rem)', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.75rem' }}>
             Get in Touch With Our Delaware Team
           </h2>
@@ -96,7 +81,7 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Card 2: Facility Direct Directory */}
+          {/* Card 2: Direct Directory */}
           <div style={{ backgroundColor: '#FFFFFF', padding: '2.25rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)', display: 'flex', flexDirection: 'column', justify: 'space-between' }}>
             <div>
               <h3 style={{ fontSize: '1.35rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -136,7 +121,7 @@ export default function ContactSection() {
                     AFTER-SCHOOL OFFICE DESK
                   </div>
                   <div style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--navy-dark)', marginTop: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <UserCheck size={18} style={{ color: 'var(--navy-dark)' }} /> Office Manager Direct Desk
+                    <Home size={18} style={{ color: 'var(--navy-dark)' }} /> Office Manager Direct Desk
                   </div>
                   <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
                     Dedicated desk for after-school registrations & records.

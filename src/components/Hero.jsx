@@ -1,7 +1,7 @@
 import React from 'react';
-import { Calendar, ShieldCheck, Utensils, CheckCircle2, Clock, MapPin, Navigation, Phone } from 'lucide-react';
+import { Calendar, ShieldCheck, CheckCircle2, Clock, MapPin, Navigation, Phone } from 'lucide-react';
 
-export default function Hero({ onNavigate }) {
+export default function Hero() {
   const directorPhone = "tel:3024198890";
   const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
 
@@ -35,21 +35,6 @@ export default function Hero({ onNavigate }) {
                 textTransform: 'uppercase'
               }}>
                 <ShieldCheck size={14} /> State of DE Certified
-              </span>
-
-              <span style={{ 
-                backgroundColor: '#E0F2FE', 
-                color: '#0284C7', 
-                fontSize: '0.75rem', 
-                fontWeight: '700', 
-                padding: '0.35rem 0.85rem', 
-                borderRadius: 'var(--radius-full)', 
-                display: 'inline-flex', 
-                alignItems: 'center', 
-                gap: '0.35rem',
-                textTransform: 'uppercase'
-              }}>
-                <Utensils size={14} /> CACFP Meal Program Participant
               </span>
             </div>
 
@@ -88,7 +73,7 @@ export default function Hero({ onNavigate }) {
               Providing loving care from infants through preschool and enrichment after-school care through 6th grade.
             </p>
 
-            {/* Direct Call to Director CTAs */}
+            {/* Primary Action Buttons */}
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', maxWidth: '480px', marginBottom: '2rem' }}>
               <a href={directorPhone} className="btn-dark-pill" style={{ fontSize: '1rem', padding: '0.95rem 1.75rem' }}>
                 <Phone size={18} style={{ color: '#F87171' }} /> Schedule Tour: (302) 419-8890
@@ -99,7 +84,7 @@ export default function Hero({ onNavigate }) {
               </a>
             </div>
 
-            {/* Checkmark Bullet Matrix */}
+            {/* Checkmark Bullet Matrix (Meals item removed as requested) */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
               <a href={mapsUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'var(--navy-dark)', display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: '700' }}>
                 <MapPin size={18} style={{ color: '#0284C7', flexShrink: 0 }} />
@@ -109,11 +94,6 @@ export default function Hero({ onNavigate }) {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: '600', color: 'var(--text-dark)' }}>
                 <CheckCircle2 size={18} style={{ color: 'var(--navy-dark)', flexShrink: 0 }} />
                 <span>Mon-Fri: 6:30 AM – 5:30 PM (Year-Round)</span>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: '600', color: 'var(--text-dark)' }}>
-                <CheckCircle2 size={18} style={{ color: 'var(--navy-dark)', flexShrink: 0 }} />
-                <span>3 Daily Meals (Preschool) & Academic Support</span>
               </div>
             </div>
           </div>

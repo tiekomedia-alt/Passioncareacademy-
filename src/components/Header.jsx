@@ -8,7 +8,7 @@ export default function Header({ onOpenAdminModal, activeSection, setActiveSecti
   const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
 
   const navItems = [
-    { id: 'programs', label: 'Programs & Meals' },
+    { id: 'programs', label: 'Programs' },
     { id: 'about', label: 'About Us' },
     { id: 'contact', label: 'Contact Info' },
   ];
@@ -79,7 +79,7 @@ export default function Header({ onOpenAdminModal, activeSection, setActiveSecti
           </div>
         </a>
 
-        {/* Navigation items */}
+        {/* Navigation items: Programs, About Us, Contact Info */}
         <nav style={{ display: 'flex', alignItems: 'center', gap: '2.25rem' }} className="desktop-nav">
           {navItems.map((item) => (
             <button

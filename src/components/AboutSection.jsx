@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Heart, ShieldCheck, Sparkles, Users, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Heart, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
-export default function AboutSection({ onOpenTourModal }) {
+export default function AboutSection() {
   const [activeImageIndex, setActiveImageIndex] = useState(null);
 
   const galleryImages = [
@@ -29,7 +29,7 @@ export default function AboutSection({ onOpenTourModal }) {
     <section id="about" style={{ padding: '4.5rem 0', backgroundColor: '#FFFFFF' }}>
       <div className="container">
         {/* About Us Vision */}
-        <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3rem' }}>
+        <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3.5rem' }}>
           <span style={{ 
             backgroundColor: '#E0F2FE', 
             color: '#0284C7', 
@@ -59,45 +59,9 @@ export default function AboutSection({ onOpenTourModal }) {
           </p>
         </div>
 
-        {/* Pillars Cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '4.5rem' }}>
-          <div style={{ backgroundColor: 'var(--canvas-bg)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', borderLeft: '5px solid var(--navy-dark)', boxShadow: 'var(--shadow-sm)' }}>
-            <div style={{ fontWeight: '800', color: 'var(--navy-dark)', fontSize: '1.1rem', marginBottom: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <ShieldCheck size={20} /> Safe & Sanitary
-            </div>
-            <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-              Rigorous security protocols, sanitized classrooms, and CPR/First-Aid certified staff.
-            </div>
-          </div>
-
-          <div style={{ backgroundColor: 'var(--canvas-bg)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', borderLeft: '5px solid var(--growth-green)', boxShadow: 'var(--shadow-sm)' }}>
-            <div style={{ fontWeight: '800', color: 'var(--growth-green)', fontSize: '1.1rem', marginBottom: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Sparkles size={20} /> Creative & Structured
-            </div>
-            <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-              Enriching daily crafts, pre-K phonics, STEM modules, and physical activity.
-            </div>
-          </div>
-        </div>
-
         {/* Facility & Classroom Gallery */}
         <div>
           <div style={{ textAlign: 'center', maxWidth: '650px', margin: '0 auto 2.5rem' }}>
-            <span style={{ 
-              backgroundColor: '#E0F2FE', 
-              color: '#0284C7', 
-              fontSize: '0.75rem', 
-              fontWeight: '700', 
-              padding: '0.35rem 0.85rem', 
-              borderRadius: 'var(--radius-full)', 
-              display: 'inline-flex', 
-              alignItems: 'center', 
-              gap: '0.35rem',
-              marginBottom: '0.75rem',
-              textTransform: 'uppercase'
-            }}>
-              <Users size={14} /> Life at Passion Care
-            </span>
             <h3 style={{ fontSize: '2.2rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.5rem' }}>
               Facility & Classroom Gallery
             </h3>
@@ -106,7 +70,7 @@ export default function AboutSection({ onOpenTourModal }) {
             </p>
           </div>
 
-          {/* Vertical/Grid Stack Cards */}
+          {/* Grid Stack Cards */}
           <div style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 

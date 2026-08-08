@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ProgramHub from './components/ProgramHub';
-import ComplianceHub from './components/ComplianceHub';
 import AboutSection from './components/AboutSection';
 import ContactSection from './components/ContactSection';
 import AdminTourViewer from './components/AdminTourViewer';
@@ -42,8 +41,6 @@ export default function App() {
         <ProgramHub />
 
         <AboutSection />
-
-        <ComplianceHub />
 
         <ContactSection />
       </main>

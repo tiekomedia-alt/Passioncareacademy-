@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Baby, GraduationCap, School, Utensils, CheckCircle, Clock, ShieldCheck, Phone, ArrowRight } from 'lucide-react';
+import { Baby, GraduationCap, School, CheckCircle, Clock, Phone } from 'lucide-react';
 
 export default function ProgramHub() {
   const [activeTab, setActiveTab] = useState('all');
@@ -22,8 +22,7 @@ export default function ProgramHub() {
         'Sensory exploration & music',
         'Daily updates for parents',
         'Tender, individualized attention'
-      ],
-      meals: 'CACFP Nutritional Guidance & Infant Feeding Support'
+      ]
     },
     {
       id: 'preschool',
@@ -31,18 +30,17 @@ export default function ProgramHub() {
       title: 'Preschool & Early Learning',
       age: '3 Years – 5 Years',
       icon: GraduationCap,
-      badge: '3 Meals Provided Daily',
-      badgeColor: 'var(--growth-green-bg)',
-      textColor: 'var(--growth-green)',
-      bgGradient: 'linear-gradient(180deg, #FFFFFF 0%, #E6F4EA 100%)',
+      badge: 'Kindergarten Readiness',
+      badgeColor: 'var(--blue-soft)',
+      textColor: 'var(--blue-primary)',
+      bgGradient: 'linear-gradient(180deg, #FFFFFF 0%, #F0F7FF 100%)',
       description: 'Comprehensive early childhood curriculum focusing on kindergarten readiness, social-emotional growth, phonics, and creative crafts.',
       highlights: [
         'Structured pre-kindergarten curriculum',
         'Creative arts, crafts & sensory play',
         'Social-emotional milestone building',
         'Year-round continuous growth'
-      ],
-      meals: '3 Full Daily Meals Included (Breakfast, Lunch, PM Snack)'
+      ]
     },
     {
       id: 'after-school',
@@ -60,8 +58,7 @@ export default function ProgramHub() {
         'Physical activity & team games',
         'STEM enrichment & group projects',
         'Safe transportation assistance'
-      ],
-      meals: 'Breakfast Before School & Full Lunch Upon Return (No PM Snack)'
+      ]
     }
   ];
 
@@ -87,7 +84,7 @@ export default function ProgramHub() {
             marginBottom: '0.75rem',
             textTransform: 'uppercase'
           }}>
-            <GraduationCap size={14} /> Comprehensive Curriculum
+            <GraduationCap size={14} /> Programs
           </span>
           <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 2.8rem)', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.75rem' }}>
             Tailored Educational & Care Tracks
@@ -160,12 +157,11 @@ export default function ProgramHub() {
           </div>
         </div>
 
-        {/* Program Cards Grid */}
+        {/* Program Cards Grid (Meal Provisions Removed) */}
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
-          gap: '2rem',
-          marginBottom: '4.5rem'
+          gap: '2rem'
         }}>
           {filteredPrograms.map((prog) => {
             const IconComp = prog.icon;
@@ -237,23 +233,6 @@ export default function ProgramHub() {
                 </div>
 
                 <div>
-                  {/* CACFP Meal Indicator */}
-                  <div style={{ 
-                    backgroundColor: '#FFFFFF', 
-                    padding: '0.9rem 1.1rem', 
-                    borderRadius: 'var(--radius-md)', 
-                    borderLeft: '4px solid var(--growth-green)',
-                    boxShadow: 'var(--shadow-sm)',
-                    marginBottom: '1.5rem'
-                  }}>
-                    <div style={{ fontSize: '0.78rem', fontWeight: '800', color: 'var(--growth-green)', display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.2rem' }}>
-                      <Utensils size={14} /> CACFP MEAL PROVISIONS
-                    </div>
-                    <div style={{ fontSize: '0.85rem', fontWeight: '600', color: 'var(--text-dark)' }}>
-                      {prog.meals}
-                    </div>
-                  </div>
-
                   <a 
                     href={directorPhone} 
                     className="btn-dark-pill" 
@@ -265,91 +244,6 @@ export default function ProgramHub() {
               </div>
             );
           })}
-        </div>
-
-        {/* Delaware CACFP Nutrition Matrix */}
-        <div style={{ 
-          backgroundColor: 'var(--canvas-sky)', 
-          borderRadius: 'var(--radius-lg)', 
-          padding: '3rem 2.5rem',
-          border: '1px solid #BAE6FD'
-        }}>
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-            gap: '2.5rem',
-            alignItems: 'center'
-          }}>
-            <div>
-              <span className="badge-sky" style={{ marginBottom: '1rem' }}>
-                <ShieldCheck size={14} /> State of Delaware CACFP Enrolled
-              </span>
-
-              <h3 style={{ fontSize: '1.8rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '1rem' }}>
-                Nutritious Meals Included at No Extra Cost
-              </h3>
-
-              <p style={{ color: 'var(--text-muted)', fontSize: '1rem', marginBottom: '1.5rem', lineHeight: '1.6' }}>
-                Passion Care Academy is proudly enrolled in the <strong>State of Delaware Child and Adult Care Food Program (CACFP)</strong>. We ensure every child receives balanced, USDA-approved meals crafted for optimal health, focus, and energy.
-              </p>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                  <div style={{ width: '22px', height: '22px', borderRadius: '50%', backgroundColor: 'var(--growth-green)', color: '#FFF', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px', fontSize: '0.8rem' }}>✓</div>
-                  <div style={{ fontSize: '0.92rem' }}>
-                    <strong style={{ color: 'var(--navy-dark)' }}>Preschool Program:</strong> 3 meals served daily — Breakfast, Lunch, and Afternoon (PM) Snack.
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                  <div style={{ width: '22px', height: '22px', borderRadius: '50%', backgroundColor: 'var(--navy-dark)', color: '#FFF', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px', fontSize: '0.8rem' }}>✓</div>
-                  <div style={{ fontSize: '0.92rem' }}>
-                    <strong style={{ color: 'var(--navy-dark)' }}>School-Aged Program:</strong> Breakfast before school and full Lunch upon return <em>(No PM snack provided)</em>.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Meal Provision Matrix */}
-            <div style={{ 
-              backgroundColor: '#FFFFFF', 
-              borderRadius: 'var(--radius-md)', 
-              padding: '1.75rem', 
-              boxShadow: 'var(--shadow-md)',
-              border: '1px solid var(--border-light)'
-            }}>
-              <h4 style={{ fontSize: '1.15rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Utensils size={18} style={{ color: 'var(--navy-dark)' }} /> Daily Meal Provision Schedule
-              </h4>
-
-              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem' }}>
-                <thead>
-                  <tr style={{ borderBottom: '2px solid var(--border-light)', color: 'var(--navy-dark)' }}>
-                    <th style={{ padding: '0.6rem 0.5rem' }}>Meal Time</th>
-                    <th style={{ padding: '0.6rem 0.5rem' }}>Preschool Track</th>
-                    <th style={{ padding: '0.6rem 0.5rem' }}>After-School Track</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style={{ borderBottom: '1px solid var(--border-light)' }}>
-                    <td style={{ padding: '0.75rem 0.5rem', fontWeight: '600' }}>Morning Breakfast</td>
-                    <td style={{ padding: '0.75rem 0.5rem', color: 'var(--growth-green)', fontWeight: '700' }}>✓ Included</td>
-                    <td style={{ padding: '0.75rem 0.5rem', color: 'var(--growth-green)', fontWeight: '700' }}>✓ Included (Before school)</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid var(--border-light)' }}>
-                    <td style={{ padding: '0.75rem 0.5rem', fontWeight: '600' }}>Nutritious Lunch</td>
-                    <td style={{ padding: '0.75rem 0.5rem', color: 'var(--growth-green)', fontWeight: '700' }}>✓ Included</td>
-                    <td style={{ padding: '0.75rem 0.5rem', color: 'var(--growth-green)', fontWeight: '700' }}>✓ Included (Upon return)</td>
-                  </tr>
-                  <tr>
-                    <td style={{ padding: '0.75rem 0.5rem', fontWeight: '600' }}>Afternoon PM Snack</td>
-                    <td style={{ padding: '0.75rem 0.5rem', color: 'var(--growth-green)', fontWeight: '700' }}>✓ Included</td>
-                    <td style={{ padding: '0.75rem 0.5rem', color: 'var(--text-light)' }}>✕ Not Provided</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
         </div>
       </div>
     </section>
