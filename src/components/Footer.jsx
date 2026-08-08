@@ -1,7 +1,9 @@
 import React from 'react';
-import { Phone, MapPin, Clock, ShieldCheck, Heart, ArrowUp, GraduationCap, UserCheck } from 'lucide-react';
+import { Phone, MapPin, Clock, ShieldCheck, Heart, ArrowUp, GraduationCap, UserCheck, Navigation, ExternalLink } from 'lucide-react';
 
 export default function Footer({ onNavigate, onOpenTourModal }) {
+  const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -16,7 +18,7 @@ export default function Footer({ onNavigate, onOpenTourModal }) {
           paddingBottom: '3rem',
           borderBottom: '1px solid #1E293B'
         }}>
-          {/* Col 1: Brand Info matching reference image */}
+          {/* Col 1: Brand Info */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '1.25rem' }}>
               <div style={{ width: '38px', height: '38px', borderRadius: '10px', backgroundColor: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--navy-dark)' }}>
@@ -29,23 +31,34 @@ export default function Footer({ onNavigate, onOpenTourModal }) {
               </div>
             </div>
 
-            <p style={{ color: '#94A3B8', fontSize: '0.9rem', marginBottom: '1.5rem', lineHeight: '1.6' }}>
-              Nurturing young minds through structured, loving care and comprehensive early education.
+            <p style={{ color: '#94A3B8', fontSize: '0.9rem', marginBottom: '1.25rem', lineHeight: '1.6' }}>
+              Nurturing young minds through structured, loving care and comprehensive early education in Delaware.
             </p>
 
-            <span style={{ 
-              backgroundColor: 'rgba(255, 255, 255, 0.1)', 
-              color: '#38BDF8', 
-              fontSize: '0.75rem', 
-              fontWeight: '700', 
-              padding: '0.35rem 0.85rem', 
-              borderRadius: 'var(--radius-full)', 
-              display: 'inline-flex', 
-              alignItems: 'center', 
-              gap: '0.35rem' 
-            }}>
-              <ShieldCheck size={14} /> State of Delaware CACFP Registered
-            </span>
+            <a 
+              href={mapsUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ color: '#38BDF8', textDecoration: 'none', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginBottom: '1rem' }}
+            >
+              📍 3727 Wrangle Hill Rd, Bear, DE <ExternalLink size={12} />
+            </a>
+
+            <div>
+              <span style={{ 
+                backgroundColor: 'rgba(255, 255, 255, 0.1)', 
+                color: '#38BDF8', 
+                fontSize: '0.75rem', 
+                fontWeight: '700', 
+                padding: '0.35rem 0.85rem', 
+                borderRadius: 'var(--radius-full)', 
+                display: 'inline-flex', 
+                alignItems: 'center', 
+                gap: '0.35rem' 
+              }}>
+                <ShieldCheck size={14} /> State of Delaware CACFP Registered
+              </span>
+            </div>
           </div>
 
           {/* Col 2: Operating Schedule */}
@@ -64,8 +77,10 @@ export default function Footer({ onNavigate, onOpenTourModal }) {
                 <span>Care Type: Year-Round Childcare</span>
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <MapPin size={16} style={{ color: '#38BDF8' }} />
-                <span>Delaware Center Location</span>
+                <a href={mapsUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#38BDF8', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: '600' }}>
+                  <MapPin size={16} style={{ color: '#38BDF8' }} />
+                  <span>3727 Wrangle Hill Rd, Bear, DE</span>
+                </a>
               </li>
             </ul>
           </div>
@@ -98,20 +113,20 @@ export default function Footer({ onNavigate, onOpenTourModal }) {
               Quick Links
             </h4>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem', fontSize: '0.9rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.25rem', fontSize: '0.9rem' }}>
               <button onClick={() => onNavigate('programs')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>Programs & Meals</button>
               <button onClick={() => onNavigate('compliance')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>CACFP & State Forms</button>
               <button onClick={() => onNavigate('about')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>About & Philosophy</button>
               <button onClick={() => onNavigate('contact')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>Contact Info</button>
             </div>
 
-            <button onClick={onOpenTourModal} className="btn-dark-pill" style={{ backgroundColor: 'var(--yellow-accent)', color: 'var(--navy-dark)', border: 'none', width: '100%', justifyContent: 'center', fontSize: '0.88rem' }}>
-              Schedule a Center Tour
-            </button>
+            <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="btn-dark-pill" style={{ backgroundColor: 'var(--yellow-accent)', color: 'var(--navy-dark)', border: 'none', width: '100%', justifyContent: 'center', fontSize: '0.88rem' }}>
+              <Navigation size={15} /> Get Driving Directions
+            </a>
           </div>
         </div>
 
-        {/* Bottom Copyright matching reference image */}
+        {/* Bottom Copyright */}
         <div style={{ paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', fontSize: '0.82rem', color: '#94A3B8' }}>
           <div>
             © {new Date().getFullYear()} Passion Care Academy. All rights reserved. Delaware CACFP Registered Facility.

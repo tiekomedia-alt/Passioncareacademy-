@@ -1,7 +1,9 @@
 import React from 'react';
-import { Calendar, ShieldCheck, Utensils, CheckCircle2, Clock, ArrowRight } from 'lucide-react';
+import { Calendar, ShieldCheck, Utensils, CheckCircle2, Clock, MapPin, Navigation } from 'lucide-react';
 
 export default function Hero({ onOpenTourModal, onNavigate }) {
+  const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
+
   return (
     <section style={{ 
       backgroundColor: 'var(--canvas-bg)', 
@@ -15,7 +17,7 @@ export default function Hero({ onOpenTourModal, onNavigate }) {
           gap: '3rem', 
           alignItems: 'center' 
         }}>
-          {/* Left Column: Vision & Headline matching reference mobile/desktop screenshot */}
+          {/* Left Column */}
           <div>
             {/* Top Soft Badges */}
             <div style={{ display: 'flex', gap: '0.6rem', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
@@ -29,8 +31,7 @@ export default function Hero({ onOpenTourModal, onNavigate }) {
                 display: 'inline-flex', 
                 alignItems: 'center', 
                 gap: '0.35rem',
-                textTransform: 'uppercase',
-                letterSpacing: '0.5px'
+                textTransform: 'uppercase'
               }}>
                 <ShieldCheck size={14} /> State of DE Certified
               </span>
@@ -45,8 +46,7 @@ export default function Hero({ onOpenTourModal, onNavigate }) {
                 display: 'inline-flex', 
                 alignItems: 'center', 
                 gap: '0.35rem',
-                textTransform: 'uppercase',
-                letterSpacing: '0.5px'
+                textTransform: 'uppercase'
               }}>
                 <Utensils size={14} /> CACFP Food Program Participant
               </span>
@@ -87,41 +87,42 @@ export default function Hero({ onOpenTourModal, onNavigate }) {
               Providing loving care from infants through preschool and enrichment after-school care through 6th grade.
             </p>
 
-            {/* Primary Action Buttons matching reference */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', maxWidth: '380px', marginBottom: '2rem' }}>
+            {/* Primary Action Buttons */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', maxWidth: '400px', marginBottom: '2rem' }}>
               <button onClick={onOpenTourModal} className="btn-dark-pill" style={{ justifyContent: 'center', fontSize: '1rem', padding: '0.95rem 1.75rem' }}>
                 <Calendar size={18} /> Schedule a Center Tour
               </button>
-              <button onClick={() => onNavigate('compliance')} className="btn-outline-pill" style={{ justifyContent: 'center', fontSize: '0.95rem', padding: '0.9rem 1.75rem' }}>
-                <Utensils size={18} /> CACFP Meal Info & Forms
-              </button>
+
+              <div style={{ display: 'flex', gap: '0.75rem' }}>
+                <button onClick={() => onNavigate('compliance')} className="btn-outline-pill" style={{ flex: 1, justifyContent: 'center', fontSize: '0.88rem', padding: '0.85rem 1rem' }}>
+                  <Utensils size={16} /> CACFP Meals & Forms
+                </button>
+                <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="btn-outline-pill" style={{ flex: 1, justifyContent: 'center', fontSize: '0.88rem', padding: '0.85rem 1rem', color: '#0284C7' }}>
+                  <Navigation size={16} /> Get Directions
+                </a>
+              </div>
             </div>
 
             {/* Checkmark Bullet Matrix */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+              <a href={mapsUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'var(--navy-dark)', display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: '700' }}>
+                <MapPin size={18} style={{ color: '#0284C7', flexShrink: 0 }} />
+                <span>3727 Wrangle Hill Rd, Bear, DE 19701 (Click for Map)</span>
+              </a>
+
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: '600', color: 'var(--text-dark)' }}>
                 <CheckCircle2 size={18} style={{ color: 'var(--navy-dark)', flexShrink: 0 }} />
-                <span>Mon-Fri: 6:30 AM – 5:30 PM</span>
+                <span>Mon-Fri: 6:30 AM – 5:30 PM (Year-Round)</span>
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: '600', color: 'var(--text-dark)' }}>
                 <CheckCircle2 size={18} style={{ color: 'var(--navy-dark)', flexShrink: 0 }} />
-                <span>3 Daily Meals (Preschool)</span>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: '600', color: 'var(--text-dark)' }}>
-                <CheckCircle2 size={18} style={{ color: 'var(--navy-dark)', flexShrink: 0 }} />
-                <span>Infants to 6th Grade (12 yrs)</span>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: '600', color: 'var(--text-dark)' }}>
-                <CheckCircle2 size={18} style={{ color: 'var(--navy-dark)', flexShrink: 0 }} />
-                <span>Academic & Physical Growth</span>
+                <span>3 Daily Meals (Preschool) & Academic Support</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Hero Classroom Collage Cards matching reference image */}
+          {/* Right Column */}
           <div style={{ position: 'relative' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {/* Top Main Classroom Card */}
@@ -158,7 +159,6 @@ export default function Hero({ onOpenTourModal, onNavigate }) {
 
               {/* Bottom Split Row */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
-                {/* Left Split Card */}
                 <div style={{ 
                   borderRadius: 'var(--radius-lg)', 
                   overflow: 'hidden', 
@@ -188,7 +188,6 @@ export default function Hero({ onOpenTourModal, onNavigate }) {
                   </div>
                 </div>
 
-                {/* Right Split Card */}
                 <div style={{ 
                   borderRadius: 'var(--radius-lg)', 
                   overflow: 'hidden', 
@@ -206,18 +205,25 @@ export default function Hero({ onOpenTourModal, onNavigate }) {
               </div>
             </div>
 
-            {/* Floating Bottom Card matching reference image */}
-            <div style={{
-              marginTop: '1.25rem',
-              backgroundColor: '#FFFFFF',
-              borderRadius: 'var(--radius-md)',
-              padding: '0.85rem 1.25rem',
-              boxShadow: 'var(--shadow-md)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.85rem',
-              border: '1px solid var(--border-light)'
-            }}>
+            {/* Floating Bottom Card linking to Google Maps */}
+            <a 
+              href={mapsUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{
+                marginTop: '1.25rem',
+                backgroundColor: '#FFFFFF',
+                borderRadius: 'var(--radius-md)',
+                padding: '0.85rem 1.25rem',
+                boxShadow: 'var(--shadow-md)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.85rem',
+                border: '1.5px solid var(--blue-sky-badge)',
+                textDecoration: 'none',
+                transition: 'transform 0.2s ease'
+              }}
+            >
               <div style={{ 
                 width: '40px', 
                 height: '40px', 
@@ -229,13 +235,15 @@ export default function Hero({ onOpenTourModal, onNavigate }) {
                 color: '#0284C7',
                 flexShrink: 0
               }}>
-                <Clock size={20} />
+                <MapPin size={20} />
               </div>
               <div>
-                <div style={{ fontSize: '0.88rem', fontWeight: '700', color: 'var(--navy-dark)' }}>Year-Round Delaware Care</div>
-                <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>6:30 AM - 5:30 PM Monday–Friday</div>
+                <div style={{ fontSize: '0.88rem', fontWeight: '800', color: 'var(--navy-dark)', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                  3727 Wrangle Hill Rd, Bear, DE <Navigation size={14} style={{ color: '#0284C7' }} />
+                </div>
+                <div style={{ fontSize: '0.78rem', color: '#0284C7', fontWeight: '600' }}>Click for Driving Directions</div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>

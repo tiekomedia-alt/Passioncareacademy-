@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Phone, Calendar, Clock, MapPin, Menu, X, ShieldCheck, UserCheck, GraduationCap } from 'lucide-react';
+import { Phone, Calendar, Clock, MapPin, Menu, X, ShieldCheck, UserCheck, GraduationCap, Navigation } from 'lucide-react';
 
 export default function Header({ onOpenTourModal, onOpenAdminModal, activeSection, setActiveSection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
 
   const navItems = [
     { id: 'programs', label: 'Programs & Meals' },
@@ -22,16 +24,22 @@ export default function Header({ onOpenTourModal, onOpenAdminModal, activeSectio
 
   return (
     <header style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: 'var(--canvas-bg)', borderBottom: '1px solid var(--border-light)' }}>
-      {/* Top Banner */}
+      {/* Top Banner with Direct Map Directions Link */}
       <div style={{ backgroundColor: 'var(--navy-dark)', color: '#FFFFFF', padding: '0.4rem 0', fontSize: '0.82rem' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', color: '#94A3B8' }}>
-              <Clock size={13} style={{ color: '#38BDF8' }} /> <strong>Hours:</strong> Mon – Fri 6:30 AM – 5:30 PM (Year-Round)
+              <Clock size={13} style={{ color: '#38BDF8' }} /> <strong>Hours:</strong> Mon – Fri 6:30 AM – 5:30 PM
             </span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', color: '#94A3B8' }}>
-              <MapPin size={13} style={{ color: '#38BDF8' }} /> Delaware Center
-            </span>
+            <a 
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#38BDF8', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontWeight: '700' }}
+              title="Get Directions on Google Maps to 3727 Wrangle Hill Rd, Bear, DE 19701"
+            >
+              <MapPin size={13} style={{ color: '#38BDF8' }} /> 3727 Wrangle Hill Rd, Bear, DE 📍
+            </a>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
@@ -55,7 +63,7 @@ export default function Header({ onOpenTourModal, onOpenAdminModal, activeSectio
 
       {/* Main Navbar */}
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 1.25rem' }}>
-        {/* Brand Logo & Name matching reference screenshot */}
+        {/* Brand Logo */}
         <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', textDecoration: 'none' }}>
           <div style={{ width: '38px', height: '38px', borderRadius: '10px', backgroundColor: 'var(--navy-dark)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFFFFF' }}>
             <GraduationCap size={22} />
@@ -104,9 +112,19 @@ export default function Header({ onOpenTourModal, onOpenAdminModal, activeSectio
           ))}
         </nav>
 
-        {/* Header Right Actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <button onClick={onOpenTourModal} className="btn-dark-pill desktop-nav">
+        {/* Header Right CTAs */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+          <a 
+            href={mapsUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="btn-outline-pill desktop-nav" 
+            style={{ fontSize: '0.85rem', padding: '0.75rem 1.25rem' }}
+          >
+            <Navigation size={15} style={{ color: '#0284C7' }} /> Get Directions
+          </a>
+
+          <button onClick={onOpenTourModal} className="btn-dark-pill desktop-nav" style={{ fontSize: '0.85rem', padding: '0.75rem 1.4rem' }}>
             <Calendar size={16} /> Schedule a Tour
           </button>
 
@@ -158,6 +176,9 @@ export default function Header({ onOpenTourModal, onOpenAdminModal, activeSectio
             </button>
           ))}
           <hr style={{ border: 'none', borderTop: '1px solid var(--border-light)' }} />
+          <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="btn-outline-pill" style={{ justifyContent: 'center' }}>
+            <Navigation size={18} /> Get Directions (3727 Wrangle Hill Rd)
+          </a>
           <button onClick={() => { setMobileMenuOpen(false); onOpenTourModal(); }} className="btn-dark-pill" style={{ justifyContent: 'center' }}>
             <Calendar size={18} /> Schedule a Center Tour
           </button>

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, UserCheck, ShieldCheck, Home } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, UserCheck, ShieldCheck, Home, Navigation, ExternalLink } from 'lucide-react';
 
 export default function ContactSection() {
+  const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
+
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -38,13 +40,13 @@ export default function ContactSection() {
             marginBottom: '0.75rem',
             textTransform: 'uppercase'
           }}>
-            <Phone size={14} /> Direct Communications
+            <Phone size={14} /> Direct Communications & Directions
           </span>
           <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 2.8rem)', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.75rem' }}>
             Get in Touch With Our Delaware Team
           </h2>
           <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
-            We're here to answer your questions, discuss program availability, or assist with enrollment requirements.
+            Visit our center in Bear, DE, call our administrative lines, or send an online inquiry below.
           </p>
         </div>
 
@@ -53,70 +55,95 @@ export default function ContactSection() {
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
           gap: '2.5rem' 
         }}>
-          {/* Left Column: Direct Phone Directory & Hours Cards matching reference */}
+          {/* Left Column: Location Card & Direct Directory */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            <div style={{ backgroundColor: '#FFFFFF', padding: '2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)' }}>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Home size={20} style={{ color: 'var(--navy-dark)' }} /> Facility Direct Directory
+            {/* Google Maps Directions Highlight Card */}
+            <div style={{ 
+              backgroundColor: '#FFFFFF', 
+              padding: '1.75rem', 
+              borderRadius: 'var(--radius-lg)', 
+              border: '2px solid #0284C7', 
+              boxShadow: 'var(--shadow-md)',
+              background: 'linear-gradient(180deg, #FFFFFF 0%, #F0F9FF 100%)'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: '#0284C7', fontWeight: '800', fontSize: '0.85rem', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
+                <MapPin size={18} /> Physical Facility Address
+              </div>
+
+              <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.5rem' }}>
+                Passion Care Academy
               </h3>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-dark)', fontWeight: '600', marginBottom: '1.25rem', lineHeight: '1.5' }}>
+                📍 3727 Wrangle Hill Rd <br />
+                Bear, DE 19701, United States
+              </p>
+
+              <a 
+                href={mapsUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn-dark-pill" 
+                style={{ backgroundColor: '#0284C7', borderColor: '#0284C7', width: '100%', justifyContent: 'center', fontSize: '0.92rem', padding: '0.85rem 1.25rem' }}
+              >
+                <Navigation size={18} /> Get Directions on Google Maps <ExternalLink size={14} />
+              </a>
+            </div>
+
+            {/* Direct Phone Directory */}
+            <div style={{ backgroundColor: '#FFFFFF', padding: '1.75rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)' }}>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Home size={18} style={{ color: 'var(--navy-dark)' }} /> Direct Contact Directory
+              </h3>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {/* General Inquiries */}
-                <div style={{ padding: '1rem', backgroundColor: '#F8FAFC', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)' }}>
-                  <div style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--text-light)', textTransform: 'uppercase' }}>
+                <div style={{ padding: '0.85rem', backgroundColor: '#F8FAFC', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)' }}>
+                  <div style={{ fontSize: '0.72rem', fontWeight: '700', color: 'var(--text-light)', textTransform: 'uppercase' }}>
                     GENERAL INQUIRIES & ADMISSIONS
                   </div>
-                  <a href="tel:3028322622" style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--navy-dark)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.25rem' }}>
-                    <Phone size={16} style={{ color: 'var(--navy-dark)' }} /> (302) 832-2622
+                  <a href="tel:3028322622" style={{ fontSize: '1.15rem', fontWeight: '800', color: 'var(--navy-dark)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.2rem' }}>
+                    <Phone size={15} style={{ color: 'var(--navy-dark)' }} /> (302) 832-2622
                   </a>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '0.15rem' }}>
-                    Main front desk line for center questions.
-                  </div>
                 </div>
 
-                {/* Director Line matching soft red container in reference screenshot */}
-                <div style={{ padding: '1rem', backgroundColor: '#FEF2F2', borderRadius: 'var(--radius-md)', border: '1px solid #FEE2E2' }}>
-                  <div style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--action-red)', textTransform: 'uppercase' }}>
+                {/* Director Line */}
+                <div style={{ padding: '0.85rem', backgroundColor: '#FEF2F2', borderRadius: 'var(--radius-md)', border: '1px solid #FEE2E2' }}>
+                  <div style={{ fontSize: '0.72rem', fontWeight: '700', color: 'var(--action-red)', textTransform: 'uppercase' }}>
                     DAYCARE DIRECTOR DIRECT LINE
                   </div>
-                  <a href="tel:3024198890" style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--action-red)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.25rem' }}>
-                    <Phone size={16} style={{ color: 'var(--action-red)' }} /> (302) 419-8890
+                  <a href="tel:3024198890" style={{ fontSize: '1.15rem', fontWeight: '800', color: 'var(--action-red)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.2rem' }}>
+                    <Phone size={15} style={{ color: 'var(--action-red)' }} /> (302) 419-8890
                   </a>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '0.15rem' }}>
-                    Direct line for administrative & urgent parent matters.
-                  </div>
                 </div>
 
                 {/* Office Manager Desk */}
-                <div style={{ padding: '1rem', backgroundColor: '#F8FAFC', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)' }}>
-                  <div style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--text-light)', textTransform: 'uppercase' }}>
+                <div style={{ padding: '0.85rem', backgroundColor: '#F8FAFC', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)' }}>
+                  <div style={{ fontSize: '0.72rem', fontWeight: '700', color: 'var(--text-light)', textTransform: 'uppercase' }}>
                     AFTER-SCHOOL OFFICE DESK
                   </div>
-                  <div style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--navy-dark)', marginTop: '0.25rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                    <UserCheck size={16} style={{ color: 'var(--navy-dark)' }} /> Office Manager Direct Desk
-                  </div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '0.15rem' }}>
-                    Dedicated assistance for after-school registrations.
+                  <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--navy-dark)', marginTop: '0.2rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                    <UserCheck size={15} style={{ color: 'var(--navy-dark)' }} /> Office Manager Direct Desk
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Operating Schedule Card matching reference */}
-            <div style={{ backgroundColor: '#FFFFFF', padding: '1.75rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)' }}>
-              <h4 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Clock size={18} style={{ color: 'var(--navy-dark)' }} /> Operating Schedule
+            {/* Operating Hours Card */}
+            <div style={{ backgroundColor: '#FFFFFF', padding: '1.5rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)' }}>
+              <h4 style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Clock size={16} style={{ color: 'var(--navy-dark)' }} /> Operating Schedule
               </h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.9rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', borderBottom: '1px solid var(--border-light)' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.88rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.35rem 0', borderBottom: '1px solid var(--border-light)' }}>
                   <span>Schedule:</span>
                   <strong style={{ color: 'var(--navy-dark)' }}>Year-Round Operation</strong>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', borderBottom: '1px solid var(--border-light)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.35rem 0', borderBottom: '1px solid var(--border-light)' }}>
                   <span>Days:</span>
                   <strong style={{ color: 'var(--navy-dark)' }}>Monday – Friday</strong>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.35rem 0' }}>
                   <span>Center Hours:</span>
                   <strong style={{ color: 'var(--navy-dark)' }}>6:30 AM – 5:30 PM</strong>
                 </div>
@@ -124,7 +151,7 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Right Column: Send an Online Inquiry Form matching reference */}
+          {/* Right Column: Send an Online Inquiry Form */}
           <div style={{ backgroundColor: '#FFFFFF', padding: '2.5rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)' }}>
             <h3 style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.4rem' }}>
               Send an Online Inquiry
