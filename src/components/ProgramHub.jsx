@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Baby, GraduationCap, School, CheckCircle, Clock, Phone } from 'lucide-react';
+import { Baby, GraduationCap, School, CheckCircle, Clock } from 'lucide-react';
 
 export default function ProgramHub() {
   const [activeTab, setActiveTab] = useState('all');
-  const directorPhone = "tel:3024198890";
 
   const programs = [
     {
@@ -69,25 +68,10 @@ export default function ProgramHub() {
   return (
     <section id="programs" style={{ padding: '4.5rem 0', backgroundColor: '#FFFFFF' }}>
       <div className="container">
-        {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 3rem' }}>
-          <span style={{ 
-            backgroundColor: '#E0F2FE', 
-            color: '#0284C7', 
-            fontSize: '0.75rem', 
-            fontWeight: '700', 
-            padding: '0.35rem 0.85rem', 
-            borderRadius: 'var(--radius-full)', 
-            display: 'inline-flex', 
-            alignItems: 'center', 
-            gap: '0.35rem',
-            marginBottom: '0.75rem',
-            textTransform: 'uppercase'
-          }}>
-            <GraduationCap size={14} /> Programs
-          </span>
-          <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 2.8rem)', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.75rem' }}>
-            Tailored Educational & Care Tracks
+        {/* Summarized Section Title: Programs */}
+        <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 2.5rem' }}>
+          <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.75rem' }}>
+            Programs
           </h2>
           <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
             From precious early milestones to structured after-school academic support, Passion Care Academy nurtures every stage of childhood with love and structure.
@@ -157,7 +141,7 @@ export default function ProgramHub() {
           </div>
         </div>
 
-        {/* Program Cards Grid (Meal Provisions Removed) */}
+        {/* Program Cards Grid (Director Phone Button Removed from base) */}
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
@@ -222,7 +206,7 @@ export default function ProgramHub() {
                     Program Highlights:
                   </h4>
 
-                  <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.75rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                     {prog.highlights.map((h, i) => (
                       <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--text-dark)' }}>
                         <CheckCircle size={16} style={{ color: 'var(--growth-green)', flexShrink: 0 }} />
@@ -230,16 +214,6 @@ export default function ProgramHub() {
                       </li>
                     ))}
                   </ul>
-                </div>
-
-                <div>
-                  <a 
-                    href={directorPhone} 
-                    className="btn-dark-pill" 
-                    style={{ width: '100%', justifyContent: 'center', fontSize: '0.88rem', padding: '0.85rem' }}
-                  >
-                    <Phone size={15} style={{ color: '#F87171' }} /> Call Director to Book: (302) 419-8890
-                  </a>
                 </div>
               </div>
             );

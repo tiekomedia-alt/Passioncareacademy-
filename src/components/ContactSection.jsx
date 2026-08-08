@@ -8,10 +8,10 @@ export default function ContactSection() {
   return (
     <section id="contact" style={{ padding: '4.5rem 0', backgroundColor: 'var(--canvas-bg)' }}>
       <div className="container">
-        {/* Header */}
+        {/* Summarized Section Header: Get in Touch */}
         <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3rem' }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 2.8rem)', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.75rem' }}>
-            Get in Touch With Our Delaware Team
+          <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.75rem' }}>
+            Get in Touch
           </h2>
           <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
             Visit our center in Bear, DE or reach out directly to our administrative team.
