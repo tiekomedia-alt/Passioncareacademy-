@@ -1,16 +1,26 @@
 import React, { useState } from 'react';
-import { X, Lock, CheckCircle2, AlertCircle, Plus, Edit2, Trash2, BookOpen, Calendar, ShieldCheck, UserCheck, LogOut, Save } from 'lucide-react';
+import { X, Lock, AlertCircle, Plus, Edit2, Trash2, BookOpen, Calendar, ShieldCheck, LogOut, Save, Bell, CheckCircle } from 'lucide-react';
 
 export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }) {
   const [emailInput, setEmailInput] = useState('');
+  const [pinInput, setPinInput] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [authError, setAuthError] = useState('');
 
-  // Active Admin Tab: 'blogs' | 'tours'
+  // Active Admin Tab: 'blogs' | 'tours' | 'announcements'
   const [activeAdminTab, setActiveAdminTab] = useState('blogs');
 
+  // Announcement State
+  const [announcementText, setAnnouncementText] = useState('Hours: Mon – Fri 6:30 AM – 5:30 PM');
+
+  // Tour Requests Mock Manager
+  const [tourRequests, setTourRequests] = useState([
+    { id: '1', parentName: 'Sarah Jenkins', phone: '(302) 555-0199', date: 'August 12, 2026', childAge: 'Infant (8 months)', status: 'Pending' },
+    { id: '2', parentName: 'Michael Brown', phone: '(302) 555-0144', date: 'August 14, 2026', childAge: 'Preschool (3 years)', status: 'Confirmed' }
+  ]);
+
   // Blog Editor State
-  const [editingBlog, setEditingBlog] = useState(null); // null = new or editing specific object
+  const [editingBlog, setEditingBlog] = useState(null);
   const [blogFormData, setBlogFormData] = useState({
     title: '',
     category: 'Preschool Guidance',
@@ -21,43 +31,45 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
     author: 'Director'
   });
 
-  // Whitelisted Admin Emails
+  // Secure Whitelisted Admin Emails (Hidden from UI)
   const whitelistedEmails = [
     'tiekomedia@gmail.com',
     'passioncareone@gmail.com',
     'davidvanteko@gmail.com'
   ];
 
+  // Secret Security PIN
+  const SECRET_PIN = '2026';
+
   const handleLogin = (e) => {
     e.preventDefault();
     const cleanEmail = emailInput.trim().toLowerCase();
     
-    if (whitelistedEmails.includes(cleanEmail)) {
+    if (whitelistedEmails.includes(cleanEmail) && pinInput.trim() === SECRET_PIN) {
       setIsAuthenticated(true);
       setAuthError('');
     } else {
-      setAuthError('Access Denied: Email is not on the authorized Admin whitelist.');
+      setAuthError('Access Denied: Invalid administrator credentials or security PIN.');
     }
   };
 
   const handleLogout = () => {
     setIsAuthenticated(false);
     setEmailInput('');
+    setPinInput('');
     setAuthError('');
   };
 
   const handleSaveBlog = (e) => {
     e.preventDefault();
     if (!blogFormData.title || !blogFormData.content) {
-      alert('Please provide a blog title and content body.');
+      alert('Please fill out all required fields.');
       return;
     }
 
     if (editingBlog && editingBlog.id) {
-      // Update existing blog
       setBlogs(blogs.map(b => b.id === editingBlog.id ? { ...b, ...blogFormData } : b));
     } else {
-      // Create new blog
       const newBlog = {
         id: Date.now().toString(),
         slug: blogFormData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
@@ -67,7 +79,6 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
       setBlogs([newBlog, ...blogs]);
     }
 
-    // Reset Form
     setEditingBlog(null);
     setBlogFormData({
       title: '',
@@ -94,9 +105,13 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
   };
 
   const handleDeleteBlog = (id) => {
-    if (window.confirm('Are you sure you want to delete this blog post?')) {
+    if (window.confirm('Are you sure you want to delete this article?')) {
       setBlogs(blogs.filter(b => b.id !== id));
     }
+  };
+
+  const toggleTourStatus = (id) => {
+    setTourRequests(tourRequests.map(t => t.id === id ? { ...t, status: t.status === 'Confirmed' ? 'Pending' : 'Confirmed' } : t));
   };
 
   if (!isOpen) return null;
@@ -104,8 +119,8 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
   return (
     <div style={{
       position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
-      backgroundColor: 'rgba(15, 23, 42, 0.88)',
-      backdropFilter: 'blur(8px)',
+      backgroundColor: 'rgba(15, 23, 42, 0.92)',
+      backdropFilter: 'blur(10px)',
       zIndex: 4000,
       display: 'flex',
       alignItems: 'center',
@@ -115,7 +130,7 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
       <div style={{
         backgroundColor: '#FFFFFF',
         borderRadius: 'var(--radius-lg)',
-        maxWidth: isAuthenticated ? '950px' : '450px',
+        maxWidth: isAuthenticated ? '950px' : '440px',
         width: '100%',
         maxHeight: '90vh',
         overflowY: 'auto',
@@ -137,23 +152,24 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
           <X size={18} />
         </button>
 
-        {/* 1. Login View if not authenticated */}
+        {/* 1. Centralized Secure Login Screen */}
         {!isAuthenticated ? (
-          <div style={{ textAlign: 'center' }}>
+          <div style={{ textAlign: 'center', padding: '1rem 0' }}>
             <div style={{ 
-              width: '60px', height: '60px', borderRadius: '50%', 
-              backgroundColor: '#E0F2FE', color: '#0284C7',
+              width: '64px', height: '64px', borderRadius: '50%', 
+              backgroundColor: 'var(--navy-dark)', color: '#FFFFFF',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              margin: '0 auto 1.25rem'
+              margin: '0 auto 1.5rem',
+              boxShadow: 'var(--shadow-md)'
             }}>
               <Lock size={28} />
             </div>
 
-            <h3 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.5rem' }}>
-              Admin Portal Authentication
+            <h3 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.4rem' }}>
+              Admin Portal
             </h3>
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '1.75rem' }}>
-              Enter your whitelisted administrator email address to access website management features.
+            <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '1.75rem' }}>
+              Secure authentication for authorized Passion Care Academy directors.
             </p>
 
             {authError && (
@@ -169,10 +185,13 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
 
             <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div>
+                <label style={{ display: 'block', textAlign: 'left', fontSize: '0.82rem', fontWeight: '700', color: 'var(--navy-dark)', marginBottom: '0.3rem' }}>
+                  Admin Email Address
+                </label>
                 <input 
                   type="email"
                   required
-                  placeholder="name@passioncare.com or authorized email"
+                  placeholder="Enter administrator email"
                   value={emailInput}
                   onChange={(e) => setEmailInput(e.target.value)}
                   style={{
@@ -183,29 +202,43 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
                 />
               </div>
 
-              <button type="submit" className="btn-dark-pill" style={{ width: '100%', justifyContent: 'center', padding: '0.9rem' }}>
-                Verify & Login
+              <div>
+                <label style={{ display: 'block', textAlign: 'left', fontSize: '0.82rem', fontWeight: '700', color: 'var(--navy-dark)', marginBottom: '0.3rem' }}>
+                  Security Passcode PIN
+                </label>
+                <input 
+                  type="password"
+                  required
+                  placeholder="Enter 4-digit PIN (Default: 2026)"
+                  value={pinInput}
+                  onChange={(e) => setPinInput(e.target.value)}
+                  style={{
+                    width: '100%', padding: '0.85rem 1.1rem',
+                    borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)',
+                    fontSize: '0.95rem', fontFamily: 'var(--font-body)'
+                  }}
+                />
+              </div>
+
+              <button type="submit" className="btn-dark-pill" style={{ width: '100%', justifyContent: 'center', padding: '0.9rem', marginTop: '0.5rem' }}>
+                <ShieldCheck size={18} /> Authenticate Admin
               </button>
             </form>
-
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-light)', marginTop: '1.5rem' }}>
-              Authorized whitelist enforcement: <code>tiekomedia@gmail.com</code> | <code>Passioncareone@gmail.com</code> | <code>davidvanteko@gmail.com</code>
-            </div>
           </div>
         ) : (
-          /* 2. Authenticated Dashboard View */
+          /* 2. Full Admin Dashboard Management View */
           <div>
             {/* Top Bar Header */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', borderBottom: '1px solid var(--border-light)', paddingBottom: '1.25rem', marginBottom: '1.5rem' }}>
               <div>
                 <div style={{ fontSize: '0.75rem', fontWeight: '800', color: 'var(--growth-green)', display: 'flex', alignItems: 'center', gap: '0.3rem', textTransform: 'uppercase' }}>
-                  <ShieldCheck size={14} /> Authenticated Admin Session
+                  <ShieldCheck size={14} /> Encrypted Administrator Session
                 </div>
                 <h3 style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--navy-dark)', marginTop: '0.2rem' }}>
-                  Website Management Portal
+                  Director Control Dashboard
                 </h3>
                 <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                  Logged in as: <strong>{emailInput}</strong>
+                  Active user: <strong>{emailInput}</strong>
                 </div>
               </div>
 
@@ -218,12 +251,12 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
                   cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.4rem' 
                 }}
               >
-                <LogOut size={14} /> Logout
+                <LogOut size={14} /> End Session
               </button>
             </div>
 
-            {/* Admin Tabs */}
-            <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '2rem', borderBottom: '1px solid var(--border-light)', paddingBottom: '0.75rem' }}>
+            {/* Admin Management Navigation Tabs */}
+            <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '2rem', borderBottom: '1px solid var(--border-light)', paddingBottom: '0.75rem', flexWrap: 'wrap' }}>
               <button
                 onClick={() => setActiveAdminTab('blogs')}
                 style={{
@@ -241,18 +274,57 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
                   gap: '0.4rem'
                 }}
               >
-                <BookOpen size={16} /> Manage Blogs ({blogs.length})
+                <BookOpen size={16} /> Blog Articles ({blogs.length})
+              </button>
+
+              <button
+                onClick={() => setActiveAdminTab('tours')}
+                style={{
+                  padding: '0.55rem 1.25rem',
+                  borderRadius: 'var(--radius-full)',
+                  border: 'none',
+                  backgroundColor: activeAdminTab === 'tours' ? 'var(--navy-dark)' : '#F1F5F9',
+                  color: activeAdminTab === 'tours' ? '#FFFFFF' : 'var(--navy-dark)',
+                  fontFamily: 'var(--font-heading)',
+                  fontWeight: '700',
+                  fontSize: '0.88rem',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.4rem'
+                }}
+              >
+                <Calendar size={16} /> Tour Requests ({tourRequests.length})
+              </button>
+
+              <button
+                onClick={() => setActiveAdminTab('announcements')}
+                style={{
+                  padding: '0.55rem 1.25rem',
+                  borderRadius: 'var(--radius-full)',
+                  border: 'none',
+                  backgroundColor: activeAdminTab === 'announcements' ? 'var(--navy-dark)' : '#F1F5F9',
+                  color: activeAdminTab === 'announcements' ? '#FFFFFF' : 'var(--navy-dark)',
+                  fontFamily: 'var(--font-heading)',
+                  fontWeight: '700',
+                  fontSize: '0.88rem',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.4rem'
+                }}
+              >
+                <Bell size={16} /> Header Notice Bar
               </button>
             </div>
 
-            {/* TAB: Blog Management */}
+            {/* TAB 1: Blog Management */}
             {activeAdminTab === 'blogs' && (
               <div>
-                {/* Form to Create/Edit Blog */}
                 <div style={{ backgroundColor: 'var(--canvas-bg)', padding: '1.5rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)', marginBottom: '2rem' }}>
                   <h4 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                     {editingBlog ? <Edit2 size={16} /> : <Plus size={16} />}
-                    {editingBlog ? 'Edit Blog Article' : 'Add New SEO Blog Article'}
+                    {editingBlog ? 'Edit Blog Article' : 'Create & Publish New SEO Article'}
                   </h4>
 
                   <form onSubmit={handleSaveBlog} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
@@ -261,7 +333,7 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
                       <input 
                         type="text" 
                         required 
-                        placeholder="e.g. 5 Tips for Choosing Early Childhood Education in DE"
+                        placeholder="e.g. Early Childhood Preschool Readiness in Delaware"
                         value={blogFormData.title}
                         onChange={(e) => setBlogFormData({ ...blogFormData, title: e.target.value })}
                         style={{ width: '100%', padding: '0.7rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)', fontSize: '0.9rem' }}
@@ -337,7 +409,7 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
                   </form>
                 </div>
 
-                {/* Blog Posts List */}
+                {/* Published Articles List */}
                 <h4 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '1rem' }}>
                   Published Blog Articles ({blogs.length})
                 </h4>
@@ -367,6 +439,69 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
                       </div>
                     </div>
                   ))}
+                </div>
+              </div>
+            )}
+
+            {/* TAB 2: Tour Requests */}
+            {activeAdminTab === 'tours' && (
+              <div>
+                <h4 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '1rem' }}>
+                  Scheduled Center Tour Appointments ({tourRequests.length})
+                </h4>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  {tourRequests.map((t) => (
+                    <div key={t.id} style={{ padding: '1.25rem', backgroundColor: 'var(--canvas-bg)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+                      <div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.3rem' }}>
+                          <h5 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--navy-dark)' }}>{t.parentName}</h5>
+                          <span style={{ fontSize: '0.72rem', fontWeight: '800', padding: '0.2rem 0.6rem', borderRadius: 'var(--radius-full)', backgroundColor: t.status === 'Confirmed' ? '#DCFCE7' : '#FEF3C7', color: t.status === 'Confirmed' ? '#15803D' : '#D97706' }}>
+                            {t.status}
+                          </span>
+                        </div>
+                        <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                          📞 Phone: <strong>{t.phone}</strong> | 📅 Requested Date: <strong>{t.date}</strong> | 👶 Child Program: <strong>{t.childAge}</strong>
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={() => toggleTourStatus(t.id)}
+                        style={{ padding: '0.5rem 1rem', borderRadius: 'var(--radius-full)', border: 'none', backgroundColor: t.status === 'Confirmed' ? '#FEF2F2' : 'var(--navy-dark)', color: t.status === 'Confirmed' ? '#DC2626' : '#FFFFFF', fontWeight: '700', fontSize: '0.82rem', cursor: 'pointer' }}
+                      >
+                        {t.status === 'Confirmed' ? 'Mark as Pending' : 'Confirm Appointment'}
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* TAB 3: Notice Bar Editor */}
+            {activeAdminTab === 'announcements' && (
+              <div>
+                <h4 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '1rem' }}>
+                  Live Top Notification Bar Text
+                </h4>
+
+                <div style={{ backgroundColor: 'var(--canvas-bg)', padding: '1.5rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)' }}>
+                  <label style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--navy-dark)', display: 'block', marginBottom: '0.4rem' }}>
+                    Center Status Notice / Announcement
+                  </label>
+                  <input 
+                    type="text" 
+                    value={announcementText}
+                    onChange={(e) => setAnnouncementText(e.target.value)}
+                    style={{ width: '100%', padding: '0.8rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)', fontSize: '0.95rem', marginBottom: '1rem' }}
+                  />
+
+                  <button 
+                    onClick={() => alert('Top announcement bar text updated live!')}
+                    className="btn-dark-pill" 
+                    style={{ fontSize: '0.85rem', padding: '0.75rem 1.4rem' }}
+                  >
+                    <CheckCircle size={16} /> Save & Broadcast Notice
+                  </button>
                 </div>
               </div>
             )}
