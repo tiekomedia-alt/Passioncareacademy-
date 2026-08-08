@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, Clock, Calendar, ArrowRight, X, User } from 'lucide-react';
+import { Clock, Calendar, ArrowRight, X, User } from 'lucide-react';
 
 export default function BlogSection({ blogs = [] }) {
   const [selectedBlog, setSelectedBlog] = useState(null);
@@ -14,30 +14,11 @@ export default function BlogSection({ blogs = [] }) {
   return (
     <section id="blog" style={{ padding: '4.5rem 0', backgroundColor: 'var(--canvas-bg)' }}>
       <div className="container">
-        {/* Section Header */}
+        {/* Section Header (Replaced with Blogs as Requested) */}
         <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 2.5rem' }}>
-          <span style={{ 
-            backgroundColor: '#E0F2FE', 
-            color: '#0284C7', 
-            fontSize: '0.75rem', 
-            fontWeight: '700', 
-            padding: '0.35rem 0.85rem', 
-            borderRadius: 'var(--radius-full)', 
-            display: 'inline-flex', 
-            alignItems: 'center', 
-            gap: '0.35rem',
-            marginBottom: '0.75rem',
-            textTransform: 'uppercase'
-          }}>
-            <BookOpen size={14} /> Early Education & Childcare Insights
-          </span>
-
           <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.75rem' }}>
-            Latest Articles & Delaware Parent Guides
+            Blogs
           </h2>
-          <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
-            Expert advice, early learning strategies, and guidance from our Delaware early education specialists.
-          </p>
 
           {/* Category Filter Tabs */}
           <div style={{ 
@@ -47,7 +28,7 @@ export default function BlogSection({ blogs = [] }) {
             padding: '0.4rem', 
             borderRadius: 'var(--radius-full)', 
             border: '1px solid var(--border-light)',
-            marginTop: '1.5rem',
+            marginTop: '1rem',
             maxWidth: '100%',
             overflowX: 'auto'
           }}>
