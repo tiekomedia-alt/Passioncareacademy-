@@ -2,7 +2,7 @@ import React from 'react';
 import { Navigation, Phone } from 'lucide-react';
 
 export default function Hero() {
-  const directorPhone = "tel:3024198890";
+  const tourPhone = "tel:3028322622";
   const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
 
   return (
@@ -11,35 +11,37 @@ export default function Hero() {
         <div className="hero-grid">
           {/* Left Column: Content Card */}
           <div className="hero-content-col">
-            {/* Main Headline */}
+            {/* Primary Headline Hierarchy */}
             <h1 style={{ 
-              fontSize: 'clamp(2.5rem, 5.8vw, 4.2rem)', 
+              fontSize: 'clamp(2.8rem, 6.5vw, 4.5rem)', 
               fontWeight: '800', 
               color: 'var(--navy-dark)', 
-              lineHeight: '1.1',
-              marginBottom: '1.75rem',
+              lineHeight: '1.08',
+              marginBottom: '0.75rem',
               letterSpacing: '-1px',
               textShadow: '0 1px 2px rgba(255, 255, 255, 0.8)'
             }}>
               Where <br />
               Children <br />
-              Flourish. <br />
-              <span style={{ 
-                color: 'var(--yellow-accent)', 
-                fontStyle: 'italic', 
-                fontWeight: '800',
-                display: 'block',
-                marginTop: '0.3rem',
-                textShadow: '0 1px 3px rgba(15, 23, 42, 0.15)'
-              }}>
-                "We Are Your Extended Family"
-              </span>
+              Flourish.
             </h1>
 
-            {/* Primary Action Buttons */}
+            {/* Reduced Tagline Sub-heading Hierarchy */}
+            <div style={{ 
+              fontSize: 'clamp(1.1rem, 2.4vw, 1.4rem)', 
+              color: 'var(--yellow-accent)', 
+              fontStyle: 'italic', 
+              fontWeight: '800',
+              marginBottom: '2rem',
+              textShadow: '0 1px 3px rgba(15, 23, 42, 0.15)'
+            }}>
+              "We Are Your Extended Family"
+            </div>
+
+            {/* Primary Action Buttons (Schedule Tour: (302) 832-2622) */}
             <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap', maxWidth: '480px' }}>
-              <a href={directorPhone} className="btn-dark-pill" style={{ fontSize: '0.95rem', padding: '0.9rem 1.6rem', flex: '1 1 auto', justifyContent: 'center' }}>
-                <Phone size={18} style={{ color: '#F87171' }} /> Schedule Tour: (302) 419-8890
+              <a href={tourPhone} className="btn-dark-pill" style={{ fontSize: '0.95rem', padding: '0.9rem 1.6rem', flex: '1 1 auto', justifyContent: 'center' }}>
+                <Phone size={18} style={{ color: '#F87171' }} /> Schedule Tour: (302) 832-2622
               </a>
 
               <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="btn-outline-pill" style={{ fontSize: '0.95rem', padding: '0.9rem 1.6rem', color: '#0284C7', flex: '1 1 auto', justifyContent: 'center', backgroundColor: '#FFFFFF' }}>

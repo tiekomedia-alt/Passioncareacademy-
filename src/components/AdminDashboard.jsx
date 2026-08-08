@@ -11,12 +11,12 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
   const [activeAdminTab, setActiveAdminTab] = useState('blogs');
 
   // Announcement State
-  const [announcementText, setAnnouncementText] = useState('Hours: Mon – Fri 6:30 AM – 5:30 PM');
+  const [announcementText, setAnnouncementText] = useState('Hours: Mon – Fri 6:30 AM – 6:00 PM');
 
-  // Tour Requests Mock Manager
+  // Tour Requests Manager State
   const [tourRequests, setTourRequests] = useState([
-    { id: '1', parentName: 'Sarah Jenkins', phone: '(302) 555-0199', date: 'August 12, 2026', childAge: 'Infant (8 months)', status: 'Pending' },
-    { id: '2', parentName: 'Michael Brown', phone: '(302) 555-0144', date: 'August 14, 2026', childAge: 'Preschool (3 years)', status: 'Confirmed' }
+    { id: '1', parentName: 'Sarah Jenkins', phone: '(302) 832-2622', date: 'August 12, 2026', childAge: 'Infant (8 months)', status: 'Pending' },
+    { id: '2', parentName: 'Michael Brown', phone: '(302) 832-2622', date: 'August 14, 2026', childAge: 'Preschool (3 years)', status: 'Confirmed' }
   ]);
 
   // Blog Editor State
@@ -31,15 +31,15 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
     author: 'Director'
   });
 
-  // Secure Whitelisted Admin Emails (Hidden from UI)
+  // Whitelisted Admin Emails
   const whitelistedEmails = [
     'tiekomedia@gmail.com',
     'passioncareone@gmail.com',
     'davidvanteko@gmail.com'
   ];
 
-  // Secret Security PIN
-  const SECRET_PIN = '2026';
+  // Configured Security Passcode PIN
+  const SECRET_PIN = 'xQ7#mK92!vLpR4$w';
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -49,7 +49,7 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
       setIsAuthenticated(true);
       setAuthError('');
     } else {
-      setAuthError('Access Denied: Invalid administrator credentials or security PIN.');
+      setAuthError('Access Denied: Invalid administrator credentials or security passcode.');
     }
   };
 
@@ -169,7 +169,7 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
               Admin Portal
             </h3>
             <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '1.75rem' }}>
-              Secure authentication for authorized Passion Care Academy directors.
+              Secure authentication for authorized administrators.
             </p>
 
             {authError && (
@@ -204,12 +204,12 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
 
               <div>
                 <label style={{ display: 'block', textAlign: 'left', fontSize: '0.82rem', fontWeight: '700', color: 'var(--navy-dark)', marginBottom: '0.3rem' }}>
-                  Security Passcode PIN
+                  Security Passcode
                 </label>
                 <input 
                   type="password"
                   required
-                  placeholder="Enter 4-digit PIN (Default: 2026)"
+                  placeholder="Enter Security Passcode"
                   value={pinInput}
                   onChange={(e) => setPinInput(e.target.value)}
                   style={{
@@ -235,7 +235,7 @@ export default function AdminDashboard({ isOpen, onClose, blogs = [], setBlogs }
                   <ShieldCheck size={14} /> Encrypted Administrator Session
                 </div>
                 <h3 style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--navy-dark)', marginTop: '0.2rem' }}>
-                  Director Control Dashboard
+                  Control Dashboard
                 </h3>
                 <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
                   Active user: <strong>{emailInput}</strong>

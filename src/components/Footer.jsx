@@ -2,7 +2,8 @@ import React from 'react';
 import { Phone, MapPin, Clock, ArrowUp, ExternalLink } from 'lucide-react';
 
 export default function Footer({ onNavigate }) {
-  const directorPhone = "tel:3024198890";
+  const mainPhone = "tel:3028322622";
+  const directLinePhone = "tel:3024198890";
   const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
 
   const scrollToTop = () => {
@@ -68,7 +69,7 @@ export default function Footer({ onNavigate }) {
             </ul>
           </div>
 
-          {/* Col 3: Enrollment (Renamed from Direct Directory) */}
+          {/* Col 3: Enrollment */}
           <div>
             <h4 style={{ fontSize: '1.1rem', fontWeight: '800', color: '#FFFFFF', marginBottom: '1.25rem', fontFamily: 'var(--font-heading)' }}>
               Enrollment
@@ -82,8 +83,7 @@ export default function Footer({ onNavigate }) {
                 </a>
               </li>
               <li>
-                <div style={{ fontSize: '0.75rem', color: '#94A3B8', textTransform: 'uppercase' }}>Tour Appointments:</div>
-                <a href={directorPhone} style={{ color: '#FFFFFF', textDecoration: 'none', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.15rem' }}>
+                <a href={directLinePhone} style={{ color: '#FFFFFF', textDecoration: 'none', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.15rem' }}>
                   <Phone size={14} style={{ color: '#F87171' }} /> (302) 419-8890
                 </a>
               </li>
@@ -103,8 +103,8 @@ export default function Footer({ onNavigate }) {
               <button onClick={() => onNavigate('contact')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>Contact Info</button>
             </div>
 
-            <a href={directorPhone} className="btn-dark-pill" style={{ backgroundColor: 'var(--yellow-accent)', color: 'var(--navy-dark)', border: 'none', width: '100%', justifyContent: 'center', fontSize: '0.88rem' }}>
-              <Phone size={14} /> Call: (302) 419-8890
+            <a href={mainPhone} className="btn-dark-pill" style={{ backgroundColor: 'var(--yellow-accent)', color: 'var(--navy-dark)', border: 'none', width: '100%', justifyContent: 'center', fontSize: '0.88rem' }}>
+              <Phone size={14} /> Call: (302) 832-2622
             </a>
           </div>
         </div>

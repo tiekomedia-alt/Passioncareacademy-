@@ -2,7 +2,7 @@ import React from 'react';
 import { Phone, MapPin, Clock, Home, Navigation, ExternalLink } from 'lucide-react';
 
 export default function ContactSection() {
-  const directorPhone = "tel:3024198890";
+  const tourPhone = "tel:3028322622";
   const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
 
   return (
@@ -69,16 +69,16 @@ export default function ContactSection() {
               </a>
 
               <a 
-                href={directorPhone}
+                href={tourPhone}
                 className="btn-dark-pill"
                 style={{ width: '100%', justifyContent: 'center', fontSize: '0.95rem', padding: '0.9rem 1.25rem' }}
               >
-                <Phone size={18} style={{ color: '#F87171' }} /> Schedule Tour: (302) 419-8890
+                <Phone size={18} style={{ color: '#F87171' }} /> Schedule Tour: (302) 832-2622
               </a>
             </div>
           </div>
 
-          {/* Card 2: Enrollment (Renamed from Direct Contact Directory) */}
+          {/* Card 2: Enrollment */}
           <div style={{ backgroundColor: '#FFFFFF', padding: '2.25rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)', display: 'flex', flexDirection: 'column', justify: 'space-between' }}>
             <div>
               <h3 style={{ fontSize: '1.35rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -86,7 +86,7 @@ export default function ContactSection() {
               </h3>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                {/* General Line */}
+                {/* General Admissions */}
                 <div style={{ padding: '1.1rem', backgroundColor: '#F8FAFC', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)' }}>
                   <div style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--text-light)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                     GENERAL INQUIRIES & ADMISSIONS
@@ -96,13 +96,13 @@ export default function ContactSection() {
                   </a>
                 </div>
 
-                {/* Direct Line without "Director" label */}
+                {/* Contact Label (Replaced TOUR & ENROLLMENT LINE as requested) */}
                 <div style={{ padding: '1.1rem', backgroundColor: '#FEF2F2', borderRadius: 'var(--radius-md)', border: '1px solid #FEE2E2' }}>
                   <div style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--action-red)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                    TOUR & ENROLLMENT LINE
+                    CONTACT:
                   </div>
-                  <a href={directorPhone} style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--action-red)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.35rem' }}>
-                    <Phone size={18} style={{ color: 'var(--action-red)' }} /> (302) 419-8890
+                  <a href={tourPhone} style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--action-red)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.35rem' }}>
+                    <Phone size={18} style={{ color: 'var(--action-red)' }} /> (302) 832-2622
                   </a>
                 </div>
               </div>

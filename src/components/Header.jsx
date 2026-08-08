@@ -4,7 +4,7 @@ import { Phone, Clock, MapPin, Menu, X } from 'lucide-react';
 export default function Header({ activeSection, setActiveSection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const directorPhone = "tel:3024198890";
+  const mainPhone = "tel:3028322622";
   const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
 
   const navItems = [
@@ -42,21 +42,15 @@ export default function Header({ activeSection, setActiveSection }) {
 
       <span style={{ color: '#334155' }}>•</span>
 
-      <a href="tel:3028322622" style={{ color: '#FFFFFF', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontWeight: '600' }}>
-        <Phone size={13} style={{ color: '#4ADE80' }} /> Main Line: (302) 832-2622
-      </a>
-
-      <span style={{ color: '#334155' }}>•</span>
-
-      <a href={directorPhone} style={{ color: '#FFFFFF', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontWeight: '700' }}>
-        <Phone size={13} style={{ color: '#F87171' }} /> (302) 419-8890
+      <a href={mainPhone} style={{ color: '#FFFFFF', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontWeight: '700' }}>
+        <Phone size={13} style={{ color: '#4ADE80' }} /> (302) 832-2622
       </a>
     </div>
   );
 
   return (
     <header style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: '#FFFFFF', borderBottom: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)' }}>
-      {/* Top Infinite Ticker Bar (Hours 6:30 AM - 6:00 PM, Director Label Removed) */}
+      {/* Top Infinite Ticker Bar */}
       <div style={{ 
         backgroundColor: 'var(--navy-dark)', 
         color: '#FFFFFF', 
@@ -126,14 +120,14 @@ export default function Header({ activeSection, setActiveSection }) {
           ))}
         </nav>
 
-        {/* Header Right CTAs */}
+        {/* Header Right CTAs (Updated to 302-832-2622) */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
           <a 
-            href={directorPhone}
+            href={mainPhone}
             className="btn-dark-pill desktop-nav" 
             style={{ fontSize: '0.85rem', padding: '0.75rem 1.4rem' }}
           >
-            <Phone size={16} style={{ color: '#F87171' }} /> Schedule Tour: (302) 419-8890
+            <Phone size={16} style={{ color: '#F87171' }} /> Schedule Tour: (302) 832-2622
           </a>
 
           <button
@@ -184,8 +178,8 @@ export default function Header({ activeSection, setActiveSection }) {
             </button>
           ))}
           <hr style={{ border: 'none', borderTop: '1px solid var(--border-light)' }} />
-          <a href={directorPhone} className="btn-dark-pill" style={{ justifyContent: 'center' }}>
-            <Phone size={18} style={{ color: '#F87171' }} /> Call to Tour: (302) 419-8890
+          <a href={mainPhone} className="btn-dark-pill" style={{ justifyContent: 'center' }}>
+            <Phone size={18} style={{ color: '#F87171' }} /> Schedule Tour: (302) 832-2622
           </a>
         </div>
       )}
