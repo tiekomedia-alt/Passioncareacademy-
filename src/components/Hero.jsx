@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Navigation, Phone } from 'lucide-react';
+import { ShieldCheck, Navigation, Phone, Heart } from 'lucide-react';
 
 export default function Hero() {
   const directorPhone = "tel:3024198890";
@@ -8,6 +8,40 @@ export default function Hero() {
   return (
     <section className="hero-section">
       <div className="container">
+        {/* Mobile-Only Top Featured Image Card (Eliminates Plain White Space on Mobile) */}
+        <div className="mobile-hero-image-banner">
+          <div style={{
+            borderRadius: 'var(--radius-lg)',
+            overflow: 'hidden',
+            boxShadow: 'var(--shadow-md)',
+            position: 'relative',
+            border: '1.5px solid var(--border-light)',
+            marginBottom: '1.25rem'
+          }}>
+            <img 
+              src="/hero-craft.png" 
+              alt="Creative Hands-On Learning at Passion Care Academy"
+              style={{ width: '100%', height: '210px', objectFit: 'cover', display: 'block' }}
+            />
+            <div style={{
+              position: 'absolute',
+              bottom: '0.75rem',
+              left: '0.75rem',
+              backgroundColor: 'rgba(15, 23, 42, 0.85)',
+              backdropFilter: 'blur(4px)',
+              padding: '0.35rem 0.85rem',
+              borderRadius: 'var(--radius-full)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.4rem',
+              color: '#FFFFFF'
+            }}>
+              <Heart size={14} style={{ color: '#F87171' }} />
+              <span style={{ fontSize: '0.78rem', fontWeight: '800' }}>Creative Learning & Arts</span>
+            </div>
+          </div>
+        </div>
+
         <div className="hero-grid">
           {/* Left Column: Content */}
           <div className="hero-content-col">
@@ -76,10 +110,10 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Photo Grid */}
+          {/* Right Column: Photo Grid (Desktop + Mobile Complement) */}
           <div className="hero-photo-col" style={{ position: 'relative', width: '100%' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {/* Top Main Classroom Card */}
+              {/* Top Main Classroom Card featuring the uploaded Craft Girl photo */}
               <div style={{ 
                 borderRadius: 'var(--radius-lg)', 
                 overflow: 'hidden', 
@@ -89,9 +123,9 @@ export default function Hero() {
                 border: '1px solid var(--border-light)'
               }}>
                 <img 
-                  src="/IMG_0971.JPG" 
-                  alt="Creative Crafts Classroom"
-                  style={{ width: '100%', height: '220px', objectFit: 'cover', display: 'block' }}
+                  src="/hero-craft.png" 
+                  alt="Creative Painting Crafts"
+                  style={{ width: '100%', height: '230px', objectFit: 'cover', display: 'block' }}
                 />
                 <div style={{ 
                   position: 'absolute', 
@@ -122,7 +156,7 @@ export default function Hero() {
                   border: '1px solid var(--border-light)'
                 }}>
                   <img 
-                    src="/IMG_4255.jpg" 
+                    src="/IMG_0971.JPG" 
                     alt="After-School Study Station"
                     style={{ width: '100%', height: '130px', objectFit: 'cover', display: 'block' }}
                   />
@@ -174,25 +208,31 @@ export default function Hero() {
           gap: 2.5rem;
           align-items: center;
         }
+        .mobile-hero-image-banner {
+          display: none;
+        }
 
-        /* Mobile View Only: Warm creative background image overlay removing plain white space */
+        /* Mobile View Only Styling: Eliminates Plain White Space and Banner Photo */
         @media (max-width: 768px) {
           .hero-section {
-            background: linear-gradient(180deg, rgba(250, 249, 246, 0.92) 0%, rgba(255, 255, 255, 0.96) 100%), url('/IMG_3139.JPG');
+            background: linear-gradient(180deg, rgba(254, 252, 248, 0.92) 0%, rgba(255, 255, 255, 0.97) 100%), url('/hero-craft.png');
             background-size: cover;
             background-position: center;
-            padding: 2rem 0 3rem;
+            padding: 1.5rem 0 2.5rem;
+          }
+          .mobile-hero-image-banner {
+            display: block;
           }
           .hero-grid {
-            gap: 1.75rem;
+            gap: 1.5rem;
           }
           .hero-content-col {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(10px);
             padding: 1.5rem;
             border-radius: var(--radius-lg);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            boxShadow: var(--shadow-sm);
+            border: 1px solid rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-md);
           }
         }
       `}</style>
