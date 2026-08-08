@@ -1,195 +1,239 @@
 import React from 'react';
-import { Calendar, ShieldCheck, Heart, Utensils, Clock, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Calendar, ShieldCheck, Utensils, CheckCircle2, Clock, ArrowRight } from 'lucide-react';
 
 export default function Hero({ onOpenTourModal, onNavigate }) {
   return (
     <section style={{ 
-      background: 'linear-gradient(135deg, var(--canvas-bg) 0%, var(--canvas-sky) 100%)', 
-      padding: '4rem 0 5rem', 
-      position: 'relative',
-      overflow: 'hidden'
+      backgroundColor: 'var(--canvas-bg)', 
+      padding: '3rem 0 4rem', 
+      position: 'relative'
     }}>
-      {/* Decorative Sky Blue Subtle Elements */}
-      <div style={{
-        position: 'absolute',
-        top: '-10%',
-        right: '-5%',
-        width: '450px',
-        height: '450px',
-        borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(235, 245, 255, 0.8) 0%, rgba(0, 76, 179, 0.05) 100%)',
-        pointerEvents: 'none',
-        zIndex: 0
-      }} />
-
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="container">
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
           gap: '3rem', 
           alignItems: 'center' 
         }}>
-          {/* Left Column: Vision & Conversion Core */}
+          {/* Left Column: Vision & Headline matching reference mobile/desktop screenshot */}
           <div>
-            <div style={{ display: 'inline-flex', gap: '0.5rem', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
-              <span className="badge-green">
+            {/* Top Soft Badges */}
+            <div style={{ display: 'flex', gap: '0.6rem', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
+              <span style={{ 
+                backgroundColor: '#E0F2FE', 
+                color: '#0284C7', 
+                fontSize: '0.75rem', 
+                fontWeight: '700', 
+                padding: '0.35rem 0.85rem', 
+                borderRadius: 'var(--radius-full)', 
+                display: 'inline-flex', 
+                alignItems: 'center', 
+                gap: '0.35rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px'
+              }}>
                 <ShieldCheck size={14} /> State of DE Certified
               </span>
-              <span className="badge-blue">
+
+              <span style={{ 
+                backgroundColor: '#E0F2FE', 
+                color: '#0284C7', 
+                fontSize: '0.75rem', 
+                fontWeight: '700', 
+                padding: '0.35rem 0.85rem', 
+                borderRadius: 'var(--radius-full)', 
+                display: 'inline-flex', 
+                alignItems: 'center', 
+                gap: '0.35rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px'
+              }}>
                 <Utensils size={14} /> CACFP Food Program Participant
               </span>
             </div>
 
+            {/* Main Headline */}
             <h1 style={{ 
-              fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', 
+              fontSize: 'clamp(2.5rem, 5.5vw, 3.8rem)', 
               fontWeight: '800', 
-              color: 'var(--blue-dark)', 
-              lineHeight: '1.15',
-              marginBottom: '1.25rem'
+              color: 'var(--navy-dark)', 
+              lineHeight: '1.1',
+              marginBottom: '1.25rem',
+              letterSpacing: '-1px'
             }}>
-              Where Children Flourish. <br />
-              <span style={{ color: 'var(--action-red)', fontStyle: 'italic' }}>
+              Where <br />
+              Children <br />
+              Flourish. <br />
+              <span style={{ 
+                color: 'var(--yellow-accent)', 
+                fontStyle: 'italic', 
+                fontWeight: '800',
+                display: 'block',
+                marginTop: '0.2rem'
+              }}>
                 "We Are Your Extended Family"
               </span>
             </h1>
 
+            {/* Subtitle Description */}
             <p style={{ 
-              fontSize: '1.15rem', 
+              fontSize: '1.05rem', 
               color: 'var(--text-muted)', 
               marginBottom: '2rem', 
-              maxWidth: '540px',
+              maxWidth: '520px',
               lineHeight: '1.6'
             }}>
               Year-round, safe, creative, and structured early education in Delaware. 
               Providing loving care from infants through preschool and enrichment after-school care through 6th grade.
             </p>
 
-            {/* CTAs */}
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
-              <button onClick={onOpenTourModal} className="btn-primary pulse-cta" style={{ fontSize: '1.05rem', padding: '1rem 2rem' }}>
-                <Calendar size={20} /> Schedule a Center Tour
+            {/* Primary Action Buttons matching reference */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', maxWidth: '380px', marginBottom: '2rem' }}>
+              <button onClick={onOpenTourModal} className="btn-dark-pill" style={{ justifyContent: 'center', fontSize: '1rem', padding: '0.95rem 1.75rem' }}>
+                <Calendar size={18} /> Schedule a Center Tour
               </button>
-              <button onClick={() => onNavigate('compliance')} className="btn-outline" style={{ fontSize: '1rem', padding: '0.9rem 1.75rem' }}>
+              <button onClick={() => onNavigate('compliance')} className="btn-outline-pill" style={{ justifyContent: 'center', fontSize: '0.95rem', padding: '0.9rem 1.75rem' }}>
                 <Utensils size={18} /> CACFP Meal Info & Forms
               </button>
             </div>
 
-            {/* Key Features Bullet Matrix */}
-            <div style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(2, 1fr)', 
-              gap: '1rem', 
-              paddingTop: '1.5rem',
-              borderTop: '1px solid rgba(0, 76, 179, 0.15)'
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                <CheckCircle2 size={20} style={{ color: 'var(--growth-green)', flexShrink: 0 }} />
-                <span style={{ fontSize: '0.95rem', fontWeight: '600', color: 'var(--text-dark)' }}>
-                  Mon–Fri: 6:30 AM – 5:30 PM
-                </span>
+            {/* Checkmark Bullet Matrix */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: '600', color: 'var(--text-dark)' }}>
+                <CheckCircle2 size={18} style={{ color: 'var(--navy-dark)', flexShrink: 0 }} />
+                <span>Mon-Fri: 6:30 AM – 5:30 PM</span>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                <CheckCircle2 size={20} style={{ color: 'var(--growth-green)', flexShrink: 0 }} />
-                <span style={{ fontSize: '0.95rem', fontWeight: '600', color: 'var(--text-dark)' }}>
-                  3 Daily Meals (Preschool)
-                </span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: '600', color: 'var(--text-dark)' }}>
+                <CheckCircle2 size={18} style={{ color: 'var(--navy-dark)', flexShrink: 0 }} />
+                <span>3 Daily Meals (Preschool)</span>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                <CheckCircle2 size={20} style={{ color: 'var(--growth-green)', flexShrink: 0 }} />
-                <span style={{ fontSize: '0.95rem', fontWeight: '600', color: 'var(--text-dark)' }}>
-                  Infants to 6th Grade (12 yrs)
-                </span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: '600', color: 'var(--text-dark)' }}>
+                <CheckCircle2 size={18} style={{ color: 'var(--navy-dark)', flexShrink: 0 }} />
+                <span>Infants to 6th Grade (12 yrs)</span>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                <CheckCircle2 size={20} style={{ color: 'var(--growth-green)', flexShrink: 0 }} />
-                <span style={{ fontSize: '0.95rem', fontWeight: '600', color: 'var(--text-dark)' }}>
-                  Academic & Physical Growth
-                </span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: '600', color: 'var(--text-dark)' }}>
+                <CheckCircle2 size={18} style={{ color: 'var(--navy-dark)', flexShrink: 0 }} />
+                <span>Academic & Physical Growth</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Dynamic Visual Grid with Real Classroom Photography */}
+          {/* Right Column: Hero Classroom Collage Cards matching reference image */}
           <div style={{ position: 'relative' }}>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(2, 1fr)',
-              gap: '1rem'
-            }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <div className="card-glass" style={{ overflow: 'hidden', borderRadius: 'var(--radius-lg)' }}>
-                  <img 
-                    src="/IMG_0971.JPG" 
-                    alt="Creative Learning at Passion Care Academy" 
-                    style={{ width: '100%', height: '180px', objectFit: 'cover', display: 'block' }}
-                  />
-                  <div style={{ padding: '0.75rem 1rem', background: '#FFFFFF' }}>
-                    <span style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--blue-primary)' }}>Creative Crafts</span>
-                  </div>
-                </div>
-
-                <div className="card-glass" style={{ overflow: 'hidden', borderRadius: 'var(--radius-lg)' }}>
-                  <img 
-                    src="/IMG_3219.jpg" 
-                    alt="Classroom Activities" 
-                    style={{ width: '100%', height: '140px', objectFit: 'cover', display: 'block' }}
-                  />
-                  <div style={{ padding: '0.75rem 1rem', background: '#FFFFFF' }}>
-                    <span style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--growth-green)' }}>Early Education</span>
-                  </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {/* Top Main Classroom Card */}
+              <div style={{ 
+                borderRadius: 'var(--radius-lg)', 
+                overflow: 'hidden', 
+                boxShadow: 'var(--shadow-md)', 
+                position: 'relative',
+                backgroundColor: '#FFFFFF',
+                border: '1px solid var(--border-light)'
+              }}>
+                <img 
+                  src="/IMG_0971.JPG" 
+                  alt="Creative Crafts Classroom"
+                  style={{ width: '100%', height: '230px', objectFit: 'cover', display: 'block' }}
+                />
+                <div style={{ 
+                  position: 'absolute', 
+                  bottom: '1rem', 
+                  left: '1rem', 
+                  backgroundColor: 'rgba(255, 255, 255, 0.95)', 
+                  backdropFilter: 'blur(4px)',
+                  padding: '0.4rem 0.85rem', 
+                  borderRadius: 'var(--radius-full)', 
+                  display: 'inline-flex', 
+                  alignItems: 'center', 
+                  gap: '0.4rem',
+                  boxShadow: 'var(--shadow-sm)'
+                }}>
+                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--growth-green)' }} />
+                  <span style={{ fontSize: '0.82rem', fontWeight: '700', color: 'var(--navy-dark)' }}>Creative Crafts</span>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.5rem' }}>
-                <div className="card-glass" style={{ overflow: 'hidden', borderRadius: 'var(--radius-lg)' }}>
+              {/* Bottom Split Row */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+                {/* Left Split Card */}
+                <div style={{ 
+                  borderRadius: 'var(--radius-lg)', 
+                  overflow: 'hidden', 
+                  boxShadow: 'var(--shadow-md)', 
+                  position: 'relative',
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid var(--border-light)'
+                }}>
                   <img 
-                    src="/IMG_4378.jpg" 
-                    alt="After-School Academic Enrichment" 
+                    src="/IMG_4255.jpg" 
+                    alt="After-School Study Station"
                     style={{ width: '100%', height: '140px', objectFit: 'cover', display: 'block' }}
                   />
-                  <div style={{ padding: '0.75rem 1rem', background: '#FFFFFF' }}>
-                    <span style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--blue-primary)' }}>After-School Care</span>
+                  <div style={{ 
+                    position: 'absolute', 
+                    bottom: '0.75rem', 
+                    left: '0.75rem', 
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)', 
+                    backdropFilter: 'blur(4px)',
+                    padding: '0.3rem 0.65rem', 
+                    borderRadius: 'var(--radius-full)', 
+                    fontSize: '0.75rem',
+                    fontWeight: '700',
+                    color: 'var(--navy-dark)'
+                  }}>
+                    After-School Care
                   </div>
                 </div>
 
-                <div className="card-glass" style={{ overflow: 'hidden', borderRadius: 'var(--radius-lg)' }}>
+                {/* Right Split Card */}
+                <div style={{ 
+                  borderRadius: 'var(--radius-lg)', 
+                  overflow: 'hidden', 
+                  boxShadow: 'var(--shadow-md)', 
+                  position: 'relative',
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid var(--border-light)'
+                }}>
                   <img 
-                    src="/IMG_6611.JPG" 
-                    alt="Warm Family Environment" 
-                    style={{ width: '100%', height: '180px', objectFit: 'cover', display: 'block' }}
+                    src="/IMG_3219.jpg" 
+                    alt="Preschool Phonics & Reading"
+                    style={{ width: '100%', height: '140px', objectFit: 'cover', display: 'block' }}
                   />
-                  <div style={{ padding: '0.75rem 1rem', background: '#FFFFFF' }}>
-                    <span style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--action-red)' }}>Nurturing Family</span>
-                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Floating Trust Card */}
+            {/* Floating Bottom Card matching reference image */}
             <div style={{
-              position: 'absolute',
-              bottom: '-20px',
-              left: '50%',
-              transform: 'translateX(-50%)',
+              marginTop: '1.25rem',
               backgroundColor: '#FFFFFF',
-              borderRadius: 'var(--radius-full)',
-              padding: '0.75rem 1.5rem',
-              boxShadow: 'var(--shadow-xl)',
+              borderRadius: 'var(--radius-md)',
+              padding: '0.85rem 1.25rem',
+              boxShadow: 'var(--shadow-md)',
               display: 'flex',
               alignItems: 'center',
-              gap: '0.75rem',
-              border: '2px solid var(--blue-soft)',
-              whiteSpace: 'nowrap'
+              gap: '0.85rem',
+              border: '1px solid var(--border-light)'
             }}>
-              <div style={{ width: '36px', height: '36px', borderRadius: '50%', backgroundColor: 'var(--growth-green-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--growth-green)' }}>
-                <Heart size={20} />
+              <div style={{ 
+                width: '40px', 
+                height: '40px', 
+                borderRadius: '50%', 
+                backgroundColor: 'var(--blue-sky-badge)', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justify: 'center', 
+                color: '#0284C7',
+                flexShrink: 0
+              }}>
+                <Clock size={20} />
               </div>
               <div>
-                <div style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-dark)' }}>Year-Round Delaware Care</div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>6:30 AM – 5:30 PM Monday–Friday</div>
+                <div style={{ fontSize: '0.88rem', fontWeight: '700', color: 'var(--navy-dark)' }}>Year-Round Delaware Care</div>
+                <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>6:30 AM - 5:30 PM Monday–Friday</div>
               </div>
             </div>
           </div>
