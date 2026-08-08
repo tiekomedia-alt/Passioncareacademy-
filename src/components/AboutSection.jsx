@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Heart, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function AboutSection() {
   const [activeImageIndex, setActiveImageIndex] = useState(null);
@@ -28,24 +28,8 @@ export default function AboutSection() {
   return (
     <section id="about" style={{ padding: '4.5rem 0', backgroundColor: '#FFFFFF' }}>
       <div className="container">
-        {/* About Us Vision */}
+        {/* About Us Vision (Badge Removed as Requested) */}
         <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3.5rem' }}>
-          <span style={{ 
-            backgroundColor: '#E0F2FE', 
-            color: '#0284C7', 
-            fontSize: '0.75rem', 
-            fontWeight: '700', 
-            padding: '0.35rem 0.85rem', 
-            borderRadius: 'var(--radius-full)', 
-            display: 'inline-flex', 
-            alignItems: 'center', 
-            gap: '0.35rem',
-            marginBottom: '0.75rem',
-            textTransform: 'uppercase'
-          }}>
-            <Heart size={14} /> About Us
-          </span>
-
           <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 2.8rem)', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '1rem' }}>
             We Are Your Extended Family
           </h2>
@@ -59,18 +43,18 @@ export default function AboutSection() {
           </p>
         </div>
 
-        {/* Facility & Classroom Gallery (Labels Removed from all images) */}
+        {/* Gallery Section */}
         <div>
           <div style={{ textAlign: 'center', maxWidth: '650px', margin: '0 auto 2.5rem' }}>
             <h3 style={{ fontSize: '2.2rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.5rem' }}>
-              Facility & Classroom Gallery
+              Gallery
             </h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '1rem' }}>
               Take a peek inside our Delaware facility. Click any photo to view full resolution.
             </p>
           </div>
 
-          {/* Image Grid without overlays/labels as requested */}
+          {/* Image Grid */}
           <div style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 

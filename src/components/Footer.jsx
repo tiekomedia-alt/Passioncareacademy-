@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Clock, ArrowUp, ExternalLink } from 'lucide-react';
+import { Phone, MapPin, Clock, ArrowUp, ExternalLink, ShieldCheck } from 'lucide-react';
 
 export default function Footer({ onNavigate }) {
   const directorPhone = "tel:3024198890";
@@ -19,7 +19,7 @@ export default function Footer({ onNavigate }) {
           paddingBottom: '3rem',
           borderBottom: '1px solid #1E293B'
         }}>
-          {/* Col 1: Brand Logo */}
+          {/* Col 1: Brand Logo & State Certification */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
               <img 
@@ -42,10 +42,29 @@ export default function Footer({ onNavigate }) {
               href={mapsUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
-              style={{ color: '#38BDF8', textDecoration: 'none', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
+              style={{ color: '#38BDF8', textDecoration: 'none', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginBottom: '1.25rem' }}
             >
               📍 3727 Wrangle Hill Rd, Bear, DE <ExternalLink size={12} />
             </a>
+
+            {/* State of DE Certified Trust Link */}
+            <div>
+              <span style={{ 
+                backgroundColor: 'rgba(255, 255, 255, 0.1)', 
+                color: '#38BDF8', 
+                fontSize: '0.78rem', 
+                fontWeight: '700', 
+                padding: '0.4rem 0.9rem', 
+                borderRadius: 'var(--radius-full)', 
+                display: 'inline-flex', 
+                alignItems: 'center', 
+                gap: '0.4rem',
+                border: '1px solid rgba(56, 189, 248, 0.3)',
+                textTransform: 'uppercase'
+              }}>
+                <ShieldCheck size={15} style={{ color: '#38BDF8' }} /> State of DE Certified Facility
+              </span>
+            </div>
           </div>
 
           {/* Col 2: Operating Schedule */}

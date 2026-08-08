@@ -8,20 +8,20 @@ export default function Hero() {
   return (
     <section style={{ 
       backgroundColor: 'var(--canvas-bg)', 
-      padding: '3rem 0 4rem', 
+      padding: '2.5rem 0 3.5rem', 
       position: 'relative'
     }}>
       <div className="container">
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
-          gap: '3rem', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+          gap: '2.5rem', 
           alignItems: 'center' 
         }}>
-          {/* Left Column */}
+          {/* Left Column: Content */}
           <div>
             {/* Top Badge */}
-            <div style={{ display: 'flex', gap: '0.6rem', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '0.6rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
               <span style={{ 
                 backgroundColor: '#E0F2FE', 
                 color: '#0284C7', 
@@ -40,7 +40,7 @@ export default function Hero() {
 
             {/* Main Headline */}
             <h1 style={{ 
-              fontSize: 'clamp(2.5rem, 5.5vw, 3.8rem)', 
+              fontSize: 'clamp(2.3rem, 5.5vw, 3.8rem)', 
               fontWeight: '800', 
               color: 'var(--navy-dark)', 
               lineHeight: '1.1',
@@ -63,9 +63,9 @@ export default function Hero() {
 
             {/* Subtitle Description */}
             <p style={{ 
-              fontSize: '1.05rem', 
+              fontSize: '1.02rem', 
               color: 'var(--text-muted)', 
-              marginBottom: '2rem', 
+              marginBottom: '1.75rem', 
               maxWidth: '520px',
               lineHeight: '1.6'
             }}>
@@ -73,20 +73,20 @@ export default function Hero() {
               Providing loving care from infants through preschool and enrichment after-school care through 6th grade.
             </p>
 
-            {/* Primary Action Buttons (Address removed below CTAs as requested) */}
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', maxWidth: '480px' }}>
-              <a href={directorPhone} className="btn-dark-pill" style={{ fontSize: '1rem', padding: '0.95rem 1.75rem' }}>
+            {/* Primary Action Buttons */}
+            <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap', maxWidth: '480px' }}>
+              <a href={directorPhone} className="btn-dark-pill" style={{ fontSize: '0.95rem', padding: '0.9rem 1.6rem', flex: '1 1 auto', justifyContent: 'center' }}>
                 <Phone size={18} style={{ color: '#F87171' }} /> Schedule Tour: (302) 419-8890
               </a>
 
-              <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="btn-outline-pill" style={{ fontSize: '0.95rem', padding: '0.95rem 1.75rem', color: '#0284C7' }}>
+              <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="btn-outline-pill" style={{ fontSize: '0.95rem', padding: '0.9rem 1.6rem', color: '#0284C7', flex: '1 1 auto', justifyContent: 'center' }}>
                 <Navigation size={18} /> Get Directions
               </a>
             </div>
           </div>
 
-          {/* Right Column */}
-          <div style={{ position: 'relative' }}>
+          {/* Right Column: Mobile-Optimized Photo Grid */}
+          <div style={{ position: 'relative', width: '100%' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {/* Top Main Classroom Card */}
               <div style={{ 
@@ -100,12 +100,12 @@ export default function Hero() {
                 <img 
                   src="/IMG_0971.JPG" 
                   alt="Creative Crafts Classroom"
-                  style={{ width: '100%', height: '230px', objectFit: 'cover', display: 'block' }}
+                  style={{ width: '100%', height: '220px', objectFit: 'cover', display: 'block' }}
                 />
                 <div style={{ 
                   position: 'absolute', 
-                  bottom: '1rem', 
-                  left: '1rem', 
+                  bottom: '0.85rem', 
+                  left: '0.85rem', 
                   backgroundColor: 'rgba(255, 255, 255, 0.95)', 
                   backdropFilter: 'blur(4px)',
                   padding: '0.4rem 0.85rem', 
@@ -121,7 +121,7 @@ export default function Hero() {
               </div>
 
               {/* Bottom Split Row */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.85rem' }}>
                 <div style={{ 
                   borderRadius: 'var(--radius-lg)', 
                   overflow: 'hidden', 
@@ -133,12 +133,12 @@ export default function Hero() {
                   <img 
                     src="/IMG_4255.jpg" 
                     alt="After-School Study Station"
-                    style={{ width: '100%', height: '140px', objectFit: 'cover', display: 'block' }}
+                    style={{ width: '100%', height: '130px', objectFit: 'cover', display: 'block' }}
                   />
                   <div style={{ 
                     position: 'absolute', 
-                    bottom: '0.75rem', 
-                    left: '0.75rem', 
+                    bottom: '0.65rem', 
+                    left: '0.65rem', 
                     backgroundColor: 'rgba(255, 255, 255, 0.95)', 
                     backdropFilter: 'blur(4px)',
                     padding: '0.3rem 0.65rem', 
@@ -162,7 +162,7 @@ export default function Hero() {
                   <img 
                     src="/IMG_3219.jpg" 
                     alt="Preschool Phonics & Reading"
-                    style={{ width: '100%', height: '140px', objectFit: 'cover', display: 'block' }}
+                    style={{ width: '100%', height: '130px', objectFit: 'cover', display: 'block' }}
                   />
                 </div>
               </div>

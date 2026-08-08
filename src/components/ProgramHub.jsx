@@ -6,14 +6,11 @@ export default function ProgramHub() {
 
   const programs = [
     {
-      id: 'infant-toddler',
+      id: 'infants',
       category: 'early',
-      title: 'Infants & Toddlers',
+      title: 'Infants',
       age: '6 Weeks – 2 Years',
       icon: Baby,
-      badge: 'Early Development',
-      badgeColor: 'var(--blue-soft)',
-      textColor: 'var(--blue-primary)',
       bgGradient: 'linear-gradient(180deg, #FFFFFF 0%, #F0F7FF 100%)',
       description: 'Nurturing, sensory-rich environment providing personalized care routines, motor development, and loving social connections.',
       highlights: [
@@ -26,12 +23,9 @@ export default function ProgramHub() {
     {
       id: 'preschool',
       category: 'early',
-      title: 'Preschool & Early Learning',
+      title: 'Preschool',
       age: '3 Years – 5 Years',
       icon: GraduationCap,
-      badge: 'Kindergarten Readiness',
-      badgeColor: 'var(--blue-soft)',
-      textColor: 'var(--blue-primary)',
       bgGradient: 'linear-gradient(180deg, #FFFFFF 0%, #F0F7FF 100%)',
       description: 'Comprehensive early childhood curriculum focusing on kindergarten readiness, social-emotional growth, phonics, and creative crafts.',
       highlights: [
@@ -47,9 +41,6 @@ export default function ProgramHub() {
       title: 'After-School Program',
       age: 'Kindergarten – 6th Grade (Up to 12 Years)',
       icon: School,
-      badge: 'Academic & Physical Focus',
-      badgeColor: '#FEF3C7',
-      textColor: '#D97706',
       bgGradient: 'linear-gradient(180deg, #FFFFFF 0%, #FFFBEB 100%)',
       description: 'Empowering school-aged children with dual emphasis on academic enrichment, guided homework assistance, and active physical play.',
       highlights: [
@@ -68,7 +59,7 @@ export default function ProgramHub() {
   return (
     <section id="programs" style={{ padding: '4.5rem 0', backgroundColor: '#FFFFFF' }}>
       <div className="container">
-        {/* Section Header */}
+        {/* Section Header: Programs */}
         <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 2.5rem' }}>
           <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.75rem' }}>
             Programs
@@ -82,7 +73,9 @@ export default function ProgramHub() {
             padding: '0.4rem', 
             borderRadius: 'var(--radius-full)', 
             border: '1px solid var(--border-light)',
-            marginTop: '1rem'
+            marginTop: '1rem',
+            maxWidth: '100%',
+            overflowX: 'auto'
           }}>
             <button
               onClick={() => setActiveTab('all')}
@@ -96,7 +89,8 @@ export default function ProgramHub() {
                 fontWeight: '700',
                 fontSize: '0.88rem',
                 cursor: 'pointer',
-                transition: 'all 0.2s ease'
+                transition: 'all 0.2s ease',
+                whiteSpace: 'nowrap'
               }}
             >
               All Programs
@@ -113,7 +107,8 @@ export default function ProgramHub() {
                 fontWeight: '700',
                 fontSize: '0.88rem',
                 cursor: 'pointer',
-                transition: 'all 0.2s ease'
+                transition: 'all 0.2s ease',
+                whiteSpace: 'nowrap'
               }}
             >
               Early Childhood (Infant–Preschool)
@@ -130,7 +125,8 @@ export default function ProgramHub() {
                 fontWeight: '700',
                 fontSize: '0.88rem',
                 cursor: 'pointer',
-                transition: 'all 0.2s ease'
+                transition: 'all 0.2s ease',
+                whiteSpace: 'nowrap'
               }}
             >
               After-School (K–6th Grade)
@@ -138,10 +134,10 @@ export default function ProgramHub() {
           </div>
         </div>
 
-        {/* Program Cards Grid */}
+        {/* Program Cards Grid (Navy Icons Centered Perfect Flexbox & Badges Removed) */}
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
           gap: '2rem'
         }}>
           {filteredPrograms.map((prog) => {
@@ -161,30 +157,21 @@ export default function ProgramHub() {
                 }}
               >
                 <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.25rem' }}>
+                  {/* Perfect Flex Center Navy Container */}
+                  <div style={{ marginBottom: '1.25rem' }}>
                     <div style={{ 
-                      width: '52px', 
-                      height: '52px', 
+                      width: '56px', 
+                      height: '56px', 
                       borderRadius: 'var(--radius-md)', 
                       backgroundColor: 'var(--navy-dark)', 
                       display: 'flex', 
                       alignItems: 'center', 
-                      justify: 'center',
-                      color: '#FFFFFF'
+                      justifyContent: 'center',
+                      color: '#FFFFFF',
+                      boxShadow: 'var(--shadow-sm)'
                     }}>
-                      <IconComp size={26} />
+                      <IconComp size={28} style={{ display: 'block', margin: 'auto' }} />
                     </div>
-
-                    <span style={{ 
-                      fontSize: '0.78rem', 
-                      fontWeight: '800', 
-                      padding: '0.35rem 0.75rem', 
-                      borderRadius: 'var(--radius-full)', 
-                      backgroundColor: prog.badgeColor, 
-                      color: prog.textColor 
-                    }}>
-                      {prog.badge}
-                    </span>
                   </div>
 
                   <h3 style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.35rem' }}>
