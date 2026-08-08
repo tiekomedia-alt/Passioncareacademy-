@@ -1,7 +1,8 @@
 import React from 'react';
 import { Phone, MapPin, Clock, Home, Navigation, ExternalLink, Calendar, ShieldCheck, UserCheck } from 'lucide-react';
 
-export default function ContactSection({ onOpenTourModal }) {
+export default function ContactSection() {
+  const directorPhone = "tel:3024198890";
   const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
 
   return (
@@ -32,13 +33,13 @@ export default function ContactSection({ onOpenTourModal }) {
           </p>
         </div>
 
-        {/* Clean 2-Column Contact & Location Layout (Form Removed as Requested) */}
+        {/* 2-Column Contact & Location Layout */}
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', 
           gap: '2rem' 
         }}>
-          {/* Card 1: Physical Facility Location & Google Maps */}
+          {/* Card 1: Physical Location & Driving Directions */}
           <div style={{ 
             backgroundColor: '#FFFFFF', 
             padding: '2.25rem', 
@@ -85,13 +86,13 @@ export default function ContactSection({ onOpenTourModal }) {
                 <Navigation size={18} /> Get Directions on Google Maps <ExternalLink size={14} />
               </a>
 
-              <button 
-                onClick={onOpenTourModal}
+              <a 
+                href={directorPhone}
                 className="btn-dark-pill"
                 style={{ width: '100%', justifyContent: 'center', fontSize: '0.95rem', padding: '0.9rem 1.25rem' }}
               >
-                <Calendar size={18} /> Schedule a Center Tour
-              </button>
+                <Phone size={18} style={{ color: '#F87171' }} /> Call Director to Schedule Tour: (302) 419-8890
+              </a>
             </div>
           </div>
 
@@ -119,13 +120,13 @@ export default function ContactSection({ onOpenTourModal }) {
                 {/* Director Direct Line */}
                 <div style={{ padding: '1.1rem', backgroundColor: '#FEF2F2', borderRadius: 'var(--radius-md)', border: '1px solid #FEE2E2' }}>
                   <div style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--action-red)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                    DAYCARE DIRECTOR DIRECT LINE
+                    DAYCARE DIRECTOR DIRECT LINE (TOUR BOOKING)
                   </div>
-                  <a href="tel:3024198890" style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--action-red)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.35rem' }}>
+                  <a href={directorPhone} style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--action-red)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.35rem' }}>
                     <Phone size={18} style={{ color: 'var(--action-red)' }} /> (302) 419-8890
                   </a>
                   <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
-                    Direct line for administrative & urgent parent matters.
+                    Direct line to schedule tours & urgent parent inquiries.
                   </div>
                 </div>
 

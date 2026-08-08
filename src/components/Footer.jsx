@@ -1,7 +1,8 @@
 import React from 'react';
 import { Phone, MapPin, Clock, ShieldCheck, Heart, ArrowUp, Navigation, ExternalLink } from 'lucide-react';
 
-export default function Footer({ onNavigate, onOpenTourModal }) {
+export default function Footer({ onNavigate }) {
+  const directorPhone = "tel:3024198890";
   const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
 
   const scrollToTop = () => {
@@ -18,7 +19,7 @@ export default function Footer({ onNavigate, onOpenTourModal }) {
           paddingBottom: '3rem',
           borderBottom: '1px solid #1E293B'
         }}>
-          {/* Col 1: Brand Logo & Vision */}
+          {/* Col 1: Logo & Vision */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
               <img 
@@ -104,8 +105,8 @@ export default function Footer({ onNavigate, onOpenTourModal }) {
                 </a>
               </li>
               <li>
-                <div style={{ fontSize: '0.75rem', color: '#94A3B8', textTransform: 'uppercase' }}>Director Direct Line:</div>
-                <a href="tel:3024198890" style={{ color: '#FFFFFF', textDecoration: 'none', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.15rem' }}>
+                <div style={{ fontSize: '0.75rem', color: '#94A3B8', textTransform: 'uppercase' }}>Director Direct Line (Tour):</div>
+                <a href={directorPhone} style={{ color: '#FFFFFF', textDecoration: 'none', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.15rem' }}>
                   <Phone size={14} style={{ color: '#F87171' }} /> (302) 419-8890
                 </a>
               </li>
@@ -124,8 +125,8 @@ export default function Footer({ onNavigate, onOpenTourModal }) {
               <button onClick={() => onNavigate('contact')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>Contact Info</button>
             </div>
 
-            <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="btn-dark-pill" style={{ backgroundColor: 'var(--yellow-accent)', color: 'var(--navy-dark)', border: 'none', width: '100%', justifyContent: 'center', fontSize: '0.88rem' }}>
-              <Navigation size={15} /> Get Driving Directions
+            <a href={directorPhone} className="btn-dark-pill" style={{ backgroundColor: 'var(--yellow-accent)', color: 'var(--navy-dark)', border: 'none', width: '100%', justifyContent: 'center', fontSize: '0.88rem' }}>
+              <Phone size={14} /> Call Director: (302) 419-8890
             </a>
           </div>
         </div>

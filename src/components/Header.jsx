@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Phone, Calendar, Clock, MapPin, Menu, X, UserCheck, Navigation } from 'lucide-react';
+import { Phone, Calendar, Clock, MapPin, Menu, X, UserCheck } from 'lucide-react';
 
-export default function Header({ onOpenTourModal, onOpenAdminModal, activeSection, setActiveSection }) {
+export default function Header({ onOpenAdminModal, activeSection, setActiveSection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const directorPhone = "tel:3024198890";
   const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
 
   const navItems = [
@@ -35,7 +36,6 @@ export default function Header({ onOpenTourModal, onOpenAdminModal, activeSectio
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: '#38BDF8', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontWeight: '700' }}
-              title="Get Directions on Google Maps"
             >
               <MapPin size={13} style={{ color: '#38BDF8' }} /> 3727 Wrangle Hill Rd, Bear, DE 📍
             </a>
@@ -46,7 +46,7 @@ export default function Header({ onOpenTourModal, onOpenAdminModal, activeSectio
               <Phone size={13} style={{ color: '#4ADE80' }} /> Main: (302) 832-2622
             </a>
             <span style={{ color: '#334155' }}>|</span>
-            <a href="tel:3024198890" style={{ color: '#FFFFFF', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontWeight: '600' }}>
+            <a href={directorPhone} style={{ color: '#FFFFFF', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontWeight: '700' }}>
               <Phone size={13} style={{ color: '#F87171' }} /> Director: (302) 419-8890
             </a>
             <span style={{ color: '#334155' }}>|</span>
@@ -60,9 +60,9 @@ export default function Header({ onOpenTourModal, onOpenAdminModal, activeSectio
         </div>
       </div>
 
-      {/* Main Navbar with Uploaded Brand Logo */}
+      {/* Main Navbar */}
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.85rem 1.25rem' }}>
-        {/* Brand Logo Image */}
+        {/* Logo */}
         <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
           <img 
             src="/logo.png" 
@@ -79,7 +79,7 @@ export default function Header({ onOpenTourModal, onOpenAdminModal, activeSectio
           </div>
         </a>
 
-        {/* Desktop Navigation (Removed CACFP & Philosophy) */}
+        {/* Navigation items */}
         <nav style={{ display: 'flex', alignItems: 'center', gap: '2.25rem' }} className="desktop-nav">
           {navItems.map((item) => (
             <button
@@ -116,18 +116,12 @@ export default function Header({ onOpenTourModal, onOpenAdminModal, activeSectio
         {/* Header Right CTAs */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
           <a 
-            href={mapsUrl} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="btn-outline-pill desktop-nav" 
-            style={{ fontSize: '0.85rem', padding: '0.75rem 1.25rem' }}
+            href={directorPhone}
+            className="btn-dark-pill desktop-nav" 
+            style={{ fontSize: '0.85rem', padding: '0.75rem 1.4rem' }}
           >
-            <Navigation size={15} style={{ color: '#0284C7' }} /> Get Directions
+            <Phone size={16} style={{ color: '#F87171' }} /> Schedule Tour: (302) 419-8890
           </a>
-
-          <button onClick={onOpenTourModal} className="btn-dark-pill desktop-nav" style={{ fontSize: '0.85rem', padding: '0.75rem 1.4rem' }}>
-            <Calendar size={16} /> Schedule a Tour
-          </button>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -147,7 +141,7 @@ export default function Header({ onOpenTourModal, onOpenAdminModal, activeSectio
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div style={{
           backgroundColor: '#FFFFFF',
@@ -177,12 +171,9 @@ export default function Header({ onOpenTourModal, onOpenAdminModal, activeSectio
             </button>
           ))}
           <hr style={{ border: 'none', borderTop: '1px solid var(--border-light)' }} />
-          <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="btn-outline-pill" style={{ justifyContent: 'center' }}>
-            <Navigation size={18} /> Get Directions (Bear, DE)
+          <a href={directorPhone} className="btn-dark-pill" style={{ justifyContent: 'center' }}>
+            <Phone size={18} style={{ color: '#F87171' }} /> Call Director: (302) 419-8890
           </a>
-          <button onClick={() => { setMobileMenuOpen(false); onOpenTourModal(); }} className="btn-dark-pill" style={{ justifyContent: 'center' }}>
-            <Calendar size={18} /> Schedule a Center Tour
-          </button>
         </div>
       )}
 

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Calendar, ShieldCheck, Utensils, CheckCircle2, Clock, MapPin, Navigation } from 'lucide-react';
+import { Calendar, ShieldCheck, Utensils, CheckCircle2, Clock, MapPin, Navigation, Phone } from 'lucide-react';
 
-export default function Hero({ onOpenTourModal, onNavigate }) {
+export default function Hero({ onNavigate }) {
+  const directorPhone = "tel:3024198890";
   const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
 
   return (
@@ -87,11 +88,11 @@ export default function Hero({ onOpenTourModal, onNavigate }) {
               Providing loving care from infants through preschool and enrichment after-school care through 6th grade.
             </p>
 
-            {/* Primary Action Buttons */}
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', maxWidth: '440px', marginBottom: '2rem' }}>
-              <button onClick={onOpenTourModal} className="btn-dark-pill" style={{ fontSize: '1rem', padding: '0.95rem 1.75rem' }}>
-                <Calendar size={18} /> Schedule a Center Tour
-              </button>
+            {/* Direct Call to Director CTAs */}
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', maxWidth: '480px', marginBottom: '2rem' }}>
+              <a href={directorPhone} className="btn-dark-pill" style={{ fontSize: '1rem', padding: '0.95rem 1.75rem' }}>
+                <Phone size={18} style={{ color: '#F87171' }} /> Schedule Tour: (302) 419-8890
+              </a>
 
               <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="btn-outline-pill" style={{ fontSize: '0.95rem', padding: '0.95rem 1.75rem', color: '#0284C7' }}>
                 <Navigation size={18} /> Get Directions

@@ -5,16 +5,15 @@ import ProgramHub from './components/ProgramHub';
 import ComplianceHub from './components/ComplianceHub';
 import AboutSection from './components/AboutSection';
 import ContactSection from './components/ContactSection';
-import TourBookingModal from './components/TourBookingModal';
 import AdminTourViewer from './components/AdminTourViewer';
 import Footer from './components/Footer';
-import { Calendar, Phone, Navigation } from 'lucide-react';
+import { Phone, Navigation } from 'lucide-react';
 
 export default function App() {
-  const [tourModalOpen, setTourModalOpen] = useState(false);
   const [adminModalOpen, setAdminModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
+  const directorPhone = "tel:3024198890";
   const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
 
   const handleNavigate = (sectionId) => {
@@ -29,7 +28,6 @@ export default function App() {
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       {/* Sticky Top Header */}
       <Header 
-        onOpenTourModal={() => setTourModalOpen(true)}
         onOpenAdminModal={() => setAdminModalOpen(true)}
         activeSection={activeSection}
         setActiveSection={setActiveSection}
@@ -38,35 +36,21 @@ export default function App() {
       {/* Main Content Modules */}
       <main style={{ flex: 1 }}>
         <Hero 
-          onOpenTourModal={() => setTourModalOpen(true)}
           onNavigate={handleNavigate}
         />
 
-        <ProgramHub 
-          onOpenTourModal={() => setTourModalOpen(true)}
-        />
+        <ProgramHub />
 
-        <AboutSection 
-          onOpenTourModal={() => setTourModalOpen(true)}
-        />
+        <AboutSection />
 
         <ComplianceHub />
 
-        <ContactSection 
-          onOpenTourModal={() => setTourModalOpen(true)}
-        />
+        <ContactSection />
       </main>
 
       {/* Footer */}
       <Footer 
         onNavigate={handleNavigate}
-        onOpenTourModal={() => setTourModalOpen(true)}
-      />
-
-      {/* Interactive Tour Booking Modal */}
-      <TourBookingModal 
-        isOpen={tourModalOpen}
-        onClose={() => setTourModalOpen(false)}
       />
 
       {/* Admin Tour Management Viewer Modal */}
@@ -103,13 +87,13 @@ export default function App() {
         >
           <Navigation size={16} /> Directions
         </a>
-        <button 
-          onClick={() => setTourModalOpen(true)} 
+        <a 
+          href={directorPhone} 
           className="btn-dark-pill" 
-          style={{ flex: 1.4, justifyContent: 'center', fontSize: '0.85rem', padding: '0.65rem' }}
+          style={{ flex: 1.5, justifyContent: 'center', fontSize: '0.85rem', padding: '0.65rem' }}
         >
-          <Calendar size={16} /> Book Tour
-        </button>
+          <Phone size={16} style={{ color: '#F87171' }} /> Tour: (302) 419-8890
+        </a>
       </div>
 
       <style>{`
