@@ -26,7 +26,7 @@ export default function Header({ activeSection, setActiveSection }) {
   const tickerItems = (
     <div style={{ display: 'inline-flex', alignItems: 'center', gap: '2.5rem', whiteSpace: 'nowrap', paddingRight: '2.5rem' }}>
       <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', color: '#94A3B8' }}>
-        <Clock size={13} style={{ color: '#38BDF8' }} /> <strong>Hours:</strong> Mon – Fri 6:30 AM – 5:30 PM
+        <Clock size={13} style={{ color: '#38BDF8' }} /> <strong>Hours:</strong> Mon – Fri 6:30 AM – 6:00 PM
       </span>
 
       <span style={{ color: '#334155' }}>•</span>
@@ -49,14 +49,14 @@ export default function Header({ activeSection, setActiveSection }) {
       <span style={{ color: '#334155' }}>•</span>
 
       <a href={directorPhone} style={{ color: '#FFFFFF', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontWeight: '700' }}>
-        <Phone size={13} style={{ color: '#F87171' }} /> Daycare Director: (302) 419-8890
+        <Phone size={13} style={{ color: '#F87171' }} /> (302) 419-8890
       </a>
     </div>
   );
 
   return (
     <header style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: '#FFFFFF', borderBottom: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)' }}>
-      {/* Top Infinite Ticker / Marquee Bar (Admin Portal Removed as Requested) */}
+      {/* Top Infinite Ticker Bar (Hours 6:30 AM - 6:00 PM, Director Label Removed) */}
       <div style={{ 
         backgroundColor: 'var(--navy-dark)', 
         color: '#FFFFFF', 
@@ -185,7 +185,7 @@ export default function Header({ activeSection, setActiveSection }) {
           ))}
           <hr style={{ border: 'none', borderTop: '1px solid var(--border-light)' }} />
           <a href={directorPhone} className="btn-dark-pill" style={{ justifyContent: 'center' }}>
-            <Phone size={18} style={{ color: '#F87171' }} /> Call Director: (302) 419-8890
+            <Phone size={18} style={{ color: '#F87171' }} /> Call to Tour: (302) 419-8890
           </a>
         </div>
       )}

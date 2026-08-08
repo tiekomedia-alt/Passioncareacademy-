@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Clock, ArrowUp, ExternalLink, ShieldCheck } from 'lucide-react';
+import { Phone, MapPin, Clock, ArrowUp, ExternalLink } from 'lucide-react';
 
 export default function Footer({ onNavigate }) {
   const directorPhone = "tel:3024198890";
@@ -19,7 +19,7 @@ export default function Footer({ onNavigate }) {
           paddingBottom: '3rem',
           borderBottom: '1px solid #1E293B'
         }}>
-          {/* Col 1: Brand Logo & State Certification */}
+          {/* Col 1: Brand Logo */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
               <img 
@@ -42,29 +42,10 @@ export default function Footer({ onNavigate }) {
               href={mapsUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
-              style={{ color: '#38BDF8', textDecoration: 'none', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginBottom: '1.25rem' }}
+              style={{ color: '#38BDF8', textDecoration: 'none', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
             >
               📍 3727 Wrangle Hill Rd, Bear, DE <ExternalLink size={12} />
             </a>
-
-            {/* State of DE Certified Trust Link */}
-            <div>
-              <span style={{ 
-                backgroundColor: 'rgba(255, 255, 255, 0.1)', 
-                color: '#38BDF8', 
-                fontSize: '0.78rem', 
-                fontWeight: '700', 
-                padding: '0.4rem 0.9rem', 
-                borderRadius: 'var(--radius-full)', 
-                display: 'inline-flex', 
-                alignItems: 'center', 
-                gap: '0.4rem',
-                border: '1px solid rgba(56, 189, 248, 0.3)',
-                textTransform: 'uppercase'
-              }}>
-                <ShieldCheck size={15} style={{ color: '#38BDF8' }} /> State of DE Certified Facility
-              </span>
-            </div>
           </div>
 
           {/* Col 2: Operating Schedule */}
@@ -76,7 +57,7 @@ export default function Footer({ onNavigate }) {
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.9rem', color: '#CBD5E1' }}>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Clock size={16} style={{ color: '#38BDF8' }} />
-                <span>Hours: Mon–Fri 6:30 AM – 5:30 PM</span>
+                <span>Hours: Mon–Fri 6:30 AM – 6:00 PM</span>
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <a href={mapsUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#38BDF8', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: '600' }}>
@@ -87,10 +68,10 @@ export default function Footer({ onNavigate }) {
             </ul>
           </div>
 
-          {/* Col 3: Direct Directory */}
+          {/* Col 3: Enrollment (Renamed from Direct Directory) */}
           <div>
             <h4 style={{ fontSize: '1.1rem', fontWeight: '800', color: '#FFFFFF', marginBottom: '1.25rem', fontFamily: 'var(--font-heading)' }}>
-              Direct Directory
+              Enrollment
             </h4>
 
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.9rem' }}>
@@ -101,7 +82,7 @@ export default function Footer({ onNavigate }) {
                 </a>
               </li>
               <li>
-                <div style={{ fontSize: '0.75rem', color: '#94A3B8', textTransform: 'uppercase' }}>Director Direct Line (Tour):</div>
+                <div style={{ fontSize: '0.75rem', color: '#94A3B8', textTransform: 'uppercase' }}>Tour Appointments:</div>
                 <a href={directorPhone} style={{ color: '#FFFFFF', textDecoration: 'none', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.15rem' }}>
                   <Phone size={14} style={{ color: '#F87171' }} /> (302) 419-8890
                 </a>
@@ -118,11 +99,12 @@ export default function Footer({ onNavigate }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.25rem', fontSize: '0.9rem' }}>
               <button onClick={() => onNavigate('programs')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>Programs</button>
               <button onClick={() => onNavigate('about')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>About Us</button>
+              <button onClick={() => onNavigate('blog')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>Blog & Articles</button>
               <button onClick={() => onNavigate('contact')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>Contact Info</button>
             </div>
 
             <a href={directorPhone} className="btn-dark-pill" style={{ backgroundColor: 'var(--yellow-accent)', color: 'var(--navy-dark)', border: 'none', width: '100%', justifyContent: 'center', fontSize: '0.88rem' }}>
-              <Phone size={14} /> Call Director: (302) 419-8890
+              <Phone size={14} /> Call: (302) 419-8890
             </a>
           </div>
         </div>
