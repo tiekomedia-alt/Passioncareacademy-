@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Calendar, Clock, MapPin, Menu, X, UserCheck } from 'lucide-react';
+import { Phone, Clock, MapPin, Menu, X, UserCheck } from 'lucide-react';
 
 export default function Header({ onOpenAdminModal, activeSection, setActiveSection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,41 +22,62 @@ export default function Header({ onOpenAdminModal, activeSection, setActiveSecti
     }
   };
 
+  const tickerItems = (
+    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '2.5rem', whiteSpace: 'nowrap', paddingRight: '2.5rem' }}>
+      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', color: '#94A3B8' }}>
+        <Clock size={13} style={{ color: '#38BDF8' }} /> <strong>Hours:</strong> Mon – Fri 6:30 AM – 5:30 PM
+      </span>
+
+      <span style={{ color: '#334155' }}>•</span>
+
+      <a 
+        href={mapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ color: '#38BDF8', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontWeight: '700' }}
+      >
+        <MapPin size={13} style={{ color: '#38BDF8' }} /> 3727 Wrangle Hill Rd, Bear, DE 📍
+      </a>
+
+      <span style={{ color: '#334155' }}>•</span>
+
+      <a href="tel:3028322622" style={{ color: '#FFFFFF', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontWeight: '600' }}>
+        <Phone size={13} style={{ color: '#4ADE80' }} /> Main Line: (302) 832-2622
+      </a>
+
+      <span style={{ color: '#334155' }}>•</span>
+
+      <a href={directorPhone} style={{ color: '#FFFFFF', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontWeight: '700' }}>
+        <Phone size={13} style={{ color: '#F87171' }} /> Daycare Director: (302) 419-8890
+      </a>
+
+      <span style={{ color: '#334155' }}>•</span>
+
+      <button 
+        onClick={onOpenAdminModal}
+        style={{ background: 'transparent', border: 'none', color: '#38BDF8', cursor: 'pointer', fontSize: '0.82rem', display: 'inline-flex', alignItems: 'center', gap: '0.25rem', padding: 0 }}
+      >
+        <UserCheck size={13} /> Admin Portal
+      </button>
+    </div>
+  );
+
   return (
     <header style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: '#FFFFFF', borderBottom: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)' }}>
-      {/* Top Notification Bar */}
-      <div style={{ backgroundColor: 'var(--navy-dark)', color: '#FFFFFF', padding: '0.4rem 0', fontSize: '0.82rem' }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', color: '#94A3B8' }}>
-              <Clock size={13} style={{ color: '#38BDF8' }} /> <strong>Hours:</strong> Mon – Fri 6:30 AM – 5:30 PM
-            </span>
-            <a 
-              href={mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: '#38BDF8', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontWeight: '700' }}
-            >
-              <MapPin size={13} style={{ color: '#38BDF8' }} /> 3727 Wrangle Hill Rd, Bear, DE 📍
-            </a>
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <a href="tel:3028322622" style={{ color: '#FFFFFF', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontWeight: '600' }}>
-              <Phone size={13} style={{ color: '#4ADE80' }} /> Main: (302) 832-2622
-            </a>
-            <span style={{ color: '#334155' }}>|</span>
-            <a href={directorPhone} style={{ color: '#FFFFFF', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontWeight: '700' }}>
-              <Phone size={13} style={{ color: '#F87171' }} /> Director: (302) 419-8890
-            </a>
-            <span style={{ color: '#334155' }}>|</span>
-            <button 
-              onClick={onOpenAdminModal}
-              style={{ background: 'transparent', border: 'none', color: '#38BDF8', cursor: 'pointer', fontSize: '0.8rem', display: 'inline-flex', alignItems: 'center', gap: '0.25rem', padding: 0 }}
-            >
-              <UserCheck size={13} /> Admin Portal
-            </button>
-          </div>
+      {/* Top Infinite Ticker / Marquee Bar */}
+      <div style={{ 
+        backgroundColor: 'var(--navy-dark)', 
+        color: '#FFFFFF', 
+        padding: '0.45rem 0', 
+        fontSize: '0.82rem', 
+        overflow: 'hidden', 
+        position: 'relative' 
+      }}>
+        <div className="ticker-track" style={{ display: 'flex', width: 'max-content' }}>
+          {tickerItems}
+          {tickerItems}
+          {tickerItems}
+          {tickerItems}
         </div>
       </div>
 
@@ -178,6 +199,16 @@ export default function Header({ onOpenAdminModal, activeSection, setActiveSecti
       )}
 
       <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+        .ticker-track {
+          animation: marquee 30s linear infinite;
+        }
+        .ticker-track:hover {
+          animation-play-state: paused;
+        }
         @media (max-width: 900px) {
           .desktop-nav { display: none !important; }
           .mobile-menu-btn { display: block !important; }
