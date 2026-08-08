@@ -6,20 +6,11 @@ export default function Hero() {
   const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
 
   return (
-    <section style={{ 
-      backgroundColor: 'var(--canvas-bg)', 
-      padding: '2.5rem 0 3.5rem', 
-      position: 'relative'
-    }}>
+    <section className="hero-section">
       <div className="container">
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-          gap: '2.5rem', 
-          alignItems: 'center' 
-        }}>
+        <div className="hero-grid">
           {/* Left Column: Content */}
-          <div>
+          <div className="hero-content-col">
             {/* Top Badge */}
             <div style={{ display: 'flex', gap: '0.6rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
               <span style={{ 
@@ -85,8 +76,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Mobile-Optimized Photo Grid */}
-          <div style={{ position: 'relative', width: '100%' }}>
+          {/* Right Column: Photo Grid */}
+          <div className="hero-photo-col" style={{ position: 'relative', width: '100%' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {/* Top Main Classroom Card */}
               <div style={{ 
@@ -170,6 +161,41 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        .hero-section {
+          background-color: var(--canvas-bg);
+          padding: 3rem 0 4rem;
+          position: relative;
+        }
+        .hero-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2.5rem;
+          align-items: center;
+        }
+
+        /* Mobile View Only: Warm creative background image overlay removing plain white space */
+        @media (max-width: 768px) {
+          .hero-section {
+            background: linear-gradient(180deg, rgba(250, 249, 246, 0.92) 0%, rgba(255, 255, 255, 0.96) 100%), url('/IMG_3139.JPG');
+            background-size: cover;
+            background-position: center;
+            padding: 2rem 0 3rem;
+          }
+          .hero-grid {
+            gap: 1.75rem;
+          }
+          .hero-content-col {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            boxShadow: var(--shadow-sm);
+          }
+        }
+      `}</style>
     </section>
   );
 }

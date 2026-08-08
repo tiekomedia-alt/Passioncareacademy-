@@ -5,12 +5,18 @@ export default function AboutSection() {
   const [activeImageIndex, setActiveImageIndex] = useState(null);
 
   const galleryImages = [
-    { src: '/IMG_0971.JPG', alt: 'Facility Activity' },
-    { src: '/IMG_2311.JPG', alt: 'Classroom Activity' },
-    { src: '/IMG_4378.jpg', alt: 'Outdoor Area' },
-    { src: '/IMG_3219.jpg', alt: 'Preschool Corner' },
-    { src: '/IMG_1773.JPG', alt: 'Learning Area' },
-    { src: '/IMG_2357.JPG', alt: 'Arts & Crafts' }
+    { src: '/IMG_0971.JPG', alt: 'Creative Crafts Classroom' },
+    { src: '/IMG_2311.JPG', alt: 'Sensory Toddler Play' },
+    { src: '/IMG_4378.jpg', alt: 'Outdoor Playground' },
+    { src: '/IMG_3219.jpg', alt: 'Preschool Literacy Area' },
+    { src: '/IMG_1773.JPG', alt: 'Early Learning Station' },
+    { src: '/IMG_2357.JPG', alt: 'Art & Expression' },
+    { src: '/IMG_2378.JPG', alt: 'Group Activity Zone' },
+    { src: '/IMG_3139.JPG', alt: 'Infant Care Nook' },
+    { src: '/IMG_4257.jpg', alt: 'After-School Study Area' },
+    { src: '/IMG_4739.jpg', alt: 'Interactive Playroom' },
+    { src: '/IMG_5311.JPG', alt: 'Building Blocks & STEM' },
+    { src: '/IMG_6448.JPG', alt: 'Storytelling Circle' }
   ];
 
   const handleNextImage = () => {
@@ -28,7 +34,7 @@ export default function AboutSection() {
   return (
     <section id="about" style={{ padding: '4.5rem 0', backgroundColor: '#FFFFFF' }}>
       <div className="container">
-        {/* About Us Vision (Badge Removed as Requested) */}
+        {/* About Us Vision */}
         <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3.5rem' }}>
           <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 2.8rem)', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '1rem' }}>
             We Are Your Extended Family
@@ -54,10 +60,10 @@ export default function AboutSection() {
             </p>
           </div>
 
-          {/* Image Grid */}
+          {/* Image Grid with 12 High-Res Photos */}
           <div style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', 
             gap: '1.5rem' 
           }}>
             {galleryImages.map((img, index) => (

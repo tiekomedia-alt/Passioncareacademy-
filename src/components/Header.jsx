@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Phone, Clock, MapPin, Menu, X, UserCheck } from 'lucide-react';
+import { Phone, Clock, MapPin, Menu, X } from 'lucide-react';
 
-export default function Header({ onOpenAdminModal, activeSection, setActiveSection }) {
+export default function Header({ activeSection, setActiveSection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const directorPhone = "tel:3024198890";
@@ -10,6 +10,7 @@ export default function Header({ onOpenAdminModal, activeSection, setActiveSecti
   const navItems = [
     { id: 'programs', label: 'Programs' },
     { id: 'about', label: 'About Us' },
+    { id: 'blog', label: 'Blog & Articles' },
     { id: 'contact', label: 'Contact Info' },
   ];
 
@@ -50,21 +51,12 @@ export default function Header({ onOpenAdminModal, activeSection, setActiveSecti
       <a href={directorPhone} style={{ color: '#FFFFFF', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontWeight: '700' }}>
         <Phone size={13} style={{ color: '#F87171' }} /> Daycare Director: (302) 419-8890
       </a>
-
-      <span style={{ color: '#334155' }}>•</span>
-
-      <button 
-        onClick={onOpenAdminModal}
-        style={{ background: 'transparent', border: 'none', color: '#38BDF8', cursor: 'pointer', fontSize: '0.82rem', display: 'inline-flex', alignItems: 'center', gap: '0.25rem', padding: 0 }}
-      >
-        <UserCheck size={13} /> Admin Portal
-      </button>
     </div>
   );
 
   return (
     <header style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: '#FFFFFF', borderBottom: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)' }}>
-      {/* Top Infinite Ticker / Marquee Bar */}
+      {/* Top Infinite Ticker / Marquee Bar (Admin Portal Removed as Requested) */}
       <div style={{ 
         backgroundColor: 'var(--navy-dark)', 
         color: '#FFFFFF', 
