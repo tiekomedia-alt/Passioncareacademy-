@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function AboutSection() {
   const [activeImageIndex, setActiveImageIndex] = useState(null);
+  const scrollRef = useRef(null);
 
   const galleryImages = [
     { src: '/IMG_0971.JPG', alt: 'Creative Crafts Classroom' },
@@ -18,6 +19,18 @@ export default function AboutSection() {
     { src: '/IMG_5311.JPG', alt: 'Building Blocks & STEM' },
     { src: '/IMG_6448.JPG', alt: 'Storytelling Circle' }
   ];
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -320, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 320, behavior: 'smooth' });
+    }
+  };
 
   const handleNextImage = () => {
     if (activeImageIndex !== null) {
@@ -49,28 +62,71 @@ export default function AboutSection() {
           </p>
         </div>
 
-        {/* Gallery Section */}
-        <div>
-          <div style={{ textAlign: 'center', maxWidth: '650px', margin: '0 auto 2.5rem' }}>
-            <h3 style={{ fontSize: '2.2rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.5rem' }}>
-              Gallery
-            </h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '1rem' }}>
-              Take a peek inside our Delaware facility. Click any photo to view full resolution.
-            </p>
+        {/* Gallery Section with Horizontal Swipe Track */}
+        <div style={{ position: 'relative' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
+            <div>
+              <h3 style={{ fontSize: '2.2rem', fontWeight: '800', color: 'var(--navy-dark)', margin: 0 }}>
+                Gallery
+              </h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', margin: '0.2rem 0 0' }}>
+                Swipe left & right to explore our Delaware center photos. Click any photo to expand.
+              </p>
+            </div>
+
+            {/* Left / Right Scroll Controls */}
+            <div style={{ display: 'flex', gap: '0.5rem' }}>
+              <button 
+                onClick={scrollLeft}
+                aria-label="Scroll left"
+                style={{
+                  width: '42px', height: '42px', borderRadius: '50%',
+                  backgroundColor: 'var(--canvas-bg)', border: '1px solid var(--border-light)',
+                  color: 'var(--navy-dark)', cursor: 'pointer',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  boxShadow: 'var(--shadow-sm)', transition: 'all 0.2s ease'
+                }}
+              >
+                <ChevronLeft size={22} />
+              </button>
+
+              <button 
+                onClick={scrollRight}
+                aria-label="Scroll right"
+                style={{
+                  width: '42px', height: '42px', borderRadius: '50%',
+                  backgroundColor: 'var(--navy-dark)', border: 'none',
+                  color: '#FFFFFF', cursor: 'pointer',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  boxShadow: 'var(--shadow-sm)', transition: 'all 0.2s ease'
+                }}
+              >
+                <ChevronRight size={22} />
+              </button>
+            </div>
           </div>
 
-          {/* Image Grid with 12 High-Res Photos */}
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', 
-            gap: '1.5rem' 
-          }}>
+          {/* Horizontal Swiping Container */}
+          <div 
+            ref={scrollRef}
+            className="horizontal-gallery-track"
+            style={{ 
+              display: 'flex', 
+              gap: '1.25rem',
+              overflowX: 'auto',
+              scrollSnapType: 'x mandatory',
+              WebkitOverflowScrolling: 'touch',
+              paddingBottom: '1rem',
+              scrollbarWidth: 'none'
+            }}
+          >
             {galleryImages.map((img, index) => (
               <div 
                 key={index} 
                 onClick={() => setActiveImageIndex(index)}
                 style={{ 
+                  flex: '0 0 280px',
+                  scrollSnapAlign: 'start',
                   overflow: 'hidden', 
                   borderRadius: 'var(--radius-lg)', 
                   cursor: 'pointer',
@@ -147,6 +203,12 @@ export default function AboutSection() {
           </button>
         </div>
       )}
+
+      <style>{`
+        .horizontal-gallery-track::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 }
