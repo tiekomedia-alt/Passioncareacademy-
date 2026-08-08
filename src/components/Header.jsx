@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Calendar, Clock, MapPin, Menu, X, ShieldCheck, UserCheck, GraduationCap, Navigation } from 'lucide-react';
+import { Phone, Calendar, Clock, MapPin, Menu, X, UserCheck, Navigation } from 'lucide-react';
 
 export default function Header({ onOpenTourModal, onOpenAdminModal, activeSection, setActiveSection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -8,8 +8,7 @@ export default function Header({ onOpenTourModal, onOpenAdminModal, activeSectio
 
   const navItems = [
     { id: 'programs', label: 'Programs & Meals' },
-    { id: 'compliance', label: 'CACFP & State Forms' },
-    { id: 'about', label: 'About & Philosophy' },
+    { id: 'about', label: 'About Us' },
     { id: 'contact', label: 'Contact Info' },
   ];
 
@@ -23,20 +22,20 @@ export default function Header({ onOpenTourModal, onOpenAdminModal, activeSectio
   };
 
   return (
-    <header style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: 'var(--canvas-bg)', borderBottom: '1px solid var(--border-light)' }}>
-      {/* Top Banner with Direct Map Directions Link */}
+    <header style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: '#FFFFFF', borderBottom: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)' }}>
+      {/* Top Notification Bar */}
       <div style={{ backgroundColor: 'var(--navy-dark)', color: '#FFFFFF', padding: '0.4rem 0', fontSize: '0.82rem' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', color: '#94A3B8' }}>
-              <Clock size={13} style={{ color: '#38BDF8' }} /> <strong>Hours:</strong> Mon – Fri 6:30 AM – 5:30 PM
+              <Clock size={13} style={{ color: '#38BDF8' }} /> <strong>Hours:</strong> Mon – Fri 6:30 AM – 5:30 PM (Year-Round)
             </span>
             <a 
               href={mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: '#38BDF8', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontWeight: '700' }}
-              title="Get Directions on Google Maps to 3727 Wrangle Hill Rd, Bear, DE 19701"
+              title="Get Directions on Google Maps"
             >
               <MapPin size={13} style={{ color: '#38BDF8' }} /> 3727 Wrangle Hill Rd, Bear, DE 📍
             </a>
@@ -61,15 +60,17 @@ export default function Header({ onOpenTourModal, onOpenAdminModal, activeSectio
         </div>
       </div>
 
-      {/* Main Navbar */}
-      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 1.25rem' }}>
-        {/* Brand Logo */}
-        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', textDecoration: 'none' }}>
-          <div style={{ width: '38px', height: '38px', borderRadius: '10px', backgroundColor: 'var(--navy-dark)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFFFFF' }}>
-            <GraduationCap size={22} />
-          </div>
+      {/* Main Navbar with Uploaded Brand Logo */}
+      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.85rem 1.25rem' }}>
+        {/* Brand Logo Image */}
+        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
+          <img 
+            src="/logo.png" 
+            alt="Passion Care Academy Logo" 
+            style={{ height: '52px', width: 'auto', objectFit: 'contain' }}
+          />
           <div>
-            <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: '800', color: 'var(--navy-dark)', letterSpacing: '-0.3px', lineHeight: '1.1', textTransform: 'uppercase' }}>
+            <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '800', color: 'var(--navy-dark)', letterSpacing: '-0.3px', lineHeight: '1.1', textTransform: 'uppercase' }}>
               PASSION CARE
             </span>
             <span style={{ fontFamily: 'var(--font-heading)', fontSize: '0.78rem', fontWeight: '800', color: 'var(--navy-dark)', letterSpacing: '2px', display: 'block', textTransform: 'uppercase' }}>
@@ -78,8 +79,8 @@ export default function Header({ onOpenTourModal, onOpenAdminModal, activeSectio
           </div>
         </a>
 
-        {/* Desktop Navigation */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '2rem' }} className="desktop-nav">
+        {/* Desktop Navigation (Removed CACFP & Philosophy) */}
+        <nav style={{ display: 'flex', alignItems: 'center', gap: '2.25rem' }} className="desktop-nav">
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -90,7 +91,7 @@ export default function Header({ onOpenTourModal, onOpenAdminModal, activeSectio
                 color: activeSection === item.id ? 'var(--navy-dark)' : 'var(--text-muted)',
                 fontFamily: 'var(--font-heading)',
                 fontWeight: activeSection === item.id ? '800' : '600',
-                fontSize: '0.95rem',
+                fontSize: '0.98rem',
                 cursor: 'pointer',
                 padding: '0.4rem 0',
                 position: 'relative'
@@ -177,7 +178,7 @@ export default function Header({ onOpenTourModal, onOpenAdminModal, activeSectio
           ))}
           <hr style={{ border: 'none', borderTop: '1px solid var(--border-light)' }} />
           <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="btn-outline-pill" style={{ justifyContent: 'center' }}>
-            <Navigation size={18} /> Get Directions (3727 Wrangle Hill Rd)
+            <Navigation size={18} /> Get Directions (Bear, DE)
           </a>
           <button onClick={() => { setMobileMenuOpen(false); onOpenTourModal(); }} className="btn-dark-pill" style={{ justifyContent: 'center' }}>
             <Calendar size={18} /> Schedule a Center Tour

@@ -28,7 +28,7 @@ export default function AboutSection({ onOpenTourModal }) {
   return (
     <section id="about" style={{ padding: '4.5rem 0', backgroundColor: '#FFFFFF' }}>
       <div className="container">
-        {/* Extended Family Vision */}
+        {/* About Us Vision */}
         <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3rem' }}>
           <span style={{ 
             backgroundColor: '#E0F2FE', 
@@ -43,7 +43,7 @@ export default function AboutSection({ onOpenTourModal }) {
             marginBottom: '0.75rem',
             textTransform: 'uppercase'
           }}>
-            <Heart size={14} /> Our Cultural Identity
+            <Heart size={14} /> About Us
           </span>
 
           <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 2.8rem)', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '1rem' }}>
@@ -80,7 +80,7 @@ export default function AboutSection({ onOpenTourModal }) {
           </div>
         </div>
 
-        {/* Facility & Classroom Gallery matching reference mobile screenshot */}
+        {/* Facility & Classroom Gallery */}
         <div>
           <div style={{ textAlign: 'center', maxWidth: '650px', margin: '0 auto 2.5rem' }}>
             <span style={{ 
@@ -106,7 +106,7 @@ export default function AboutSection({ onOpenTourModal }) {
             </p>
           </div>
 
-          {/* Vertical/Grid Stack Cards matching reference images */}
+          {/* Vertical/Grid Stack Cards */}
           <div style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 

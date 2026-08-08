@@ -19,7 +19,7 @@ export default function Hero({ onOpenTourModal, onNavigate }) {
         }}>
           {/* Left Column */}
           <div>
-            {/* Top Soft Badges */}
+            {/* Top Badges */}
             <div style={{ display: 'flex', gap: '0.6rem', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
               <span style={{ 
                 backgroundColor: '#E0F2FE', 
@@ -48,7 +48,7 @@ export default function Hero({ onOpenTourModal, onNavigate }) {
                 gap: '0.35rem',
                 textTransform: 'uppercase'
               }}>
-                <Utensils size={14} /> CACFP Food Program Participant
+                <Utensils size={14} /> CACFP Meal Program Participant
               </span>
             </div>
 
@@ -88,19 +88,14 @@ export default function Hero({ onOpenTourModal, onNavigate }) {
             </p>
 
             {/* Primary Action Buttons */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', maxWidth: '400px', marginBottom: '2rem' }}>
-              <button onClick={onOpenTourModal} className="btn-dark-pill" style={{ justifyContent: 'center', fontSize: '1rem', padding: '0.95rem 1.75rem' }}>
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', maxWidth: '440px', marginBottom: '2rem' }}>
+              <button onClick={onOpenTourModal} className="btn-dark-pill" style={{ fontSize: '1rem', padding: '0.95rem 1.75rem' }}>
                 <Calendar size={18} /> Schedule a Center Tour
               </button>
 
-              <div style={{ display: 'flex', gap: '0.75rem' }}>
-                <button onClick={() => onNavigate('compliance')} className="btn-outline-pill" style={{ flex: 1, justifyContent: 'center', fontSize: '0.88rem', padding: '0.85rem 1rem' }}>
-                  <Utensils size={16} /> CACFP Meals & Forms
-                </button>
-                <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="btn-outline-pill" style={{ flex: 1, justifyContent: 'center', fontSize: '0.88rem', padding: '0.85rem 1rem', color: '#0284C7' }}>
-                  <Navigation size={16} /> Get Directions
-                </a>
-              </div>
+              <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="btn-outline-pill" style={{ fontSize: '0.95rem', padding: '0.95rem 1.75rem', color: '#0284C7' }}>
+                <Navigation size={18} /> Get Directions
+              </a>
             </div>
 
             {/* Checkmark Bullet Matrix */}
@@ -205,7 +200,7 @@ export default function Hero({ onOpenTourModal, onNavigate }) {
               </div>
             </div>
 
-            {/* Floating Bottom Card linking to Google Maps */}
+            {/* Floating Bottom Card */}
             <a 
               href={mapsUrl} 
               target="_blank" 

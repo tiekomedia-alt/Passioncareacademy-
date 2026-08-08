@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Clock, ShieldCheck, Heart, ArrowUp, GraduationCap, UserCheck, Navigation, ExternalLink } from 'lucide-react';
+import { Phone, MapPin, Clock, ShieldCheck, Heart, ArrowUp, Navigation, ExternalLink } from 'lucide-react';
 
 export default function Footer({ onNavigate, onOpenTourModal }) {
   const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
@@ -18,15 +18,20 @@ export default function Footer({ onNavigate, onOpenTourModal }) {
           paddingBottom: '3rem',
           borderBottom: '1px solid #1E293B'
         }}>
-          {/* Col 1: Brand Info */}
+          {/* Col 1: Brand Logo & Vision */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '1.25rem' }}>
-              <div style={{ width: '38px', height: '38px', borderRadius: '10px', backgroundColor: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--navy-dark)' }}>
-                <GraduationCap size={22} />
-              </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+              <img 
+                src="/logo.png" 
+                alt="Passion Care Academy" 
+                style={{ height: '48px', width: 'auto', backgroundColor: '#FFFFFF', borderRadius: '8px', padding: '4px' }}
+              />
               <div>
                 <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', fontWeight: '800', color: '#FFFFFF', letterSpacing: '-0.3px', display: 'block', lineHeight: '1.1', textTransform: 'uppercase' }}>
                   PASSION CARE ACADEMY
+                </span>
+                <span style={{ fontSize: '0.75rem', color: '#38BDF8', fontWeight: '700', textTransform: 'uppercase' }}>
+                  "We Are Your Extended Family"
                 </span>
               </div>
             </div>
@@ -115,8 +120,7 @@ export default function Footer({ onNavigate, onOpenTourModal }) {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.25rem', fontSize: '0.9rem' }}>
               <button onClick={() => onNavigate('programs')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>Programs & Meals</button>
-              <button onClick={() => onNavigate('compliance')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>CACFP & State Forms</button>
-              <button onClick={() => onNavigate('about')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>About & Philosophy</button>
+              <button onClick={() => onNavigate('about')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>About Us</button>
               <button onClick={() => onNavigate('contact')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>Contact Info</button>
             </div>
 

@@ -8,12 +8,14 @@ import ContactSection from './components/ContactSection';
 import TourBookingModal from './components/TourBookingModal';
 import AdminTourViewer from './components/AdminTourViewer';
 import Footer from './components/Footer';
-import { Calendar, Phone } from 'lucide-react';
+import { Calendar, Phone, Navigation } from 'lucide-react';
 
 export default function App() {
   const [tourModalOpen, setTourModalOpen] = useState(false);
   const [adminModalOpen, setAdminModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+
+  const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
 
   const handleNavigate = (sectionId) => {
     setActiveSection(sectionId);
@@ -44,13 +46,15 @@ export default function App() {
           onOpenTourModal={() => setTourModalOpen(true)}
         />
 
-        <ComplianceHub />
-
         <AboutSection 
           onOpenTourModal={() => setTourModalOpen(true)}
         />
 
-        <ContactSection />
+        <ComplianceHub />
+
+        <ContactSection 
+          onOpenTourModal={() => setTourModalOpen(true)}
+        />
       </main>
 
       {/* Footer */}
@@ -91,16 +95,18 @@ export default function App() {
         }}
       >
         <a 
-          href="tel:3028322622" 
-          className="btn-secondary" 
-          style={{ flex: 1, justifyContent: 'center', fontSize: '0.88rem', padding: '0.65rem' }}
+          href={mapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-outline-pill" 
+          style={{ flex: 1, justifyContent: 'center', fontSize: '0.85rem', padding: '0.65rem' }}
         >
-          <Phone size={16} /> Call Us
+          <Navigation size={16} /> Directions
         </a>
         <button 
           onClick={() => setTourModalOpen(true)} 
-          className="btn-primary pulse-cta" 
-          style={{ flex: 1.4, justifyContent: 'center', fontSize: '0.88rem', padding: '0.65rem' }}
+          className="btn-dark-pill" 
+          style={{ flex: 1.4, justifyContent: 'center', fontSize: '0.85rem', padding: '0.65rem' }}
         >
           <Calendar size={16} /> Book Tour
         </button>
