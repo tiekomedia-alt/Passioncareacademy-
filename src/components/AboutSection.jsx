@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { Heart, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Heart, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function AboutSection() {
   const [activeImageIndex, setActiveImageIndex] = useState(null);
 
   const galleryImages = [
-    { src: '/IMG_0971.JPG', title: 'Soft Play Area', category: 'ACTIVITIES' },
-    { src: '/IMG_2311.JPG', title: 'Sensory Learning', category: 'CLASSROOM' },
-    { src: '/IMG_4378.jpg', title: 'Outdoor Play', category: 'OUTDOOR' },
-    { src: '/IMG_3219.jpg', title: 'Literacy Corner', category: 'PRESCHOOL' },
-    { src: '/IMG_1773.JPG', title: 'Meal Area', category: 'NUTRITION' },
-    { src: '/IMG_2357.JPG', title: 'Arts & Crafts', category: 'CREATIVE' }
+    { src: '/IMG_0971.JPG', alt: 'Facility Activity' },
+    { src: '/IMG_2311.JPG', alt: 'Classroom Activity' },
+    { src: '/IMG_4378.jpg', alt: 'Outdoor Area' },
+    { src: '/IMG_3219.jpg', alt: 'Preschool Corner' },
+    { src: '/IMG_1773.JPG', alt: 'Learning Area' },
+    { src: '/IMG_2357.JPG', alt: 'Arts & Crafts' }
   ];
 
   const handleNextImage = () => {
@@ -51,7 +51,7 @@ export default function AboutSection() {
           </h2>
 
           <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
-            At <strong>Passion Care Academy</strong>, we believe every child thrives best when they feel safe, cherished, and genuinely supported. Founded on the principle that daycare should feel like an extension of home, our center provides year-round care that balances rigorous early learning with heartfelt warmth.
+            At <strong>Passion Care Academy</strong>, we believe every child thrives best when they feel safe, cherished, and genuinely supported. Founded on the principle that daycare should feel like an extension of home, our center provides care that balances rigorous early learning with heartfelt warmth.
           </p>
 
           <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
@@ -59,18 +59,18 @@ export default function AboutSection() {
           </p>
         </div>
 
-        {/* Facility & Classroom Gallery */}
+        {/* Facility & Classroom Gallery (Labels Removed from all images) */}
         <div>
           <div style={{ textAlign: 'center', maxWidth: '650px', margin: '0 auto 2.5rem' }}>
             <h3 style={{ fontSize: '2.2rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.5rem' }}>
               Facility & Classroom Gallery
             </h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '1rem' }}>
-              Take a peek inside our vibrant Delaware facility. Click any photo to view full resolution.
+              Take a peek inside our Delaware facility. Click any photo to view full resolution.
             </p>
           </div>
 
-          {/* Grid Stack Cards */}
+          {/* Image Grid without overlays/labels as requested */}
           <div style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
@@ -92,43 +92,11 @@ export default function AboutSection() {
               >
                 <img 
                   src={img.src} 
-                  alt={img.title} 
+                  alt={img.alt} 
                   style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
                   onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
                   onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
                 />
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(to top, rgba(15, 23, 42, 0.8) 0%, transparent 60%)',
-                  padding: '1.25rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justify: 'space-between',
-                  color: '#FFFFFF'
-                }}>
-                  {/* Top Floating Badge */}
-                  <div>
-                    <span style={{ 
-                      backgroundColor: 'rgba(255, 255, 255, 0.9)', 
-                      backdropFilter: 'blur(4px)',
-                      color: '#0284C7', 
-                      fontSize: '0.7rem', 
-                      fontWeight: '800', 
-                      padding: '0.35rem 0.75rem', 
-                      borderRadius: 'var(--radius-full)', 
-                      letterSpacing: '0.5px',
-                      textTransform: 'uppercase'
-                    }}>
-                      {img.category}
-                    </span>
-                  </div>
-
-                  {/* Title at bottom */}
-                  <div style={{ fontSize: '1.2rem', fontWeight: '800', color: '#FFFFFF' }}>
-                    {img.title}
-                  </div>
-                </div>
               </div>
             ))}
           </div>
@@ -171,13 +139,9 @@ export default function AboutSection() {
           <div style={{ maxWidth: '90vw', maxHeight: '85vh', textAlign: 'center' }}>
             <img 
               src={galleryImages[activeImageIndex].src} 
-              alt={galleryImages[activeImageIndex].title}
-              style={{ maxWidth: '100%', maxHeight: '75vh', borderRadius: 'var(--radius-lg)', objectFit: 'contain', boxShadow: 'var(--shadow-lg)' }}
+              alt={galleryImages[activeImageIndex].alt}
+              style={{ maxWidth: '100%', maxHeight: '80vh', borderRadius: 'var(--radius-lg)', objectFit: 'contain', boxShadow: 'var(--shadow-lg)' }}
             />
-            <div style={{ marginTop: '1rem', color: '#FFFFFF' }}>
-              <span className="badge-sky" style={{ marginBottom: '0.4rem' }}>{galleryImages[activeImageIndex].category}</span>
-              <h4 style={{ fontSize: '1.25rem', fontWeight: '800', color: '#FFF' }}>{galleryImages[activeImageIndex].title}</h4>
-            </div>
           </div>
 
           <button

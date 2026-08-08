@@ -29,7 +29,7 @@ export default function Header({ onOpenAdminModal, activeSection, setActiveSecti
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', color: '#94A3B8' }}>
-              <Clock size={13} style={{ color: '#38BDF8' }} /> <strong>Hours:</strong> Mon – Fri 6:30 AM – 5:30 PM (Year-Round)
+              <Clock size={13} style={{ color: '#38BDF8' }} /> <strong>Hours:</strong> Mon – Fri 6:30 AM – 5:30 PM
             </span>
             <a 
               href={mapsUrl}
@@ -79,7 +79,7 @@ export default function Header({ onOpenAdminModal, activeSection, setActiveSecti
           </div>
         </a>
 
-        {/* Navigation items: Programs, About Us, Contact Info */}
+        {/* Navigation items */}
         <nav style={{ display: 'flex', alignItems: 'center', gap: '2.25rem' }} className="desktop-nav">
           {navItems.map((item) => (
             <button

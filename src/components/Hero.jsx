@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, ShieldCheck, CheckCircle2, Clock, MapPin, Navigation, Phone } from 'lucide-react';
+import { ShieldCheck, MapPin, Navigation, Phone } from 'lucide-react';
 
 export default function Hero() {
   const directorPhone = "tel:3024198890";
@@ -20,7 +20,7 @@ export default function Hero() {
         }}>
           {/* Left Column */}
           <div>
-            {/* Top Badges */}
+            {/* Top Badge */}
             <div style={{ display: 'flex', gap: '0.6rem', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
               <span style={{ 
                 backgroundColor: '#E0F2FE', 
@@ -69,7 +69,7 @@ export default function Hero() {
               maxWidth: '520px',
               lineHeight: '1.6'
             }}>
-              Year-round, safe, creative, and structured early education in Delaware. 
+              Safe, creative, and structured early education in Delaware. 
               Providing loving care from infants through preschool and enrichment after-school care through 6th grade.
             </p>
 
@@ -84,17 +84,12 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Checkmark Bullet Matrix (Meals item removed as requested) */}
+            {/* Address Link (Click for map and Mon-Fri bullet removed) */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-              <a href={mapsUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'var(--navy-dark)', display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: '700' }}>
+              <a href={mapsUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'var(--navy-dark)', display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.95rem', fontWeight: '700' }}>
                 <MapPin size={18} style={{ color: '#0284C7', flexShrink: 0 }} />
-                <span>3727 Wrangle Hill Rd, Bear, DE 19701 (Click for Map)</span>
+                <span>3727 Wrangle Hill Rd, Bear, DE 19701</span>
               </a>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: '600', color: 'var(--text-dark)' }}>
-                <CheckCircle2 size={18} style={{ color: 'var(--navy-dark)', flexShrink: 0 }} />
-                <span>Mon-Fri: 6:30 AM – 5:30 PM (Year-Round)</span>
-              </div>
             </div>
           </div>
 
@@ -180,46 +175,6 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-
-            {/* Floating Bottom Card */}
-            <a 
-              href={mapsUrl} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              style={{
-                marginTop: '1.25rem',
-                backgroundColor: '#FFFFFF',
-                borderRadius: 'var(--radius-md)',
-                padding: '0.85rem 1.25rem',
-                boxShadow: 'var(--shadow-md)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.85rem',
-                border: '1.5px solid var(--blue-sky-badge)',
-                textDecoration: 'none',
-                transition: 'transform 0.2s ease'
-              }}
-            >
-              <div style={{ 
-                width: '40px', 
-                height: '40px', 
-                borderRadius: '50%', 
-                backgroundColor: 'var(--blue-sky-badge)', 
-                display: 'flex', 
-                alignItems: 'center', 
-                justify: 'center', 
-                color: '#0284C7',
-                flexShrink: 0
-              }}>
-                <MapPin size={20} />
-              </div>
-              <div>
-                <div style={{ fontSize: '0.88rem', fontWeight: '800', color: 'var(--navy-dark)', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-                  3727 Wrangle Hill Rd, Bear, DE <Navigation size={14} style={{ color: '#0284C7' }} />
-                </div>
-                <div style={{ fontSize: '0.78rem', color: '#0284C7', fontWeight: '600' }}>Click for Driving Directions</div>
-              </div>
-            </a>
           </div>
         </div>
       </div>

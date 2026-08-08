@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Clock, ShieldCheck, Heart, ArrowUp, Navigation, ExternalLink } from 'lucide-react';
+import { Phone, MapPin, Clock, ArrowUp, Navigation, ExternalLink } from 'lucide-react';
 
 export default function Footer({ onNavigate }) {
   const directorPhone = "tel:3024198890";
@@ -19,7 +19,7 @@ export default function Footer({ onNavigate }) {
           paddingBottom: '3rem',
           borderBottom: '1px solid #1E293B'
         }}>
-          {/* Col 1: Logo & Vision */}
+          {/* Col 1: Brand Logo */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
               <img 
@@ -30,9 +30,6 @@ export default function Footer({ onNavigate }) {
               <div>
                 <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', fontWeight: '800', color: '#FFFFFF', letterSpacing: '-0.3px', display: 'block', lineHeight: '1.1', textTransform: 'uppercase' }}>
                   PASSION CARE ACADEMY
-                </span>
-                <span style={{ fontSize: '0.75rem', color: '#38BDF8', fontWeight: '700', textTransform: 'uppercase' }}>
-                  "We Are Your Extended Family"
                 </span>
               </div>
             </div>
@@ -45,26 +42,10 @@ export default function Footer({ onNavigate }) {
               href={mapsUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
-              style={{ color: '#38BDF8', textDecoration: 'none', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginBottom: '1rem' }}
+              style={{ color: '#38BDF8', textDecoration: 'none', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
             >
               📍 3727 Wrangle Hill Rd, Bear, DE <ExternalLink size={12} />
             </a>
-
-            <div>
-              <span style={{ 
-                backgroundColor: 'rgba(255, 255, 255, 0.1)', 
-                color: '#38BDF8', 
-                fontSize: '0.75rem', 
-                fontWeight: '700', 
-                padding: '0.35rem 0.85rem', 
-                borderRadius: 'var(--radius-full)', 
-                display: 'inline-flex', 
-                alignItems: 'center', 
-                gap: '0.35rem' 
-              }}>
-                <ShieldCheck size={14} /> State of Delaware CACFP Registered
-              </span>
-            </div>
           </div>
 
           {/* Col 2: Operating Schedule */}
@@ -77,10 +58,6 @@ export default function Footer({ onNavigate }) {
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Clock size={16} style={{ color: '#38BDF8' }} />
                 <span>Hours: Mon–Fri 6:30 AM – 5:30 PM</span>
-              </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Heart size={16} style={{ color: '#F87171' }} />
-                <span>Care Type: Year-Round Childcare</span>
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <a href={mapsUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#38BDF8', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: '600' }}>
@@ -120,7 +97,7 @@ export default function Footer({ onNavigate }) {
             </h4>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.25rem', fontSize: '0.9rem' }}>
-              <button onClick={() => onNavigate('programs')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>Programs & Meals</button>
+              <button onClick={() => onNavigate('programs')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>Programs</button>
               <button onClick={() => onNavigate('about')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>About Us</button>
               <button onClick={() => onNavigate('contact')} style={{ background: 'none', border: 'none', color: '#94A3B8', textAlign: 'left', cursor: 'pointer', padding: '0.2rem 0', fontWeight: '600' }}>Contact Info</button>
             </div>
@@ -134,7 +111,7 @@ export default function Footer({ onNavigate }) {
         {/* Bottom Copyright */}
         <div style={{ paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', fontSize: '0.82rem', color: '#94A3B8' }}>
           <div>
-            © {new Date().getFullYear()} Passion Care Academy. All rights reserved. Delaware CACFP Registered Facility.
+            © {new Date().getFullYear()} Passion Care Academy. All rights reserved.
           </div>
 
           <button 

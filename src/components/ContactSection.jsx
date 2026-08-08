@@ -8,14 +8,11 @@ export default function ContactSection() {
   return (
     <section id="contact" style={{ padding: '4.5rem 0', backgroundColor: 'var(--canvas-bg)' }}>
       <div className="container">
-        {/* Summarized Section Header: Get in Touch */}
+        {/* Header (Subtitle Removed as Requested) */}
         <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3rem' }}>
           <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.75rem' }}>
             Get in Touch
           </h2>
-          <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
-            Visit our center in Bear, DE or reach out directly to our administrative team.
-          </p>
         </div>
 
         {/* 2-Column Contact & Location Layout */}
@@ -55,7 +52,7 @@ export default function ContactSection() {
                   Center Operating Schedule:
                 </div>
                 <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                  <Clock size={16} style={{ color: '#0284C7' }} /> Mon – Fri: 6:30 AM – 5:30 PM (Year-Round)
+                  <Clock size={16} style={{ color: '#0284C7' }} /> Mon – Fri: 6:30 AM – 5:30 PM
                 </div>
               </div>
             </div>
@@ -81,8 +78,8 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Card 2: Direct Directory */}
-          <div style={{ backgroundColor: '#FFFFFF', padding: '2.25rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)', display: 'flex', flexDirection: 'column', justify: 'space-between' }}>
+          {/* Card 2: Direct Directory (Subtitles and Office Manager Desk Removed as Requested) */}
+          <div style={{ backgroundColor: '#FFFFFF', padding: '2.25rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <h3 style={{ fontSize: '1.35rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Home size={22} style={{ color: 'var(--navy-dark)' }} /> Direct Contact Directory
@@ -97,35 +94,16 @@ export default function ContactSection() {
                   <a href="tel:3028322622" style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--navy-dark)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.35rem' }}>
                     <Phone size={18} style={{ color: 'var(--navy-dark)' }} /> (302) 832-2622
                   </a>
-                  <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
-                    Main front desk line for general center inquiries.
-                  </div>
                 </div>
 
                 {/* Director Direct Line */}
                 <div style={{ padding: '1.1rem', backgroundColor: '#FEF2F2', borderRadius: 'var(--radius-md)', border: '1px solid #FEE2E2' }}>
                   <div style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--action-red)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                    DAYCARE DIRECTOR DIRECT LINE (TOUR BOOKING)
+                    DAYCARE DIRECTOR DIRECT LINE
                   </div>
                   <a href={directorPhone} style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--action-red)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.35rem' }}>
                     <Phone size={18} style={{ color: 'var(--action-red)' }} /> (302) 419-8890
                   </a>
-                  <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
-                    Direct line to schedule tours & urgent parent inquiries.
-                  </div>
-                </div>
-
-                {/* Office Manager Desk */}
-                <div style={{ padding: '1.1rem', backgroundColor: '#F8FAFC', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)' }}>
-                  <div style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--text-light)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                    AFTER-SCHOOL OFFICE DESK
-                  </div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--navy-dark)', marginTop: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <Home size={18} style={{ color: 'var(--navy-dark)' }} /> Office Manager Direct Desk
-                  </div>
-                  <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
-                    Dedicated desk for after-school registrations & records.
-                  </div>
                 </div>
               </div>
             </div>

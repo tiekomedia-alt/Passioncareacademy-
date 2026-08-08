@@ -38,7 +38,7 @@ export default function ProgramHub() {
         'Structured pre-kindergarten curriculum',
         'Creative arts, crafts & sensory play',
         'Social-emotional milestone building',
-        'Year-round continuous growth'
+        'Continuous developmental growth'
       ]
     },
     {
@@ -68,14 +68,11 @@ export default function ProgramHub() {
   return (
     <section id="programs" style={{ padding: '4.5rem 0', backgroundColor: '#FFFFFF' }}>
       <div className="container">
-        {/* Summarized Section Title: Programs */}
+        {/* Section Header */}
         <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 2.5rem' }}>
           <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.75rem' }}>
             Programs
           </h2>
-          <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
-            From precious early milestones to structured after-school academic support, Passion Care Academy nurtures every stage of childhood with love and structure.
-          </p>
 
           {/* Program Filter Tabs */}
           <div style={{ 
@@ -85,7 +82,7 @@ export default function ProgramHub() {
             padding: '0.4rem', 
             borderRadius: 'var(--radius-full)', 
             border: '1px solid var(--border-light)',
-            marginTop: '1.5rem'
+            marginTop: '1rem'
           }}>
             <button
               onClick={() => setActiveTab('all')}
@@ -141,7 +138,7 @@ export default function ProgramHub() {
           </div>
         </div>
 
-        {/* Program Cards Grid (Director Phone Button Removed from base) */}
+        {/* Program Cards Grid */}
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
