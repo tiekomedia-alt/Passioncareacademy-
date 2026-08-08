@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Clock, ArrowUp, Navigation, ExternalLink } from 'lucide-react';
+import { Phone, MapPin, Clock, ArrowUp, ExternalLink } from 'lucide-react';
 
 export default function Footer({ onNavigate }) {
   const directorPhone = "tel:3024198890";
@@ -111,7 +111,7 @@ export default function Footer({ onNavigate }) {
         {/* Bottom Copyright */}
         <div style={{ paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', fontSize: '0.82rem', color: '#94A3B8' }}>
           <div>
-            © {new Date().getFullYear()} Passion Care Academy. All rights reserved.
+            © 2026 Passion Care Academy. All rights reserved. Built and designed by TIEKO MEDIA LIMITED.
           </div>
 
           <button 

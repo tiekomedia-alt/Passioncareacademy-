@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, MapPin, Navigation, Phone } from 'lucide-react';
+import { ShieldCheck, Navigation, Phone } from 'lucide-react';
 
 export default function Hero() {
   const directorPhone = "tel:3024198890";
@@ -73,22 +73,14 @@ export default function Hero() {
               Providing loving care from infants through preschool and enrichment after-school care through 6th grade.
             </p>
 
-            {/* Primary Action Buttons */}
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', maxWidth: '480px', marginBottom: '2rem' }}>
+            {/* Primary Action Buttons (Address removed below CTAs as requested) */}
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', maxWidth: '480px' }}>
               <a href={directorPhone} className="btn-dark-pill" style={{ fontSize: '1rem', padding: '0.95rem 1.75rem' }}>
                 <Phone size={18} style={{ color: '#F87171' }} /> Schedule Tour: (302) 419-8890
               </a>
 
               <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="btn-outline-pill" style={{ fontSize: '0.95rem', padding: '0.95rem 1.75rem', color: '#0284C7' }}>
                 <Navigation size={18} /> Get Directions
-              </a>
-            </div>
-
-            {/* Address Link (Click for map and Mon-Fri bullet removed) */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-              <a href={mapsUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'var(--navy-dark)', display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.95rem', fontWeight: '700' }}>
-                <MapPin size={18} style={{ color: '#0284C7', flexShrink: 0 }} />
-                <span>3727 Wrangle Hill Rd, Bear, DE 19701</span>
               </a>
             </div>
           </div>
