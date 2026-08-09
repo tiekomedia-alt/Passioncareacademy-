@@ -9,7 +9,7 @@ export default function Hero() {
     <section className="hero-section">
       <div className="container">
         <div className="hero-grid">
-          {/* Left Column: Content Card (On Mobile: Features Playground Background Photo with Drop-Shadow Text) */}
+          {/* Left Column: Content Card */}
           <div className="hero-content-col">
             {/* Primary Headline */}
             <h1 className="hero-headline" style={{ 
@@ -48,7 +48,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Photo Stack (Features Newly Uploaded Playground Photo as Main Featured Card) */}
+          {/* Right Column: Photo Stack */}
           <div className="hero-photo-col" style={{ position: 'relative', width: '100%' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {/* Top Main Featured Card: Real Outdoor Playground Facility */}
@@ -85,6 +85,7 @@ export default function Hero() {
 
               {/* Bottom Split Row */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.85rem' }}>
+                {/* Updated Creative Learning Card with real group painting table photo */}
                 <div style={{ 
                   borderRadius: 'var(--radius-lg)', 
                   overflow: 'hidden', 
@@ -94,8 +95,8 @@ export default function Hero() {
                   border: '1px solid var(--border-light)'
                 }}>
                   <img 
-                    src="/IMG_0971.JPG" 
-                    alt="Creative Crafts Classroom"
+                    src="/hero-painting-table.jpg" 
+                    alt="Creative Learning Group Activity Table"
                     style={{ width: '100%', height: '130px', objectFit: 'cover', display: 'block' }}
                   />
                   <div style={{ 
