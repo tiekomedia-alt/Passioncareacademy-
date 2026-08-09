@@ -9,7 +9,7 @@ export default function Hero() {
     <section className="hero-section">
       <div className="container">
         <div className="hero-grid">
-          {/* Left Column: Content Card */}
+          {/* Left Column: Content Card (Features Vivid Background Photo on Mobile with 10% Opacity Text Contrast Shadow) */}
           <div className="hero-content-col">
             {/* Primary Headline */}
             <h1 className="hero-headline" style={{ 
@@ -25,7 +25,7 @@ export default function Hero() {
               Flourish.
             </h1>
 
-            {/* Sharp, Un-italicized Tagline Sub-heading (Zero Blur / Zero Text-Shadow) */}
+            {/* Tagline Sub-heading */}
             <div className="hero-tagline" style={{ 
               fontSize: 'clamp(1.15rem, 2.5vw, 1.45rem)', 
               color: '#D97706', 
@@ -150,7 +150,7 @@ export default function Hero() {
           align-items: center;
         }
 
-        /* Mobile View Only: Crisp, Sharp Text Card without Blur or Drop Shadows */
+        /* Mobile View Only: Playground Background Photo Vivid & Visible with 10% Opacity Contrast Shadow */
         @media (max-width: 768px) {
           .hero-section {
             padding: 1.5rem 0 2.5rem;
@@ -159,17 +159,20 @@ export default function Hero() {
             gap: 1.5rem;
           }
           .hero-content-col {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.96) 100%), url('/hero-playground.jpg') center/cover no-repeat;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.65) 100%), url('/hero-playground.jpg') center/cover no-repeat;
             padding: 2.25rem 1.25rem;
             border-radius: var(--radius-lg);
-            border: 1.5px solid rgba(255, 255, 255, 0.95);
-            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.15);
+            border: 1.5px solid rgba(255, 255, 255, 0.85);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
           }
           .hero-headline {
-            text-shadow: none !important;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.10), 0 1px 2px rgba(255, 255, 255, 0.9);
           }
           .hero-tagline {
-            text-shadow: none !important;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.10), 0 1px 2px rgba(255, 255, 255, 0.9);
+            color: #D97706;
+            font-style: normal;
+            font-weight: 800;
           }
         }
       `}</style>
