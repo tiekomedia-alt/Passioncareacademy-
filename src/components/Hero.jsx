@@ -9,7 +9,7 @@ export default function Hero() {
     <section className="hero-section">
       <div className="container">
         <div className="hero-grid">
-          {/* Left Column: Content Card (Features 50% Visibility Background Image on Mobile) */}
+          {/* Left Column: Content Card (Top Mobile Card with 100% Unreduced Background Photo) */}
           <div className="hero-content-col">
             {/* Primary Headline */}
             <h1 className="hero-headline" style={{ 
@@ -52,7 +52,7 @@ export default function Hero() {
           {/* Right Column: Photo Stack */}
           <div className="hero-photo-col" style={{ position: 'relative', width: '100%' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {/* Image 1: Main Featured Card (Outdoor Water Recreation & Splash Play) */}
+              {/* Image 1: Outdoor Recreation (Water Splash Pad Photo) */}
               <div style={{ 
                 borderRadius: 'var(--radius-lg)', 
                 overflow: 'hidden', 
@@ -150,7 +150,7 @@ export default function Hero() {
           align-items: center;
         }
 
-        /* Mobile View Only: 50% Image Visibility with 10% Opacity Contrast Shadow */
+        /* Mobile View Point Specific: Unreduced Background Image on Top Headline Card Only */
         @media (max-width: 768px) {
           .hero-section {
             padding: 1.5rem 0 2.5rem;
@@ -159,20 +159,21 @@ export default function Hero() {
             gap: 1.5rem;
           }
           .hero-content-col {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.50) 0%, rgba(255, 255, 255, 0.50) 100%), url('/hero-outdoor-recreation.jpg') center/cover no-repeat;
+            background: url('/hero-playground.jpg') center/cover no-repeat;
             padding: 2.25rem 1.25rem;
             border-radius: var(--radius-lg);
             border: 1.5px solid rgba(255, 255, 255, 0.85);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
           }
           .hero-headline {
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.10), 0 1px 2px rgba(255, 255, 255, 0.9);
+            color: #0F172A !important;
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.95), 0 0 20px rgba(255, 255, 255, 0.9) !important;
           }
           .hero-tagline {
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.10), 0 1px 2px rgba(255, 255, 255, 0.9);
-            color: #D97706;
-            font-style: normal;
-            font-weight: 800;
+            color: #D97706 !important;
+            font-style: normal !important;
+            font-weight: 800 !important;
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.95), 0 0 20px rgba(255, 255, 255, 0.9) !important;
           }
         }
       `}</style>
