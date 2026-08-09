@@ -56,7 +56,7 @@ export const initialBlogs = [
     category: 'Infant & Toddler',
     excerpt: 'How finger painting, texture play, and creative arts stimulate neural connections and motor skills in infants and toddlers.',
     readTime: '3 min read',
-    image: '/IMG_0971.JPG',
+    image: '/blog-infant-toddler.jpg',
     content: `
       For infants and toddlers, hands-on sensory exploration is how they make sense of the physical world. Every squishy texture, vibrant color, and gentle sound helps build vital neural pathways in developing brains.
 
