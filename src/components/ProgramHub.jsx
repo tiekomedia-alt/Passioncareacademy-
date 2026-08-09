@@ -16,7 +16,7 @@ export default function ProgramHub() {
         'Sensory exploration & motor skill building',
         'Sanitized & secure infant play suites'
       ],
-      icon: <Baby size={28} style={{ color: '#FFFFFF' }} />,
+      icon: <Baby size={28} style={{ color: '#FFFFFF', display: 'block', margin: 'auto' }} />,
       accentColor: '#0284C7'
     },
     {
@@ -30,7 +30,7 @@ export default function ProgramHub() {
         'Creative arts, music & story time',
         'Social confidence & independent habits'
       ],
-      icon: <GraduationCap size={28} style={{ color: '#FFFFFF' }} />,
+      icon: <GraduationCap size={28} style={{ color: '#FFFFFF', display: 'block', margin: 'auto' }} />,
       accentColor: 'var(--yellow-accent)'
     },
     {
@@ -44,7 +44,7 @@ export default function ProgramHub() {
         'Supervised outdoor physical play',
         'Creative crafts & team building'
       ],
-      icon: <School size={28} style={{ color: '#FFFFFF' }} />,
+      icon: <School size={28} style={{ color: '#FFFFFF', display: 'block', margin: 'auto' }} />,
       accentColor: 'var(--growth-green)'
     }
   ];
@@ -84,18 +84,19 @@ export default function ProgramHub() {
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease'
               }}
             >
-              <div>
-                {/* Perfectly Centered Icon Box */}
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                {/* 100% Perfectly Centered Navy Icon Box */}
                 <div style={{ 
-                  width: '60px', 
-                  height: '60px', 
+                  width: '64px', 
+                  height: '64px', 
                   borderRadius: '16px', 
                   backgroundColor: 'var(--navy-dark)', 
                   display: 'flex', 
                   alignItems: 'center', 
                   justify: 'center',
                   margin: '0 auto 1.25rem',
-                  boxShadow: 'var(--shadow-sm)'
+                  boxShadow: 'var(--shadow-sm)',
+                  flexShrink: 0
                 }}>
                   {program.icon}
                 </div>
@@ -117,17 +118,17 @@ export default function ProgramHub() {
                 </div>
 
                 {/* Program Title */}
-                <h3 style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--navy-dark)', textAlign: 'center', marginBottom: '0.75rem' }}>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--navy-dark)', textAlign: 'center', marginBottom: '0.75rem', width: '100%' }}>
                   {program.title}
                 </h3>
 
                 {/* Description */}
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', lineHeight: '1.6', textAlign: 'center', marginBottom: '1.5rem' }}>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', lineHeight: '1.6', textAlign: 'center', marginBottom: '1.5rem', width: '100%' }}>
                   {program.description}
                 </p>
 
                 {/* Features List */}
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.75rem 0', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.75rem 0', display: 'flex', flexDirection: 'column', gap: '0.6rem', width: '100%' }}>
                   {program.features.map((feature, idx) => (
                     <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.88rem', color: 'var(--text-dark)' }}>
                       <span style={{ 
