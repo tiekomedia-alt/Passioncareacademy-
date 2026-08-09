@@ -134,26 +134,30 @@ export default function Header({ activeSection, setActiveSection }) {
 
         {/* Header Right CTAs */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+          {/* 100% Dead-Centered Instagram Icon Button */}
           <a
             href={instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
             title="Follow Passion Care Academy on Instagram"
             style={{
-              width: '40px',
-              height: '40px',
+              width: '42px',
+              height: '42px',
               borderRadius: '50%',
               backgroundColor: '#FDF2F8',
               border: '1px solid #FBCFE8',
               color: '#E1306C',
-              display: 'inline-flex',
+              display: 'flex',
               alignItems: 'center',
               justify: 'center',
               textDecoration: 'none',
+              padding: 0,
+              margin: 0,
+              flexShrink: 0,
               transition: 'transform 0.2s ease, background-color 0.2s ease'
             }}
           >
-            <Instagram size={20} />
+            <Instagram size={20} style={{ display: 'block', margin: 'auto' }} />
           </a>
 
           <a 
