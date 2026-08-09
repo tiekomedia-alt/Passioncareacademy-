@@ -33,7 +33,7 @@ export const initialBlogs = [
     category: 'Child Development',
     excerpt: 'Discover how emotional intelligence, empathy, and peer collaboration built in preschool prepare children for academic and life success.',
     readTime: '5 min read',
-    image: '/IMG_2311.JPG',
+    image: '/blog-social-emotional.jpg',
     content: `
       Long before children solve complex math problems or write essays, they learn how to navigate feelings, share toys, and cooperate with peers. This is social-emotional learning (SEL), and it is the bedrock of early childhood education.
 
