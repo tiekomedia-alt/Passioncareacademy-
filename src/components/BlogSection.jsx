@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { Clock, Calendar, ArrowRight, X, User } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { Clock, Calendar, ArrowRight, X, User, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function BlogSection({ blogs = [] }) {
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [activeCategory, setActiveCategory] = useState('All');
+  const scrollRef = useRef(null);
 
   const categories = ['All', 'Preschool Guidance', 'Child Development', 'Infant & Toddler', 'After-School Program', 'Parent Resources'];
 
@@ -11,61 +12,119 @@ export default function BlogSection({ blogs = [] }) {
     ? blogs
     : blogs.filter(b => b.category === activeCategory);
 
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -340, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 340, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="blog" style={{ padding: '4.5rem 0', backgroundColor: 'var(--canvas-bg)' }}>
       <div className="container">
-        {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 2.5rem' }}>
-          <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.75rem' }}>
-            Blogs
-          </h2>
+        {/* Section Header with Left/Right Arrow Controls */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2rem', flexWrap: 'wrap', gap: '1.25rem' }}>
+          <div>
+            <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', fontWeight: '800', color: 'var(--navy-dark)', margin: 0 }}>
+              Blogs
+            </h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', margin: '0.3rem 0 0' }}>
+              Swipe left & right to read our Delaware early education guides and parent articles.
+            </p>
+          </div>
 
-          {/* Category Filter Tabs */}
-          <div style={{ 
-            display: 'inline-flex', 
-            gap: '0.5rem', 
-            backgroundColor: '#FFFFFF', 
-            padding: '0.4rem', 
-            borderRadius: 'var(--radius-full)', 
-            border: '1px solid var(--border-light)',
-            marginTop: '1rem',
-            maxWidth: '100%',
-            overflowX: 'auto'
-          }}>
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                style={{
-                  padding: '0.5rem 1.1rem',
-                  borderRadius: 'var(--radius-full)',
-                  border: 'none',
-                  backgroundColor: activeCategory === cat ? 'var(--navy-dark)' : 'transparent',
-                  color: activeCategory === cat ? '#FFFFFF' : 'var(--text-dark)',
-                  fontFamily: 'var(--font-heading)',
-                  fontWeight: '700',
-                  fontSize: '0.85rem',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  whiteSpace: 'nowrap'
-                }}
-              >
-                {cat}
-              </button>
-            ))}
+          {/* Left / Right Scroll Controls */}
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
+            <button 
+              onClick={scrollLeft}
+              aria-label="Scroll left"
+              style={{
+                width: '42px', height: '42px', borderRadius: '50%',
+                backgroundColor: '#FFFFFF', border: '1px solid var(--border-light)',
+                color: 'var(--navy-dark)', cursor: 'pointer',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                boxShadow: 'var(--shadow-sm)', transition: 'all 0.2s ease'
+              }}
+            >
+              <ChevronLeft size={22} />
+            </button>
+
+            <button 
+              onClick={scrollRight}
+              aria-label="Scroll right"
+              style={{
+                width: '42px', height: '42px', borderRadius: '50%',
+                backgroundColor: 'var(--navy-dark)', border: 'none',
+                color: '#FFFFFF', cursor: 'pointer',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                boxShadow: 'var(--shadow-sm)', transition: 'all 0.2s ease'
+              }}
+            >
+              <ChevronRight size={22} />
+            </button>
           </div>
         </div>
 
-        {/* Blog Cards Grid */}
+        {/* Category Filter Tabs */}
         <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
-          gap: '2rem' 
+          display: 'inline-flex', 
+          gap: '0.5rem', 
+          backgroundColor: '#FFFFFF', 
+          padding: '0.4rem', 
+          borderRadius: 'var(--radius-full)', 
+          border: '1px solid var(--border-light)',
+          marginBottom: '2rem',
+          maxWidth: '100%',
+          overflowX: 'auto'
         }}>
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              style={{
+                padding: '0.5rem 1.1rem',
+                borderRadius: 'var(--radius-full)',
+                border: 'none',
+                backgroundColor: activeCategory === cat ? 'var(--navy-dark)' : 'transparent',
+                color: activeCategory === cat ? '#FFFFFF' : 'var(--text-dark)',
+                fontFamily: 'var(--font-heading)',
+                fontWeight: '700',
+                fontSize: '0.85rem',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Horizontal Swiping Blog Track */}
+        <div 
+          ref={scrollRef}
+          className="horizontal-blog-track"
+          style={{ 
+            display: 'flex', 
+            gap: '1.5rem',
+            overflowX: 'auto',
+            scrollSnapType: 'x mandatory',
+            WebkitOverflowScrolling: 'touch',
+            paddingBottom: '1rem',
+            scrollbarWidth: 'none'
+          }}
+        >
           {filteredBlogs.map((blog) => (
             <article 
               key={blog.id}
               style={{
+                flex: '0 0 340px',
+                scrollSnapAlign: 'start',
                 backgroundColor: '#FFFFFF',
                 borderRadius: 'var(--radius-lg)',
                 overflow: 'hidden',
@@ -75,13 +134,14 @@ export default function BlogSection({ blogs = [] }) {
                 flexDirection: 'column',
                 justify: 'space-between',
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                height: '460px'
               }}
               onClick={() => setSelectedBlog(blog)}
             >
               <div>
-                {/* Featured Image (Labels/Badges Removed as Requested) */}
-                <div style={{ height: '210px', overflow: 'hidden', position: 'relative' }}>
+                {/* Featured Image */}
+                <div style={{ height: '200px', overflow: 'hidden', position: 'relative' }}>
                   <img 
                     src={blog.image} 
                     alt={blog.title}
@@ -90,8 +150,8 @@ export default function BlogSection({ blogs = [] }) {
                 </div>
 
                 {/* Content Body */}
-                <div style={{ padding: '1.75rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.75rem' }}>
+                <div style={{ padding: '1.5rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '0.65rem' }}>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
                       <Calendar size={13} style={{ color: '#0284C7' }} /> {blog.date}
                     </span>
@@ -101,24 +161,24 @@ export default function BlogSection({ blogs = [] }) {
                     </span>
                   </div>
 
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.75rem', lineHeight: '1.35' }}>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.65rem', lineHeight: '1.35', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                     {blog.title}
                   </h3>
 
-                  <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.25rem' }}>
+                  <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: '1.55', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                     {blog.excerpt}
                   </p>
                 </div>
               </div>
 
-              <div style={{ padding: '0 1.75rem 1.75rem' }}>
+              <div style={{ padding: '0 1.5rem 1.5rem' }}>
                 <button 
                   style={{ 
                     background: 'none', 
                     border: 'none', 
                     color: '#0284C7', 
                     fontWeight: '800', 
-                    fontSize: '0.9rem', 
+                    fontSize: '0.88rem', 
                     display: 'inline-flex', 
                     alignItems: 'center', 
                     gap: '0.4rem',
@@ -238,6 +298,12 @@ export default function BlogSection({ blogs = [] }) {
           </div>
         </div>
       )}
+
+      <style>{`
+        .horizontal-blog-track::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 }
