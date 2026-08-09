@@ -40,27 +40,27 @@ export default function Footer({ onNavigate }) {
               Nurturing young minds through structured, loving care and comprehensive early education in Delaware.
             </p>
 
-            {/* Official Instagram Button */}
+            {/* Circular Custom Instagram Icon Button */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '1rem' }}>
               <a 
                 href={instagramUrl} 
                 target="_blank" 
                 rel="noopener noreferrer" 
+                title="Follow us on Instagram"
                 style={{ 
                   display: 'inline-flex', 
                   alignItems: 'center', 
-                  gap: '0.5rem', 
+                  justifyContent: 'center',
                   backgroundColor: 'rgba(255, 255, 255, 0.10)', 
-                  color: '#FF6492', 
-                  padding: '0.45rem 1rem', 
-                  borderRadius: 'var(--radius-full)', 
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '50%', 
                   border: '1px solid rgba(255, 255, 255, 0.25)',
-                  fontSize: '0.85rem',
-                  fontWeight: '700',
-                  textDecoration: 'none'
+                  textDecoration: 'none',
+                  transition: 'background-color 0.2s ease'
                 }}
               >
-                <img src="/instagram-custom-icon.png" alt="Instagram" style={{ width: '18px', height: '18px', objectFit: 'contain' }} /> Follow us on Instagram
+                <img src="/instagram-custom-icon.png" alt="Instagram" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
               </a>
             </div>
           </div>
@@ -150,7 +150,7 @@ export default function Footer({ onNavigate }) {
                 cursor: 'pointer',
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '0.3,rem',
+                gap: '0.3rem',
                 fontWeight: '600'
               }}
             >
