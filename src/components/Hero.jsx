@@ -25,13 +25,14 @@ export default function Hero() {
               Flourish.
             </h1>
 
-            {/* Reduced Tagline Sub-heading */}
+            {/* Sharp, Un-italicized Tagline Sub-heading (Zero Blur / Zero Text-Shadow) */}
             <div className="hero-tagline" style={{ 
-              fontSize: 'clamp(1.1rem, 2.4vw, 1.4rem)', 
-              color: 'var(--yellow-accent)', 
-              fontStyle: 'italic', 
+              fontSize: 'clamp(1.15rem, 2.5vw, 1.45rem)', 
+              color: '#D97706', 
+              fontStyle: 'normal', 
               fontWeight: '800',
-              marginBottom: '2rem'
+              marginBottom: '2rem',
+              letterSpacing: '-0.2px'
             }}>
               "We Are Your Extended Family"
             </div>
@@ -115,7 +116,7 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* Image 3: Replaced with newly uploaded girls hallway photo */}
+                {/* Image 3: Girls Hallway Photo */}
                 <div style={{ 
                   borderRadius: 'var(--radius-lg)', 
                   overflow: 'hidden', 
@@ -149,7 +150,7 @@ export default function Hero() {
           align-items: center;
         }
 
-        /* Mobile View Only: Playground Background Photo with Drop Shadow Text */
+        /* Mobile View Only: Crisp, Sharp Text Card without Blur or Drop Shadows */
         @media (max-width: 768px) {
           .hero-section {
             padding: 1.5rem 0 2.5rem;
@@ -158,18 +159,17 @@ export default function Hero() {
             gap: 1.5rem;
           }
           .hero-content-col {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.82) 100%), url('/hero-playground.jpg') center/cover no-repeat;
-            backdrop-filter: blur(2px);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.96) 100%), url('/hero-playground.jpg') center/cover no-repeat;
             padding: 2.25rem 1.25rem;
             border-radius: var(--radius-lg);
             border: 1.5px solid rgba(255, 255, 255, 0.95);
-            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.15);
           }
           .hero-headline {
-            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.95), 0 1px 2px rgba(15, 23, 42, 0.2);
+            text-shadow: none !important;
           }
           .hero-tagline {
-            text-shadow: 0 2px 4px rgba(15, 23, 42, 0.3), 0 1px 2px rgba(255, 255, 255, 0.8);
+            text-shadow: none !important;
           }
         }
       `}</style>
