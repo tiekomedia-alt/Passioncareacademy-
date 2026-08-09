@@ -8,7 +8,7 @@ export const initialBlogs = [
     category: 'Preschool Guidance',
     excerpt: 'Key factors Delaware parents should look for when selecting a high-trust early education center, from safety protocols to early literacy curriculum.',
     readTime: '4 min read',
-    image: '/IMG_3219.jpg',
+    image: '/blog-preschool-choosing.jpg',
     content: `
       Selecting the right preschool and early education center for your child is one of the most critical decisions a parent makes in Delaware. Early childhood experiences lay the foundation for brain development, social skills, and lifelong learning habits.
 
