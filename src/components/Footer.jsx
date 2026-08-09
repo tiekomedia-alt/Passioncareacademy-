@@ -1,9 +1,10 @@
 import React from 'react';
-import { Phone, MapPin, Clock, ArrowUp, ExternalLink } from 'lucide-react';
+import { Phone, MapPin, Clock, ArrowUp, ExternalLink, Instagram } from 'lucide-react';
 
 export default function Footer({ onNavigate }) {
   const mainPhone = "tel:3028322622";
   const directLinePhone = "tel:3024198890";
+  const instagramUrl = "https://www.instagram.com/passioncareacademy?igsh=ODYyODd2aHN0aWM4";
   const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
 
   const scrollToTop = () => {
@@ -20,7 +21,7 @@ export default function Footer({ onNavigate }) {
           paddingBottom: '3rem',
           borderBottom: '1px solid #1E293B'
         }}>
-          {/* Col 1: Brand Logo */}
+          {/* Col 1: Brand Logo & Social Media Links */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
               <img 
@@ -39,14 +40,29 @@ export default function Footer({ onNavigate }) {
               Nurturing young minds through structured, loving care and comprehensive early education in Delaware.
             </p>
 
-            <a 
-              href={mapsUrl} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              style={{ color: '#38BDF8', textDecoration: 'none', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
-            >
-              📍 3727 Wrangle Hill Rd, Bear, DE <ExternalLink size={12} />
-            </a>
+            {/* Official Instagram Button */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '1rem' }}>
+              <a 
+                href={instagramUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{ 
+                  display: 'inline-flex', 
+                  alignItems: 'center', 
+                  gap: '0.5rem', 
+                  backgroundColor: 'rgba(225, 48, 108, 0.15)', 
+                  color: '#FF6492', 
+                  padding: '0.45rem 1rem', 
+                  borderRadius: 'var(--radius-full)', 
+                  border: '1px solid rgba(225, 48, 108, 0.4)',
+                  fontSize: '0.85rem',
+                  fontWeight: '700',
+                  textDecoration: 'none'
+                }}
+              >
+                <Instagram size={16} /> Follow us on Instagram
+              </a>
+            </div>
           </div>
 
           {/* Col 2: Operating Schedule */}
@@ -109,27 +125,38 @@ export default function Footer({ onNavigate }) {
           </div>
         </div>
 
-        {/* Bottom Copyright */}
+        {/* Bottom Copyright & Social Row */}
         <div style={{ paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', fontSize: '0.82rem', color: '#94A3B8' }}>
           <div>
             © 2026 Passion Care Academy. All rights reserved. Built and designed by TIEKO MEDIA LIMITED.
           </div>
 
-          <button 
-            onClick={scrollToTop} 
-            style={{ 
-              background: 'none', 
-              border: 'none', 
-              color: '#94A3B8', 
-              cursor: 'pointer',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.3rem',
-              fontWeight: '600'
-            }}
-          >
-            Back to Top <ArrowUp size={14} />
-          </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+            <a 
+              href={instagramUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ color: '#E1306C', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontWeight: '700' }}
+            >
+              <Instagram size={15} /> Instagram
+            </a>
+
+            <button 
+              onClick={scrollToTop} 
+              style={{ 
+                background: 'none', 
+                border: 'none', 
+                color: '#94A3B8', 
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.3rem',
+                fontWeight: '600'
+              }}
+            >
+              Back to Top <ArrowUp size={14} />
+            </button>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Phone, Clock, MapPin, Menu, X } from 'lucide-react';
+import { Phone, Clock, MapPin, Menu, X, Instagram } from 'lucide-react';
 
 export default function Header({ activeSection, setActiveSection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const mainPhone = "tel:3028322622";
+  const instagramUrl = "https://www.instagram.com/passioncareacademy?igsh=ODYyODd2aHN0aWM4";
   const mapsUrl = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yDQgHEAAYhgMYgAQYigUyDQgIEAAYhgMYgAQYigXSAQg5MTY4ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=ng&sa=X&geocode=KYnGajfYB8eJMVviCQ14LB5i&daddr=3727+Wrangle+Hill+Rd,+Bear,+DE+19701,+United+States";
 
   const navItems = [
@@ -38,6 +39,17 @@ export default function Header({ activeSection, setActiveSection }) {
         style={{ color: '#38BDF8', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontWeight: '700' }}
       >
         <MapPin size={13} style={{ color: '#38BDF8' }} /> 3727 Wrangle Hill Rd, Bear, DE 📍
+      </a>
+
+      <span style={{ color: '#334155' }}>•</span>
+
+      <a 
+        href={instagramUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ color: '#E1306C', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontWeight: '700' }}
+      >
+        <Instagram size={14} style={{ color: '#E1306C' }} /> @passioncareacademy
       </a>
 
       <span style={{ color: '#334155' }}>•</span>
@@ -120,8 +132,30 @@ export default function Header({ activeSection, setActiveSection }) {
           ))}
         </nav>
 
-        {/* Header Right CTAs (Updated to 302-832-2622) */}
+        {/* Header Right CTAs */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+          <a
+            href={instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Follow Passion Care Academy on Instagram"
+            style={{
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              backgroundColor: '#FDF2F8',
+              border: '1px solid #FBCFE8',
+              color: '#E1306C',
+              display: 'inline-flex',
+              alignItems: 'center',
+              justify: 'center',
+              textDecoration: 'none',
+              transition: 'transform 0.2s ease, background-color 0.2s ease'
+            }}
+          >
+            <Instagram size={20} />
+          </a>
+
           <a 
             href={mainPhone}
             className="btn-dark-pill desktop-nav" 
@@ -178,6 +212,17 @@ export default function Header({ activeSection, setActiveSection }) {
             </button>
           ))}
           <hr style={{ border: 'none', borderTop: '1px solid var(--border-light)' }} />
+
+          <a 
+            href={instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline-pill"
+            style={{ justifyContent: 'center', color: '#E1306C', borderColor: '#FBCFE8', backgroundColor: '#FDF2F8' }}
+          >
+            <Instagram size={18} /> Follow on Instagram
+          </a>
+
           <a href={mainPhone} className="btn-dark-pill" style={{ justifyContent: 'center' }}>
             <Phone size={18} style={{ color: '#F87171' }} /> Schedule Tour: (302) 832-2622
           </a>
