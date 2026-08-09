@@ -1,23 +1,23 @@
 import React, { useState, useRef } from 'react';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Camera, Sparkles } from 'lucide-react';
 
 export default function AboutSection() {
   const [activeImageIndex, setActiveImageIndex] = useState(null);
   const scrollRef = useRef(null);
 
   const galleryImages = [
-    { src: '/IMG_0971.JPG', alt: 'Creative Crafts Classroom' },
-    { src: '/IMG_2311.JPG', alt: 'Sensory Toddler Play' },
-    { src: '/IMG_4378.jpg', alt: 'Outdoor Playground' },
-    { src: '/IMG_3219.jpg', alt: 'Preschool Literacy Area' },
-    { src: '/IMG_1773.JPG', alt: 'Early Learning Station' },
-    { src: '/IMG_2357.JPG', alt: 'Art & Expression' },
-    { src: '/IMG_2378.JPG', alt: 'Group Activity Zone' },
-    { src: '/IMG_3139.JPG', alt: 'Infant Care Nook' },
-    { src: '/IMG_4257.jpg', alt: 'After-School Study Area' },
-    { src: '/IMG_4739.jpg', alt: 'Interactive Playroom' },
-    { src: '/IMG_5311.JPG', alt: 'Building Blocks & STEM' },
-    { src: '/IMG_6448.JPG', alt: 'Storytelling Circle' }
+    { src: '/IMG_0971.JPG', alt: 'Creative Crafts Classroom', category: 'Creative Arts' },
+    { src: '/IMG_2311.JPG', alt: 'Sensory Toddler Play', category: 'Toddler Play' },
+    { src: '/IMG_4378.jpg', alt: 'Outdoor Playground', category: 'Outdoor Recreation' },
+    { src: '/IMG_3219.jpg', alt: 'Preschool Literacy Area', category: 'Preschool Phonics' },
+    { src: '/IMG_1773.JPG', alt: 'Early Learning Station', category: 'Early Learning' },
+    { src: '/IMG_2357.JPG', alt: 'Art & Expression', category: 'Art & Painting' },
+    { src: '/IMG_2378.JPG', alt: 'Group Activity Zone', category: 'Social Activity' },
+    { src: '/IMG_3139.JPG', alt: 'Infant Care Nook', category: 'Infant Care' },
+    { src: '/IMG_4257.jpg', alt: 'After-School Study Area', category: 'After-School Care' },
+    { src: '/IMG_4739.jpg', alt: 'Interactive Playroom', category: 'Interactive Play' },
+    { src: '/IMG_5311.JPG', alt: 'Building Blocks & STEM', category: 'STEM & Blocks' },
+    { src: '/IMG_6448.JPG', alt: 'Storytelling Circle', category: 'Story Time' }
   ];
 
   const scrollLeft = () => {
@@ -48,7 +48,7 @@ export default function AboutSection() {
     <section id="about" style={{ padding: '4.5rem 0', backgroundColor: '#FFFFFF' }}>
       <div className="container">
         {/* About Us Vision */}
-        <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3.5rem' }}>
+        <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 4rem' }}>
           <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 2.8rem)', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '1rem' }}>
             We Are Your Extended Family
           </h2>
@@ -62,62 +62,112 @@ export default function AboutSection() {
           </p>
         </div>
 
-        {/* Gallery Section with Horizontal Swipe Track */}
-        <div style={{ position: 'relative' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
+        {/* High-Impact Graphic Showcase Container for Gallery */}
+        <div style={{ 
+          background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
+          borderRadius: 'var(--radius-xl)',
+          padding: '2.5rem 2rem',
+          boxShadow: '0 25px 50px -12px rgba(15, 23, 42, 0.35)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          position: 'relative',
+          overflow: 'hidden'
+        }}>
+          {/* Decorative Background Accent Blur */}
+          <div style={{
+            position: 'absolute',
+            top: '-60px', right: '-60px',
+            width: '240px', height: '240px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, transparent 70%)',
+            pointerEvents: 'none'
+          }} />
+
+          <div style={{
+            position: 'absolute',
+            bottom: '-60px', left: '-60px',
+            width: '240px', height: '240px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(250, 204, 21, 0.2) 0%, transparent 70%)',
+            pointerEvents: 'none'
+          }} />
+
+          {/* Graphic Showcase Header */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2rem', flexWrap: 'wrap', gap: '1.25rem', position: 'relative', zIndex: 2 }}>
             <div>
-              <h3 style={{ fontSize: '2.2rem', fontWeight: '800', color: 'var(--navy-dark)', margin: 0 }}>
-                Gallery
+              <span style={{
+                backgroundColor: 'rgba(56, 189, 248, 0.15)',
+                border: '1px solid rgba(56, 189, 248, 0.4)',
+                color: '#38BDF8',
+                fontSize: '0.78rem',
+                fontWeight: '800',
+                padding: '0.35rem 0.85rem',
+                borderRadius: 'var(--radius-full)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                textTransform: 'uppercase',
+                marginBottom: '0.75rem'
+              }}>
+                <Sparkles size={14} /> Center Facility Showcase
+              </span>
+
+              <h3 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: '800', color: '#FFFFFF', margin: 0, display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <Camera size={28} style={{ color: 'var(--yellow-accent)' }} /> Facility Gallery
               </h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', margin: '0.2rem 0 0' }}>
-                Swipe left & right to explore our Delaware center photos. Click any photo to expand.
+              
+              <div style={{ width: '60px', height: '4px', backgroundColor: 'var(--yellow-accent)', borderRadius: '2px', marginTop: '0.5rem' }} />
+
+              <p style={{ color: '#94A3B8', fontSize: '0.95rem', margin: '0.5rem 0 0' }}>
+                Swipe left & right to explore real photos of our Bear, Delaware facility.
               </p>
             </div>
 
             {/* Left / Right Scroll Controls */}
-            <div style={{ display: 'flex', gap: '0.5rem' }}>
+            <div style={{ display: 'flex', gap: '0.65rem' }}>
               <button 
                 onClick={scrollLeft}
                 aria-label="Scroll left"
                 style={{
-                  width: '42px', height: '42px', borderRadius: '50%',
-                  backgroundColor: 'var(--canvas-bg)', border: '1px solid var(--border-light)',
-                  color: 'var(--navy-dark)', cursor: 'pointer',
+                  width: '46px', height: '46px', borderRadius: '50%',
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)', border: '1px solid rgba(255, 255, 255, 0.2)',
+                  color: '#FFFFFF', cursor: 'pointer',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  boxShadow: 'var(--shadow-sm)', transition: 'all 0.2s ease'
+                  backdropFilter: 'blur(4px)', transition: 'all 0.2s ease'
                 }}
               >
-                <ChevronLeft size={22} />
+                <ChevronLeft size={24} />
               </button>
 
               <button 
                 onClick={scrollRight}
                 aria-label="Scroll right"
                 style={{
-                  width: '42px', height: '42px', borderRadius: '50%',
-                  backgroundColor: 'var(--navy-dark)', border: 'none',
-                  color: '#FFFFFF', cursor: 'pointer',
+                  width: '46px', height: '46px', borderRadius: '50%',
+                  backgroundColor: 'var(--yellow-accent)', border: 'none',
+                  color: 'var(--navy-dark)', cursor: 'pointer',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  boxShadow: 'var(--shadow-sm)', transition: 'all 0.2s ease'
+                  boxShadow: 'var(--shadow-md)', transition: 'all 0.2s ease'
                 }}
               >
-                <ChevronRight size={22} />
+                <ChevronRight size={24} />
               </button>
             </div>
           </div>
 
-          {/* Horizontal Swiping Container */}
+          {/* Graphic Horizontal Swiping Carousel Track */}
           <div 
             ref={scrollRef}
             className="horizontal-gallery-track"
             style={{ 
               display: 'flex', 
-              gap: '1.25rem',
+              gap: '1.35rem',
               overflowX: 'auto',
               scrollSnapType: 'x mandatory',
               WebkitOverflowScrolling: 'touch',
-              paddingBottom: '1rem',
-              scrollbarWidth: 'none'
+              paddingBottom: '0.75rem',
+              scrollbarWidth: 'none',
+              position: 'relative',
+              zIndex: 2
             }}
           >
             {galleryImages.map((img, index) => (
@@ -125,24 +175,46 @@ export default function AboutSection() {
                 key={index} 
                 onClick={() => setActiveImageIndex(index)}
                 style={{ 
-                  flex: '0 0 280px',
+                  flex: '0 0 300px',
                   scrollSnapAlign: 'start',
                   overflow: 'hidden', 
                   borderRadius: 'var(--radius-lg)', 
                   cursor: 'pointer',
                   position: 'relative',
                   height: '240px',
-                  boxShadow: 'var(--shadow-sm)',
-                  border: '1px solid var(--border-light)'
+                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.5)',
+                  border: '2px solid rgba(255, 255, 255, 0.85)',
+                  backgroundColor: '#0F172A'
                 }}
               >
                 <img 
                   src={img.src} 
                   alt={img.alt} 
                   style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
-                  onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+                  onMouseEnter={(e) => e.target.style.transform = 'scale(1.08)'}
                   onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
                 />
+
+                {/* Category Pill Tag Overlay */}
+                <div style={{
+                  position: 'absolute',
+                  bottom: '0.85rem',
+                  left: '0.85rem',
+                  backgroundColor: 'rgba(15, 23, 42, 0.88)',
+                  backdropFilter: 'blur(6px)',
+                  color: '#FFFFFF',
+                  fontSize: '0.78rem',
+                  fontWeight: '700',
+                  padding: '0.35rem 0.75rem',
+                  borderRadius: 'var(--radius-full)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.35rem'
+                }}>
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'var(--yellow-accent)' }} />
+                  {img.category}
+                </div>
               </div>
             ))}
           </div>
@@ -188,6 +260,9 @@ export default function AboutSection() {
               alt={galleryImages[activeImageIndex].alt}
               style={{ maxWidth: '100%', maxHeight: '80vh', borderRadius: 'var(--radius-lg)', objectFit: 'contain', boxShadow: 'var(--shadow-lg)' }}
             />
+            <div style={{ color: '#FFFFFF', marginTop: '1rem', fontSize: '1.1rem', fontWeight: '700' }}>
+              {galleryImages[activeImageIndex].alt}
+            </div>
           </div>
 
           <button
