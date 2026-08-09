@@ -9,7 +9,7 @@ export default function Hero() {
     <section className="hero-section">
       <div className="container">
         <div className="hero-grid">
-          {/* Left Column: Content Card (Features Vivid Background Photo on Mobile with 10% Opacity Text Contrast Shadow) */}
+          {/* Left Column: Content Card (Features 50% Visibility Background Image on Mobile) */}
           <div className="hero-content-col">
             {/* Primary Headline */}
             <h1 className="hero-headline" style={{ 
@@ -52,7 +52,7 @@ export default function Hero() {
           {/* Right Column: Photo Stack */}
           <div className="hero-photo-col" style={{ position: 'relative', width: '100%' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {/* Image 1: Main Featured Card (Real Outdoor Playground) */}
+              {/* Image 1: Main Featured Card (Outdoor Water Recreation & Splash Play) */}
               <div style={{ 
                 borderRadius: 'var(--radius-lg)', 
                 overflow: 'hidden', 
@@ -62,8 +62,8 @@ export default function Hero() {
                 border: '1px solid var(--border-light)'
               }}>
                 <img 
-                  src="/hero-playground.jpg" 
-                  alt="Outdoor Playground & Recreation Area"
+                  src="/hero-outdoor-recreation.jpg" 
+                  alt="Outdoor Water Recreation & Splash Play"
                   style={{ width: '100%', height: '240px', objectFit: 'cover', display: 'block' }}
                 />
                 <div style={{ 
@@ -150,7 +150,7 @@ export default function Hero() {
           align-items: center;
         }
 
-        /* Mobile View Only: Playground Background Photo Vivid & Visible with 10% Opacity Contrast Shadow */
+        /* Mobile View Only: 50% Image Visibility with 10% Opacity Contrast Shadow */
         @media (max-width: 768px) {
           .hero-section {
             padding: 1.5rem 0 2.5rem;
@@ -159,7 +159,7 @@ export default function Hero() {
             gap: 1.5rem;
           }
           .hero-content-col {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.65) 100%), url('/hero-playground.jpg') center/cover no-repeat;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.50) 0%, rgba(255, 255, 255, 0.50) 100%), url('/hero-outdoor-recreation.jpg') center/cover no-repeat;
             padding: 2.25rem 1.25rem;
             border-radius: var(--radius-lg);
             border: 1.5px solid rgba(255, 255, 255, 0.85);
