@@ -9,36 +9,34 @@ export default function Hero() {
     <section className="hero-section">
       <div className="container">
         <div className="hero-grid">
-          {/* Left Column: Content Card */}
+          {/* Left Column: Content Card (On Mobile: Features Playground Background Photo with Drop-Shadow Text) */}
           <div className="hero-content-col">
-            {/* Primary Headline Hierarchy */}
-            <h1 style={{ 
+            {/* Primary Headline */}
+            <h1 className="hero-headline" style={{ 
               fontSize: 'clamp(2.8rem, 6.5vw, 4.5rem)', 
               fontWeight: '800', 
               color: 'var(--navy-dark)', 
               lineHeight: '1.08',
               marginBottom: '0.75rem',
-              letterSpacing: '-1px',
-              textShadow: '0 1px 2px rgba(255, 255, 255, 0.8)'
+              letterSpacing: '-1px'
             }}>
               Where <br />
               Children <br />
               Flourish.
             </h1>
 
-            {/* Reduced Tagline Sub-heading Hierarchy */}
-            <div style={{ 
+            {/* Reduced Tagline Sub-heading */}
+            <div className="hero-tagline" style={{ 
               fontSize: 'clamp(1.1rem, 2.4vw, 1.4rem)', 
               color: 'var(--yellow-accent)', 
               fontStyle: 'italic', 
               fontWeight: '800',
-              marginBottom: '2rem',
-              textShadow: '0 1px 3px rgba(15, 23, 42, 0.15)'
+              marginBottom: '2rem'
             }}>
               "We Are Your Extended Family"
             </div>
 
-            {/* Primary Action Buttons (Schedule Tour: (302) 832-2622) */}
+            {/* Primary Action Buttons */}
             <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap', maxWidth: '480px' }}>
               <a href={tourPhone} className="btn-dark-pill" style={{ fontSize: '0.95rem', padding: '0.9rem 1.6rem', flex: '1 1 auto', justifyContent: 'center' }}>
                 <Phone size={18} style={{ color: '#F87171' }} /> Schedule Tour: (302) 832-2622
@@ -50,10 +48,10 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Photo Stack */}
+          {/* Right Column: Photo Stack (Features Newly Uploaded Playground Photo as Main Featured Card) */}
           <div className="hero-photo-col" style={{ position: 'relative', width: '100%' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {/* Top Main Classroom Card */}
+              {/* Top Main Featured Card: Real Outdoor Playground Facility */}
               <div style={{ 
                 borderRadius: 'var(--radius-lg)', 
                 overflow: 'hidden', 
@@ -63,9 +61,9 @@ export default function Hero() {
                 border: '1px solid var(--border-light)'
               }}>
                 <img 
-                  src="/IMG_0971.JPG" 
-                  alt="Creative Crafts Classroom"
-                  style={{ width: '100%', height: '220px', objectFit: 'cover', display: 'block' }}
+                  src="/hero-playground.jpg" 
+                  alt="Outdoor Playground & Recreation Area"
+                  style={{ width: '100%', height: '240px', objectFit: 'cover', display: 'block' }}
                 />
                 <div style={{ 
                   position: 'absolute', 
@@ -81,7 +79,7 @@ export default function Hero() {
                   boxShadow: 'var(--shadow-sm)'
                 }}>
                   <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--growth-green)' }} />
-                  <span style={{ fontSize: '0.82rem', fontWeight: '700', color: 'var(--navy-dark)' }}>Creative Crafts</span>
+                  <span style={{ fontSize: '0.82rem', fontWeight: '700', color: 'var(--navy-dark)' }}>Outdoor Recreation</span>
                 </div>
               </div>
 
@@ -96,8 +94,8 @@ export default function Hero() {
                   border: '1px solid var(--border-light)'
                 }}>
                   <img 
-                    src="/IMG_4255.jpg" 
-                    alt="After-School Study Station"
+                    src="/IMG_0971.JPG" 
+                    alt="Creative Crafts Classroom"
                     style={{ width: '100%', height: '130px', objectFit: 'cover', display: 'block' }}
                   />
                   <div style={{ 
@@ -112,7 +110,7 @@ export default function Hero() {
                     fontWeight: '700',
                     color: 'var(--navy-dark)'
                   }}>
-                    After-School Care
+                    Creative Learning
                   </div>
                 </div>
 
@@ -149,7 +147,7 @@ export default function Hero() {
           align-items: center;
         }
 
-        /* Mobile View Only: Crisp background photo integrated inside the text card */
+        /* Mobile View Only: Playground Background Photo with Drop Shadow Text */
         @media (max-width: 768px) {
           .hero-section {
             padding: 1.5rem 0 2.5rem;
@@ -158,12 +156,18 @@ export default function Hero() {
             gap: 1.5rem;
           }
           .hero-content-col {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, rgba(255, 255, 255, 0.78) 100%), url('/IMG_0971.JPG') center/cover no-repeat;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.82) 100%), url('/hero-playground.jpg') center/cover no-repeat;
             backdrop-filter: blur(2px);
             padding: 2.25rem 1.25rem;
             border-radius: var(--radius-lg);
             border: 1.5px solid rgba(255, 255, 255, 0.95);
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+          }
+          .hero-headline {
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.95), 0 1px 2px rgba(15, 23, 42, 0.2);
+          }
+          .hero-tagline {
+            text-shadow: 0 2px 4px rgba(15, 23, 42, 0.3), 0 1px 2px rgba(255, 255, 255, 0.8);
           }
         }
       `}</style>
