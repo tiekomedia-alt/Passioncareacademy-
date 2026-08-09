@@ -51,7 +51,7 @@ export default function Hero() {
           {/* Right Column: Photo Stack */}
           <div className="hero-photo-col" style={{ position: 'relative', width: '100%' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {/* Top Main Featured Card: Real Outdoor Playground Facility */}
+              {/* Image 1: Main Featured Card (Real Outdoor Playground) */}
               <div style={{ 
                 borderRadius: 'var(--radius-lg)', 
                 overflow: 'hidden', 
@@ -85,7 +85,7 @@ export default function Hero() {
 
               {/* Bottom Split Row */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.85rem' }}>
-                {/* Updated Creative Learning Card with real group painting table photo */}
+                {/* Image 2: Creative Learning Table */}
                 <div style={{ 
                   borderRadius: 'var(--radius-lg)', 
                   overflow: 'hidden', 
@@ -115,6 +115,7 @@ export default function Hero() {
                   </div>
                 </div>
 
+                {/* Image 3: Replaced with newly uploaded girls hallway photo */}
                 <div style={{ 
                   borderRadius: 'var(--radius-lg)', 
                   overflow: 'hidden', 
@@ -124,8 +125,8 @@ export default function Hero() {
                   border: '1px solid var(--border-light)'
                 }}>
                   <img 
-                    src="/IMG_3219.jpg" 
-                    alt="Preschool Phonics & Reading"
+                    src="/hero-girls-hallway.jpg" 
+                    alt="Happy Students at Passion Care Academy"
                     style={{ width: '100%', height: '130px', objectFit: 'cover', display: 'block' }}
                   />
                 </div>

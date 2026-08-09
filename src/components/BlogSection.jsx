@@ -14,7 +14,7 @@ export default function BlogSection({ blogs = [] }) {
   return (
     <section id="blog" style={{ padding: '4.5rem 0', backgroundColor: 'var(--canvas-bg)' }}>
       <div className="container">
-        {/* Section Header (Replaced with Blogs as Requested) */}
+        {/* Section Header */}
         <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 2.5rem' }}>
           <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', fontWeight: '800', color: 'var(--navy-dark)', marginBottom: '0.75rem' }}>
             Blogs
@@ -80,28 +80,13 @@ export default function BlogSection({ blogs = [] }) {
               onClick={() => setSelectedBlog(blog)}
             >
               <div>
-                {/* Featured Image */}
-                <div style={{ height: '200px', overflow: 'hidden', position: 'relative' }}>
+                {/* Featured Image (Labels/Badges Removed as Requested) */}
+                <div style={{ height: '210px', overflow: 'hidden', position: 'relative' }}>
                   <img 
                     src={blog.image} 
                     alt={blog.title}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
-                  <span style={{
-                    position: 'absolute',
-                    top: '1rem',
-                    left: '1rem',
-                    backgroundColor: 'rgba(15, 23, 42, 0.85)',
-                    backdropFilter: 'blur(4px)',
-                    color: '#FFFFFF',
-                    fontSize: '0.72rem',
-                    fontWeight: '800',
-                    padding: '0.35rem 0.75rem',
-                    borderRadius: 'var(--radius-full)',
-                    textTransform: 'uppercase'
-                  }}>
-                    {blog.category}
-                  </span>
                 </div>
 
                 {/* Content Body */}
@@ -158,7 +143,7 @@ export default function BlogSection({ blogs = [] }) {
           backdropFilter: 'blur(6px)',
           zIndex: 3000,
           display: 'flex',
-          justifyContent: 'center',
+          justify: 'center',
           alignItems: 'center',
           padding: '1.5rem'
         }}>
@@ -210,7 +195,6 @@ export default function BlogSection({ blogs = [] }) {
                 padding: '2rem 2rem 1rem',
                 color: '#FFFFFF'
               }}>
-                <span className="badge-sky" style={{ marginBottom: '0.5rem' }}>{selectedBlog.category}</span>
                 <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: '#FFFFFF', lineHeight: '1.3' }}>
                   {selectedBlog.title}
                 </h2>
