@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Clock, MapPin, Menu, X, Instagram } from 'lucide-react';
+import { Phone, Clock, MapPin, Menu, X } from 'lucide-react';
 
 export default function Header({ activeSection, setActiveSection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -49,7 +49,7 @@ export default function Header({ activeSection, setActiveSection }) {
         rel="noopener noreferrer"
         style={{ color: '#E1306C', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontWeight: '700' }}
       >
-        <Instagram size={14} style={{ color: '#E1306C' }} /> @passioncareacademy
+        <img src="/instagram-custom-icon.png" alt="Instagram" style={{ width: '16px', height: '16px', objectFit: 'contain' }} /> @passioncareacademy
       </a>
 
       <span style={{ color: '#334155' }}>•</span>
@@ -134,7 +134,7 @@ export default function Header({ activeSection, setActiveSection }) {
 
         {/* Header Right CTAs */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-          {/* 100% Dead-Centered Instagram Icon Button */}
+          {/* 100% Dead-Centered Custom Instagram Icon Button */}
           <a
             href={instagramUrl}
             target="_blank"
@@ -146,7 +146,6 @@ export default function Header({ activeSection, setActiveSection }) {
               borderRadius: '50%',
               backgroundColor: '#FDF2F8',
               border: '1px solid #FBCFE8',
-              color: '#E1306C',
               display: 'flex',
               alignItems: 'center',
               justify: 'center',
@@ -157,7 +156,7 @@ export default function Header({ activeSection, setActiveSection }) {
               transition: 'transform 0.2s ease, background-color 0.2s ease'
             }}
           >
-            <Instagram size={20} style={{ display: 'block', margin: 'auto' }} />
+            <img src="/instagram-custom-icon.png" alt="Instagram" style={{ width: '22px', height: '22px', display: 'block', margin: 'auto', objectFit: 'contain' }} />
           </a>
 
           <a 
@@ -224,7 +223,7 @@ export default function Header({ activeSection, setActiveSection }) {
             className="btn-outline-pill"
             style={{ justifyContent: 'center', color: '#E1306C', borderColor: '#FBCFE8', backgroundColor: '#FDF2F8' }}
           >
-            <Instagram size={18} /> Follow on Instagram
+            <img src="/instagram-custom-icon.png" alt="Instagram" style={{ width: '18px', height: '18px', objectFit: 'contain', marginRight: '6px' }} /> Follow on Instagram
           </a>
 
           <a href={mainPhone} className="btn-dark-pill" style={{ justifyContent: 'center' }}>

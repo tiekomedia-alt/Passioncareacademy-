@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Clock, ArrowUp, ExternalLink, Instagram } from 'lucide-react';
+import { Phone, MapPin, Clock, ArrowUp, ExternalLink } from 'lucide-react';
 
 export default function Footer({ onNavigate }) {
   const mainPhone = "tel:3028322622";
@@ -50,17 +50,17 @@ export default function Footer({ onNavigate }) {
                   display: 'inline-flex', 
                   alignItems: 'center', 
                   gap: '0.5rem', 
-                  backgroundColor: 'rgba(225, 48, 108, 0.15)', 
+                  backgroundColor: 'rgba(255, 255, 255, 0.10)', 
                   color: '#FF6492', 
                   padding: '0.45rem 1rem', 
                   borderRadius: 'var(--radius-full)', 
-                  border: '1px solid rgba(225, 48, 108, 0.4)',
+                  border: '1px solid rgba(255, 255, 255, 0.25)',
                   fontSize: '0.85rem',
                   fontWeight: '700',
                   textDecoration: 'none'
                 }}
               >
-                <Instagram size={16} /> Follow us on Instagram
+                <img src="/instagram-custom-icon.png" alt="Instagram" style={{ width: '18px', height: '18px', objectFit: 'contain' }} /> Follow us on Instagram
               </a>
             </div>
           </div>
@@ -138,7 +138,7 @@ export default function Footer({ onNavigate }) {
               rel="noopener noreferrer" 
               style={{ color: '#E1306C', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontWeight: '700' }}
             >
-              <Instagram size={15} /> Instagram
+              <img src="/instagram-custom-icon.png" alt="Instagram" style={{ width: '16px', height: '16px', objectFit: 'contain' }} /> Instagram
             </a>
 
             <button 
@@ -150,7 +150,7 @@ export default function Footer({ onNavigate }) {
                 cursor: 'pointer',
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '0.3rem',
+                gap: '0.3,rem',
                 fontWeight: '600'
               }}
             >
