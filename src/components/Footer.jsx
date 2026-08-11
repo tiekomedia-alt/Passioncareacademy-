@@ -40,7 +40,7 @@ export default function Footer({ onNavigate }) {
               Nurturing young minds through structured, loving care and comprehensive early education in Delaware.
             </p>
 
-            {/* Circular Custom Instagram Icon Button */}
+            {/* Custom Instagram Icon Button */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '1rem' }}>
               <a 
                 href={instagramUrl} 
@@ -51,16 +51,13 @@ export default function Footer({ onNavigate }) {
                   display: 'inline-flex', 
                   alignItems: 'center', 
                   justifyContent: 'center',
-                  backgroundColor: 'rgba(255, 255, 255, 0.10)', 
-                  width: '42px',
-                  height: '42px',
-                  borderRadius: '50%', 
-                  border: '1px solid rgba(255, 255, 255, 0.25)',
                   textDecoration: 'none',
-                  transition: 'background-color 0.2s ease'
+                  transition: 'transform 0.2s ease'
                 }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
               >
-                <img src="/instagram-custom-icon.png" alt="Instagram" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
+                <img src="/instagram-custom-icon.png" alt="Instagram" style={{ width: '34px', height: '34px', objectFit: 'contain' }} />
               </a>
             </div>
           </div>
