@@ -6,6 +6,11 @@ export default function AboutSection() {
   const scrollRef = useRef(null);
 
   const galleryImages = [
+    { src: '/gallery-water-play.jpg', alt: 'Outdoor Water & Splash Play' },
+    { src: '/gallery-painting-outside-1.jpg', alt: 'Creative Outdoor Painting Activity' },
+    { src: '/gallery-painting-outside-2.jpg', alt: 'Artistic Painting Projects' },
+    { src: '/gallery-slime-play.jpg', alt: 'Tactile Dough & Sensory Play' },
+    { src: '/gallery-pool-play.jpg', alt: 'Splashing Pool Recreation' },
     { src: '/IMG_0971.JPG', alt: 'Creative Crafts Classroom' },
     { src: '/IMG_2311.JPG', alt: 'Sensory Toddler Play' },
     { src: '/IMG_4378.jpg', alt: 'Outdoor Playground' },
