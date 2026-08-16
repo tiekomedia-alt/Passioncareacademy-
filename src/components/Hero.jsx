@@ -170,10 +170,10 @@ export default function Hero() {
             text-shadow: 0 2px 10px rgba(255, 255, 255, 0.95), 0 0 20px rgba(255, 255, 255, 0.9) !important;
           }
           .hero-tagline {
-            color: #D97706 !important;
+            color: #F59E0B !important;
             font-style: normal !important;
             font-weight: 800 !important;
-            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.95), 0 0 20px rgba(255, 255, 255, 0.9) !important;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.90), 0 1px 4px rgba(0, 0, 0, 0.95) !important;
           }
         }
       `}</style>
