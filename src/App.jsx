@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import ProgramHub from './components/ProgramHub';
 import AboutSection from './components/AboutSection';
 import BlogSection from './components/BlogSection';
+import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
 import AdminDashboard from './components/AdminDashboard';
 import Footer from './components/Footer';
@@ -55,6 +56,8 @@ export default function App() {
         <BlogSection 
           blogs={blogs}
         />
+
+        <FAQSection />
 
         <ContactSection />
       </main>

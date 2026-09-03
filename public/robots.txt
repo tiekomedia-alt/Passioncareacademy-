@@ -1,4 +1,29 @@
+# Robots.txt for Passion Care Academy
+# Optimized for Google, Bing, Apple, and AI Answer Engines (Perplexity, ChatGPT, Gemini, Claude)
+
 User-agent: *
 Allow: /
 
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://passioncareacademy.vercel.app/sitemap.xml
 Sitemap: https://passioncareacademy.com/sitemap.xml

@@ -11,8 +11,9 @@ export default function Header({ activeSection, setActiveSection }) {
   const navItems = [
     { id: 'programs', label: 'Programs' },
     { id: 'about', label: 'About Us' },
-    { id: 'blog', label: 'Blog & Articles' },
-    { id: 'contact', label: 'Contact Info' },
+    { id: 'blog', label: 'Blog' },
+    { id: 'faq', label: 'FAQ' },
+    { id: 'contact', label: 'Contact' },
   ];
 
   const handleNavClick = (id) => {
